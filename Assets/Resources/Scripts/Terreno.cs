@@ -42,6 +42,7 @@ public class Terreno : MonoBehaviour
 	public GameObject _VFXHeal;
 	public GameObject _VFXEvolution;
 	public GameObject _VFXActive;
+	public GameObject _VFXSpellActive;
 	
     public void Start()
     {
@@ -180,6 +181,7 @@ public class Terreno : MonoBehaviour
 		    if (_SpellData.Name != "" && _SpellActived != true){
 		    	_SpellActived = true ;
 		    	StartCoroutine(AnimActive());
+		    	_VFXSpellActive.SetActive(true);
 		    	Debug.Log(_SpellData.Name + " Spell Ativou!"); }
 	        //Debug.Log(hitinfo.collider);
             _HasUnit = true;
