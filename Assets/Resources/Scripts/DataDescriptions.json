@@ -1,0 +1,434 @@
+{
+	"ItensPT":[
+		{
+			"ID" : "EFF0000" ,
+			"Name" : "Levitate",
+			"Description" : "Pode se mover sobre uma unidade, pulando para o proximo espaço,se ela nao tiver levitate."
+		},
+		{
+			"ID" : "EFF0001",
+			"Name" : "Anti-Levitate",
+			"Description" : "Unidades no campo não podem pular unidades do oponente."
+		},
+		{
+			"ID" : "EFF0002",
+			"Name" : "Fighter",
+			"Description" : "Todas unidades do oponente proximos a essa unidade tem que ataca-la. Essa habilidade ativa apenas 1 vez por turno."
+		},
+		{
+			"ID" : "EFF0003",
+			"Name" : "Eternal Life",
+			"Description" : "Recupere 1 de Vida todo fim de turno, o Max de vida é o dobro da vida original dessa unidade ."
+		},
+		{
+			"ID" : "EFF0004",
+			"Name" : "Eternal Bersek",
+			"Description" : "Toda vez que essa unidade batalhar, após a batalha ganha 1 ponto de ATK, o Max de ATK é o dobro do ATK original dessa unidade."
+		},
+		{
+			"ID" : "EFF0005",
+			"Name" : "Eternal Guardian",
+			"Description" : "Toda vez que essa unidade batalhar, após a batalha ganha 1 ponto de DEF, o Max de DEF é o dobro do DEF original dessa unidade."
+		},
+		{
+			"ID" : "EFF0006",
+			"Name" : "Aggressor",
+			"Description" : "Essa unidade utiliza o ATK no calculo de dano."
+		},
+		{
+			"ID" : "EFF0007",
+			"Name" : "Defender",
+			"Description" : "Essa unidade utiliza o DEF no calculo de dano."
+		},
+		{
+			"ID" : "EFF0008",
+			"Name" : "Power Astral",
+			"Description" : "Essa unidade utiliza a VIDA no calculo de dano."
+		},
+		{
+			"ID" : "EFF0009",
+			"Name" : "Anti-Aggressor",
+			"Description" : "A unidade que atacar essa unidade, utiliza o VIDA no calculo de dano."
+		},
+		{
+			"ID" : "EFF0010",
+			"Name" : "Anti-Defender",
+			"Description" : "A unidade que atacar essa unidade, utiliza o ATK no calculo de dano."
+		},
+		{
+			"ID" : "EFF0011",
+			"Name" : "Anti-Astral",
+			"Description" : "A unidade que atacar essa unidade, utiliza a DEF no calculo de dano."
+		},
+		{
+			"ID" : "EFF0012",
+			"Name" : "Brute Force",
+			"Description" : "As duas unidades quando batalhar com essa unidade utiliza o ATK no calculo de dano."
+		},
+		{
+			"ID" : "EFF0013",
+			"Name" : "Control Force",
+			"Description" : "As duas unidades quando batalhar com essa unidade utiliza o DEF no calculo de dano."
+		},
+		{
+			"ID" : "EFF0014",
+			"Name" : "Astral Force",
+			"Description" : "As duas unidades quando batalhar com essa unidade utiliza a VIDA no calculo de dano."
+		},
+		{
+			"ID" : "EFF0015",
+			"Name" : "Vampirism",
+			"Description" : "Toda vez que essa unidade causa dano, recupera VIDA na mesma quantidade de dano causado, o Max de vida é o dobro da vida original dessa unidade ."
+		},
+		{
+			"ID" : "EFF0016",
+			"Name" : "Double Arms",
+			"Description" : "Essa Unidade causa o Dobro de DANO."
+		},
+		{
+			"ID" : "EFF0017",
+			"Name" : "Shilded",
+			"Description" : "Essa Unidade recebe a metade do DANO, aredondado para cima."
+		},
+		{
+			"ID" : "EFF0018",
+			"Name" : "Spiked",
+			"Description" : "Toda vez que essa unidade batalhar cause 1 de DANO."
+		},
+		{
+			"ID" : "EFF0019",
+			"Name" : "Doubtful Effect",
+			"Description" : "No inicio de cada turno essa habilidade ganha um efeito aleatorio entre Poisonous, Flame, Send Sleep, Eletrocute e Overdo.Essa habilidade fica modificada ate o fim do turno."
+		},
+		{
+			"ID" : "EFF0020",
+			"Name" : "Doubtful Force",
+			"Description" : "No inicio de cada turno essa habilidade ganha um efeito aleatorio entre Aggressor, Defender, Power Astral, Brute Force, Control Force e Astral Force.Essa habilidade fica modificada ate o fim do turno."
+		},
+		{
+			"ID" : "EFF0021",
+			"Name" : "Doubtful Teasure",
+			"Description" : "No inicio de cada turno essa habilidade ganha um efeito aleatorio entre Vampirism, Double Arms, Shilded. Essa habilidade fica modificada ate o fim do turno."
+		},
+		{
+			"ID" : "EFF0022",
+			"Name" : "Doubtful Eternal",
+			"Description" : "No inicio de cada turno essa habilidade ganha um efeito aleatorio entre Eternal Bersek, Eternal Guardian, Eternal Life. Essa habilidade fica modificada ate o fim do turno."
+		},
+		{
+			"ID" : "EFF0023",
+			"Name" : "Poisonous",
+			"Description" : "Quando essa unidade batalha , pode causar Poison."
+		},
+		{
+			"ID" : "EFF0024",
+			"Name" : "Flame",
+			"Description" : "Quando essa unidade batalha , pode causar Burn."
+		},
+		{
+			"ID" : "EFF0025",
+			"Name" : "Send Sleep",
+			"Description" : "Quando essa unidade batalha , pode causar Sleep."
+		},
+		{
+			"ID" : "EFF0026",
+			"Name" : "Eletrocute",
+			"Description" : "Quando essa unidade batalha ,pode causar Paralize."
+		},
+		{
+			"ID" : "EFF0027",
+			"Name" : "Overdo",
+			"Description" : "Quando essa unidade batalha ,pode causar Fadigue."
+		},
+		{
+			"ID" : "EFF0028",
+			"Name" : "Poison",
+			"Description" : "No final de cada turno perde 1 de vida."
+		},
+		{
+			"ID" : "EFF0029",
+			"Name" : "Burn",
+			"Description" : "Diminui o ATK em 1, enquanto estiver com esse status.Perde 1 de vida a cada turno."
+		},
+		{
+			"ID" : "EFF0030",
+			"Name" : "Paralize",
+			"Description" : "Diminui a DEF em 2, enquanto estiver com esse status."
+		},
+		{
+			"ID" : "EFF0031",
+			"Name" : "Sleep",
+			"Description" : "Não se movimenta ou ataca, enquanto estiver com esse status."
+		},
+		{
+			"ID" : "EFF0032",
+			"Name" : "Fadige",
+			"Description" : "Não ataca, enquanto estiver com esse status."
+		},
+		{
+			"ID" : "EFF0033",
+			"Name" : "Enfermary",
+			"Description" : "Adicione 1 de Vida a cada começo de turno, a todas unidades na enfermaria"
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Divinity",
+			"Description" : "Elemento de criaturas divinas ou com poderes que iguala os Deuses"
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Radioativity",
+			"Description" : "Elemento de criaturas com alta radioatividade no corpo, modificaçoes sao constantes"
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Genetic",
+			"Description" : "Elemento de criaturas que tiveram moficaçoes geneticas atraves de esperimentos geneticos nele ou antepassado"
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Natural",
+			"Description" : "Elemento Neutro e comum, sem nenhum poder aparente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Elemental",
+			"Description" : "Elemento que controla mais de um elemento de uma vez."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Light",
+			"Description" : "Elemento de seres que controlam a Luz."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Dark",
+			"Description" : "Elemento de seres que controlam as Trevas."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Fire",
+			"Description" : "Elemento de seres que controlam o Fogo."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Earth",
+			"Description" : "Elemento de seres que controlam a Terra."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Wind",
+			"Description" : "Elemento de seres que controlam o Vento."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Water",
+			"Description" : "Elemento de seres que controlam a Agua."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Metal",
+			"Description" : "Elemento de seres que controlam o Metal."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Ice",
+			"Description" : "Elemento de seres que controlam o Gelo."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Nature",
+			"Description" : "Elemento de seres que controlam a Natureza."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Eletricity",
+			"Description" : "Elemento de seres que controlam a Eletricidade."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Warrior",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Dragon",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Angel",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Demon",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Wicth",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Vampir",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Paranormal",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Sea-Monster",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Beast",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Winged-Beast",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Dinosaur",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Reptile",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Guardian",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Machine",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Cyber",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Insect",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Plant",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Rock",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Pyro",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Thunder",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Alien",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Mytholic-Beast",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Mytholic-God",
+			"Description" : "Tipo de unidade, demonstra a sua raça."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Civil",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Soldier",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Combatant",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "General",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Ruler",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Queen",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "King",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "God",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Anti-God",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Ultimate",
+			"Description" : "Rank de Unidade, demonstra a patente."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Normal",
+			"Description" : "Terreno sem nenhuma modificaçao."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Summon",
+			"Description" : "Terreno sem nenhuma modificaçao.Usado para invocar unidades de seu castelo."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Castelo",
+			"Description" : "Terreno sem nenhuma modificaçao.Representaço do reino, proteja-o com sua vida."
+		},
+		{
+			"ID" : "EFF0000-",
+			"Name" : "Commander",
+			"Description" : "Terreno sem nenhuma modificaçao.Lugar de invocaçao dos Commander Gods"
+		}
+	]
+}

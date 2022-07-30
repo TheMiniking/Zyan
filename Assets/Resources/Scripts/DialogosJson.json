@@ -1,0 +1,43 @@
+{
+   "Dialogo":[
+      {
+         "A0":"Ei.... você ta me vendo? Consegue me ouvir?",
+         "A1":"Não sei, se pode me ouvir, mas irei lhe falar mesmo assim, que o Soberano me guie nesse momento... ",
+         "A2":"Eu sou Baby Red Dragon, um dragão do mundo de Zyan, e eu fiquei procurando por anos uma maneira de conectar com os seres misticos, e tomara que esteja me ouvindo",
+         "A3":"Presciso de ajuda, da sua ajuda. Meu mundo esta passando por um grande periodo de Trevas, 7 para ser mais exato. E o Ancião me falou sobre a profecia de outro mundo, e que somente quem acretidava nela sera capaz de encontrar.",
+         "A4":"A profecia era assim - Na setima vez que o Mal vencer, vai aparecer uma voz, uma entidade de outro universo, capaz de ajudar a comandar a revolução.Mas tome cuidado pois essa entidade ainda pode escolher que lado ficar.",
+         "A5":"Fiquei procurando esse portal por anos , e agora que encontrei, quero lhe pedir que nos ajude, seja o nosso Comandante, nos lidere e treine para que um de nos consiga transformar a proxima era",
+         "A6":"Quando estavamos desistindo encontramos você , e agora é nossa ultima esperança.",
+         "A7":"Pode não ser muita coisa, mas podemos juntar ouro para lhe pagar se for preciso, depois lhe conto mais sobre o nosso mundo.",
+         "A8":"....",
+         "A9":"Você vai mesmo nos ajudar?",
+         "A10":"Nao estou acreditando , lhe mostrarei tudo que sei para voce ser o nosso Comandante e como as coisa funcionam aqui em Zyan. E Agora escreva seu nome ou como gostaria de ser chamado..."
+      },
+      {
+         "A0":"Adorei o seu nome! Agora que vi como nos podemos nos cominicar vou usar a magia que o Ancião me deu , para que possamos nos comunicar melhor.",
+         "A1":"Agora vamos parar de enrolação, vou te explicar tudo sobre como batalhamos em Zyan, e vamos começar logo com isso!!!",
+         "A2":"Como você vai ser nosso Comandante , vai liderar uma equipe de 5 unidades.São elas que vão travar todas as batalhas em campo, voce so tem que dar as ordems de movimento e ataque.",
+         "A3":"Todas as unidades tem ATK (Ataque), DEF (Defesa) e Vida além de habilidades que ajudam a si próprio ou atrapalha unidades inimigas, não se esqueça estamos em GUERRA! ",
+         "A4":"Quando uma unidade fica com 0 de Vida ela vai para enfermaria, para se curar aos poucos. Sabendo disso tenha cuidado com suas unidades , sem elas a derrota será a nossa certeza!",
+         "A5":"Para nos ajudar com o que acontece no campo temos as Action Cards, itens que ajudam a se livrar de enrascadas ou até fugir da morte!",
+         "A6":"Nenhum Castelo deve ficar desprotegido contra seus inimigos, por isso você tem que colocar as Magicas e Armadilhas, elas ficaram espalhadas pelo campo, cuidado onde pisa!",
+         "A7":"Para melhorar ainda mais o sua equipe, voce pode usar equipamentos ou ate melhorar algum status aumentando sua raridade!",
+         "A8":"Bem esse é um resumo do que você deve saber, agora precisamos treinar e eu lhe mostrarei na pratica como funciona.",
+         "A9":"Espera, voce ainda não pode começar se nao tiver sua equipe, meu batalhão será a sua equipe com todos itens necessarios para começar",
+         "A10":"Agora que você recebeu um time inicial, agora vamos nos divertir!"
+      },
+      {
+         "A0":"?",
+         "A1":"?",
+         "A2":"?",
+         "A3":"?",
+         "A4":"?",
+         "A5":"?",
+         "A6":"?",
+         "A7":"?",
+         "A8":"?",
+         "A9":"?",
+         "A10":"?"
+      }
+   ]
+}

@@ -1,0 +1,641 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083b04b3a866dd04fabadc55ba17edc4, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  Player:
+    Name: Visitante
+    ID: 95017342
+    iTesouros:
+      coin: 0
+      gem: 0
+      upgradeCuponsC: 0
+      upgradeCuponsUC: 0
+      upgradeCuponsR: 0
+      upgradeCuponsE: 0
+      upgradeCuponsL: 0
+      materialC: 0
+      materialUC: 0
+      materialR: 0
+      materialE: 0
+      materialL: 0
+    iModifications: []
+    InventaryCards:
+    - index: 0
+      Id: 19327076
+      Quantidade: 0
+    - index: 1
+      Id: 31350162
+      Quantidade: 0
+    - index: 2
+      Id: 89473243
+      Quantidade: 0
+    - index: 3
+      Id: 47212692
+      Quantidade: 0
+    - index: 4
+      Id: 92315357
+      Quantidade: 0
+    - index: 5
+      Id: 72313559
+      Quantidade: 0
+    - index: 6
+      Id: 90291455
+      Quantidade: 0
+    - index: 7
+      Id: 46185131
+      Quantidade: 0
+    - index: 8
+      Id: 71324355
+      Quantidade: 0
+    - index: 9
+      Id: 33763676
+      Quantidade: 0
+    - index: 10
+      Id: 28204528
+      Quantidade: 0
+    - index: 11
+      Id: 88240522
+      Quantidade: 0
+    - index: 12
+      Id: 86100532
+      Quantidade: 0
+    - index: 13
+      Id: 08412215
+      Quantidade: 0
+    - index: 14
+      Id: 85433092
+      Quantidade: 0
+    - index: 15
+      Id: 44110028
+      Quantidade: 0
+    - index: 16
+      Id: 02957731
+      Quantidade: 0
+    - index: 17
+      Id: 12957730
+      Quantidade: 0
+    - index: 18
+      Id: 46824624
+      Quantidade: 0
+    - index: 19
+      Id: 81504785
+      Quantidade: 0
+    - index: 20
+      Id: 18181557
+      Quantidade: 0
+    - index: 21
+      Id: 46553854
+      Quantidade: 0
+    - index: 22
+      Id: 15616233
+      Quantidade: 0
+    - index: 23
+      Id: 35616231
+      Quantidade: 0
+    - index: 24
+      Id: 69717455
+      Quantidade: 0
+    - index: 25
+      Id: 19750750
+      Quantidade: 0
+    - index: 26
+      Id: 77801122
+      Quantidade: 0
+    - index: 27
+      Id: 22315637
+      Quantidade: 0
+    - index: 28
+      Id: 41582934
+      Quantidade: 0
+    - index: 29
+      Id: 43582914
+      Quantidade: 0
+    - index: 30
+      Id: 59123012
+      Quantidade: 0
+    - index: 31
+      Id: 49173717
+      Quantidade: 0
+    - index: 32
+      Id: 97533081
+      Quantidade: 0
+    - index: 33
+      Id: 38344266
+      Quantidade: 0
+    - index: 34
+      Id: 65071473
+      Quantidade: 0
+    - index: 35
+      Id: 35071476
+      Quantidade: 0
+    - index: 36
+      Id: 59121230
+      Quantidade: 0
+    - index: 37
+      Id: 72320973
+      Quantidade: 0
+    - index: 38
+      Id: 57642742
+      Quantidade: 0
+    - index: 39
+      Id: 46598437
+      Quantidade: 0
+    - index: 40
+      Id: 59676329
+      Quantidade: 0
+    - index: 41
+      Id: 99676325
+      Quantidade: 0
+    - index: 42
+      Id: 71534192
+      Quantidade: 0
+    - index: 43
+      Id: 75679588
+      Quantidade: 0
+    - index: 44
+      Id: 30061628
+      Quantidade: 0
+    - index: 45
+      Id: 92612158
+      Quantidade: 0
+    - index: 46
+      Id: 99548253
+      Quantidade: 0
+    - index: 47
+      Id: 39548259
+      Quantidade: 0
+    - index: 48
+      Id: 89979754
+      Quantidade: 0
+    - index: 49
+      Id: 56582605
+      Quantidade: 0
+    - index: 50
+      Id: 86803968
+      Quantidade: 0
+    - index: 51
+      Id: 24918120
+      Quantidade: 0
+    - index: 52
+      Id: 88093650
+      Quantidade: 0
+    - index: 53
+      Id: 26793344
+      Quantidade: 0
+    - index: 54
+      Id: 91101527
+      Quantidade: 0
+    - index: 55
+      Id: 86972631
+      Quantidade: 0
+    - index: 56
+      Id: 35211127
+      Quantidade: 0
+    - index: 57
+      Id: 02990634
+      Quantidade: 0
+    - index: 58
+      Id: 69928287
+      Quantidade: 0
+    - index: 59
+      Id: 64443267
+      Quantidade: 0
+    - index: 60
+      Id: 01298914
+      Quantidade: 0
+    - index: 61
+      Id: 70652926
+      Quantidade: 0
+    - index: 62
+      Id: 54966189
+      Quantidade: 0
+    - index: 63
+      Id: 15085464
+      Quantidade: 0
+    - index: 64
+      Id: 40428197
+      Quantidade: 0
+    - index: 65
+      Id: 17067628
+      Quantidade: 0
+    - index: 66
+      Id: 71062197
+      Quantidade: 0
+    - index: 67
+      Id: 64327900
+      Quantidade: 0
+    - index: 68
+      Id: 65557452
+      Quantidade: 0
+    - index: 69
+      Id: 85579894
+      Quantidade: 0
+    - index: 70
+      Id: 38950397
+      Quantidade: 0
+    - index: 71
+      Id: 68357933
+      Quantidade: 0
+    - index: 72
+      Id: 42682560
+      Quantidade: 0
+    - index: 73
+      Id: 83736909
+      Quantidade: 0
+    - index: 74
+      Id: 03686794
+      Quantidade: 0
+    - index: 75
+      Id: 55469111
+      Quantidade: 0
+    - index: 76
+      Id: 12550338
+      Quantidade: 0
+    - index: 77
+      Id: 13511224
+      Quantidade: 0
+    - index: 78
+      Id: 02945817
+      Quantidade: 0
+    - index: 79
+      Id: 15500606
+      Quantidade: 0
+    - index: 80
+      Id: 31540149
+      Quantidade: 0
+    - index: 81
+      Id: 10394948
+      Quantidade: 0
+    - index: 82
+      Id: 17866116
+      Quantidade: 0
+    - index: 83
+      Id: 97420344
+      Quantidade: 0
+    - index: 84
+      Id: 82757771
+      Quantidade: 0
+    - index: 85
+      Id: 63566715
+      Quantidade: 0
+    - index: 86
+      Id: 20633856
+      Quantidade: 0
+    - index: 87
+      Id: 29251371
+      Quantidade: 0
+    - index: 88
+      Id: 63717268
+      Quantidade: 0
+    - index: 89
+      Id: 73406950
+      Quantidade: 0
+    - index: 90
+      Id: 60801023
+      Quantidade: 0
+    - index: 91
+      Id: 27235072
+      Quantidade: 0
+    - index: 92
+      Id: 18681621
+      Quantidade: 0
+    - index: 93
+      Id: 49559153
+      Quantidade: 0
+    - index: 94
+      Id: 45493152
+      Quantidade: 0
+    - index: 95
+      Id: 05921639
+      Quantidade: 0
+    - index: 96
+      Id: 87448461
+      Quantidade: 0
+    - index: 97
+      Id: 83924556
+      Quantidade: 0
+    - index: 98
+      Id: 56696184
+      Quantidade: 0
+    - index: 99
+      Id: 51987800
+      Quantidade: 0
+    - index: 100
+      Id: 67796763
+      Quantidade: 0
+    - index: 101
+      Id: 61883196
+      Quantidade: 0
+    - index: 102
+      Id: 90819440
+      Quantidade: 0
+    - index: 103
+      Id: 78429588
+      Quantidade: 0
+    - index: 104
+      Id: 29168778
+      Quantidade: 0
+    - index: 105
+      Id: 63357641
+      Quantidade: 0
+    - index: 106
+      Id: 67999235
+      Quantidade: 0
+    - index: 107
+      Id: 36319331
+      Quantidade: 0
+    - index: 108
+      Id: 38396699
+      Quantidade: 0
+    - index: 109
+      Id: 76863157
+      Quantidade: 0
+    - index: 110
+      Id: 22521873
+      Quantidade: 0
+    - index: 111
+      Id: 32584234
+      Quantidade: 0
+    - index: 112
+      Id: 27261105
+      Quantidade: 0
+    - index: 113
+      Id: 21569087
+      Quantidade: 0
+    - index: 114
+      Id: 86657079
+      Quantidade: 0
+    - index: 115
+      Id: 80311205
+      Quantidade: 0
+    - index: 116
+      Id: 03696622
+      Quantidade: 0
+    - index: 117
+      Id: 03692266
+      Quantidade: 0
+    - index: 118
+      Id: 30948887
+      Quantidade: 0
+    - index: 119
+      Id: 11514960
+      Quantidade: 0
+    - index: 120
+      Id: 38894942
+      Quantidade: 0
+    - index: 121
+      Id: 45000303
+      Quantidade: 0
+    - index: 122
+      Id: 00457610
+      Quantidade: 0
+    - index: 123
+      Id: 27025464
+      Quantidade: 0
+    - index: 124
+      Id: 53092954
+      Quantidade: 0
+    - index: 125
+      Id: 32704760
+      Quantidade: 0
+    - index: 126
+      Id: 93971865
+      Quantidade: 0
+    - index: 127
+      Id: 28056900
+      Quantidade: 0
+    - index: 128
+      Id: 20523865
+      Quantidade: 0
+    - index: 129
+      Id: 37342181
+      Quantidade: 0
+    - index: 130
+      Id: 37421831
+      Quantidade: 0
+    - index: 131
+      Id: 51032087
+      Quantidade: 0
+    - index: 132
+      Id: 09011912
+      Quantidade: 0
+    - index: 133
+      Id: 48701524
+      Quantidade: 0
+    - index: 134
+      Id: 89016038
+      Quantidade: 0
+    - index: 135
+      Id: 85305706
+      Quantidade: 0
+    - index: 136
+      Id: 69955474
+      Quantidade: 0
+    - index: 137
+      Id: 38202382
+      Quantidade: 0
+    - index: 138
+      Id: 49092289
+      Quantidade: 0
+    - index: 139
+      Id: 28336398
+      Quantidade: 0
+    - index: 140
+      Id: 54839202
+      Quantidade: 0
+    - index: 141
+      Id: 76371586
+      Quantidade: 0
+    - index: 142
+      Id: 49669411
+      Quantidade: 0
+    - index: 143
+      Id: 78238016
+      Quantidade: 0
+    - index: 144
+      Id: 67812444
+      Quantidade: 0
+    - index: 145
+      Id: 25669767
+      Quantidade: 0
+    - index: 146
+      Id: 22974919
+      Quantidade: 0
+    - index: 147
+      Id: 98731738
+      Quantidade: 0
+    - index: 148
+      Id: 66449075
+      Quantidade: 0
+    - index: 149
+      Id: 41839924
+      Quantidade: 0
+    - index: 150
+      Id: 00000000
+      Quantidade: 0
+    InventaryActionCards:
+    - index: 0
+      Id: A08704856
+      Quantidade: 0
+    - index: 1
+      Id: A69057043
+      Quantidade: 0
+    - index: 2
+      Id: A68163048
+      Quantidade: 0
+    - index: 3
+      Id: A69387542
+      Quantidade: 0
+    - index: 4
+      Id: A93700529
+      Quantidade: 0
+    - index: 5
+      Id: A67552108
+      Quantidade: 0
+    - index: 6
+      Id: A33703990
+      Quantidade: 0
+    - index: 7
+      Id: A48591189
+      Quantidade: 0
+    - index: 8
+      Id: A64447662
+      Quantidade: 0
+    - index: 9
+      Id: A52475813
+      Quantidade: 0
+    InventarySpell:
+    - index: 0
+      Id: 64489767
+      Quantidade: 0
+    - index: 1
+      Id: 64470291
+      Quantidade: 0
+    - index: 2
+      Id: 42440932
+      Quantidade: 0
+    - index: 3
+      Id: 14882278
+      Quantidade: 0
+    - index: 4
+      Id: 76960987
+      Quantidade: 0
+    - index: 5
+      Id: 48752280
+      Quantidade: 0
+    - index: 6
+      Id: 68623007
+      Quantidade: 0
+    - index: 7
+      Id: 30836218
+      Quantidade: 0
+    - index: 8
+      Id: 35419125
+      Quantidade: 0
+    - index: 9
+      Id: 06168474
+      Quantidade: 0
+    - index: 10
+      Id: 64059758
+      Quantidade: 0
+    - index: 11
+      Id: 71221984
+      Quantidade: 0
+    - index: 12
+      Id: 83908912
+      Quantidade: 0
+    - index: 13
+      Id: 85950610
+      Quantidade: 0
+    - index: 14
+      Id: 11849540
+      Quantidade: 0
+    - index: 15
+      Id: 44860894
+      Quantidade: 0
+    - index: 16
+      Id: 26542547
+      Quantidade: 0
+    - index: 17
+      Id: 73898560
+      Quantidade: 0
+    - index: 18
+      Id: 09902667
+      Quantidade: 0
+    - index: 19
+      Id: 94697324
+      Quantidade: 0
+    InventaryEquip:
+    - index: 0
+      Id: 51891162
+      Quantidade: 0
+    - index: 1
+      Id: 74116269
+      Quantidade: 0
+    - index: 2
+      Id: 29992574
+      Quantidade: 0
+    - index: 3
+      Id: 72033659
+      Quantidade: 0
+    - index: 4
+      Id: 75154748
+      Quantidade: 0
+    - index: 5
+      Id: 97415620
+      Quantidade: 0
+    - index: 6
+      Id: 00302711
+      Quantidade: 0
+    - index: 7
+      Id: 32345673
+      Quantidade: 0
+    - index: 8
+      Id: 67659461
+      Quantidade: 0
+    - index: 9
+      Id: 81085004
+      Quantidade: 0
+    - index: 10
+      Id: 32384565
+      Quantidade: 0
+    - index: 11
+      Id: 06475134
+      Quantidade: 0
+    - index: 12
+      Id: 92176051
+      Quantidade: 0
+    - index: 13
+      Id: 25641212
+      Quantidade: 0
+    - index: 14
+      Id: 49835942
+      Quantidade: 0
+    - index: 15
+      Id: 31399518
+      Quantidade: 0
+    - index: 16
+      Id: 28787236
+      Quantidade: 0
+    - index: 17
+      Id: 74927492
+      Quantidade: 0
+    - index: 18
+      Id: 23231814
+      Quantidade: 0
+    HistoryMode: 
+  DeckInventary: {fileID: 11400000, guid: 795b687abb8a8d34cbf953b182ef80af, type: 2}
+  ActionInventary: {fileID: 11400000, guid: 32a7fcf88029d694783655048abc19eb, type: 2}
+  EquipInventary: {fileID: 11400000, guid: 322c75a4ffcdc1c4a8dfe26afd4765c1, type: 2}
+  SpellInventary: {fileID: 11400000, guid: 5ae8fc4e3b89c5e4cadb1bb098f659ca, type: 2}
+  UnitInventary: {fileID: 11400000, guid: 75be32c41e9e2814eb6e4b01f3cf8ad7, type: 2}

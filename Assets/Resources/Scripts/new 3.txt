@@ -1,0 +1,19 @@
+
+
+Spell trap
+
+Terrenos  : 
+	Modificaçoes : ATK ,DEF
+	Rage +1
+	
+Spell:
+	Key Effects-
+		NoDestruction - sem destruiçao por efeitos
+		NoEffect - Spell/Trap nao afeta no proximo movimento
+		CountdownBoostATK/DEF(tempo fim de turno)
+		Evolution - Class que marca todos usadas ate o fim da partida
+		PermanentDeboostATK/DEF(quantidade)
+		AutoStatus(tempo)
+		
+		
+		

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1adf1348f239c4d8c733b1190e8a11, type: 3}
+  m_Name: 70652926
+  m_EditorClassIdentifier: 
+  id: 
+  Name: 
+  Type: 
+  Rank: 
+  Element: 
+  Special: 
+  ATK: 0
+  DEF: 0
+  Life: 0
+  Status: 
+  Effect1: 
+  Effect2: 
+  Evolution: 
+  EvolCust1: 
+  EvolCust2: 
+  EvolCust3: 
+  Evol1: 
+  Evol2: 
+  Evol3: 
+  RarityUp: 
+  Rarity: 
+  Card:
+    id: 
+    Name: 
+    Type: 
+    Rank: 
+    Element: 
+    Special: 
+    ATK: 0
+    DEF: 0
+    Life: 0
+    Status: 
+    Effect1: 
+    Effect2: 
+    Evolution: 
+    EvolCust1: 
+    EvolCust2: 
+    EvolCust3: 
+    Evol1: 
+    Evol2: 
+    Evol3: 
+    RarityUp: 
+    Rarity: 
+    OBJ: {fileID: 0}
+  Data:
+    index: 0
+    Id: 
+    Quantidade: 0

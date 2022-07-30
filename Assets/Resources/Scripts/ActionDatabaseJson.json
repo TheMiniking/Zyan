@@ -1,0 +1,411 @@
+{
+  "ActionCard" : [
+    {
+       "id": "A08704856",
+       "Name": "Fast  Rescue!",
+       "Cust": 2,
+       "Activation": "Battle",
+	   "Time":"Before Infermary",
+       "Description": "Nega a destruiçao por batalha e restaura a vida.",
+	   "Rarity": "Rare",
+	   "Script": "?"
+    },{
+       "id": "A69057043",
+       "Name": "Urgent Enfermary",
+       "Cust": 1,
+       "Activation": "Normal",
+	   "Time": "Normal",
+       "Description": "Recupera metade da vida.",
+	   "Rarity": "Comum",
+	   "Script": "?"
+    },{
+       "id": "A68163048",
+       "Name": "Magic Coffe",
+       "Cust": 1,
+       "Activation": "Battle",
+	   "Time":"Before Battle",
+       "Description": "Aumenta o ATK +4 durante aquela batalha",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "A69387542",
+       "Name": "Shield of Gods",
+       "Cust": 1,
+       "Activation": "Battle",
+	   "Time":"Before Battle",
+       "Description": "Aumenta a DEF +5 Durante aquela batalha",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "A93700529",
+       "Name": "Impossible Moviment",
+       "Cust": 1,
+       "Activation": "Moviment",
+	   "Time":"After Moviment",
+       "Description": "Nega Destruiçao por efeitos de Spell/Trap Quando movimenta",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "A67552108",
+       "Name": "Moviment of Hermes",
+       "Cust": 3,
+       "Activation": "Moviment",
+	   "Time":"Normal",
+       "Description": "Ganha +1 de Rage até o fim do turno.",
+	   "Rarity": "Rare",
+	   "Script": "?"
+    },{
+       "id": "A33703990",
+       "Name": "Seed of Gods",
+       "Cust": 1,
+       "Activation": "Normal",
+	   "Time":"Normal",
+       "Description": "Cura qualquer Status",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "A48591189",
+       "Name": "Second Chance",
+       "Cust": 1,
+       "Activation": "Normal",
+	   "Time":"After Dice",
+       "Description": "Pode relançar o DADO",
+	   "Rarity": "Comum",
+	   "Script": "?"
+    },{
+       "id": "A64447662",
+       "Name": "Second Toss",
+       "Cust": 1,
+       "Activation": "Normal",
+	   "Time":"After Coin",
+       "Description": "Pode Relançar a Moeda",
+	   "Rarity": "Comum",
+	   "Script": "?"
+    },{
+       "id": "A52475813",
+       "Name": "Divine Armor",
+       "Cust": 2,
+       "Activation": "Normal",
+	   "Time":"Ever",
+       "Description": "Imunidade de efeitos por 1 turno",
+	   "Rarity": "Epic",
+	   "Script": "?"
+    }
+  ],
+  "SpellTrap" :[
+	{
+       "id": "ST58394001",
+       "Name": "Volcanic Arena",
+       "Type": "Spell",
+       "SubType": "Terreno",
+	   "Restriction":"Dragon/Rock/Pyro",
+       "Description": "Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento",
+	   "Rarity": "Rare",
+	   "Script": "?"
+    },{
+       "id": "ST31362000",
+       "Name": "Darkness Florest",
+       "Type": "Spell",
+       "SubType": "Terreno",
+	   "Restriction":"Vampir/Witch/Paranormal",
+       "Description": "Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento",
+	   "Rarity": "Rare",
+	   "Script": "?"
+    },{
+       "id": "ST08187487",
+       "Name": "Gate of Underworld",
+       "Type": "Spell",
+       "SubType": "Terreno",
+	   "Restriction":"Warrior/Demon/Guardian",
+       "Description": "Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento",
+	   "Rarity": "Rare",
+	   "Script": "?"
+    },{
+       "id": "ST44381952",
+       "Name": "Kingdom of Sky",
+       "Type": "Spell",
+       "SubType": "Terreno",
+	   "Restriction":"Angel/Plant/Insect/Thunder",
+       "Description": "Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento",
+	   "Rarity": "Rare",
+	   "Script": "?"
+    },{
+       "id": "ST28470860",
+       "Name": "Divine Protection",
+       "Type": "Spell",
+       "SubType": "Protection",
+	   "Restriction":"Normal",
+       "Description": "Proximo Movimento nao é destruido por efeitos",
+	   "Rarity": "Comum",
+	   "Script": "?"
+    },{
+       "id": "ST77337012",
+       "Name": "Moviment Atecipation",
+       "Type": "Spell",
+       "SubType": "Protection",
+	   "Restriction":"Normal",
+       "Description": "Proximo Movimento Nao ativa a carta sobreposta",
+	   "Rarity": "Comum",
+	   "Script": "?"
+    },{
+       "id": "ST35677372",
+       "Name": "Positive Signal",
+       "Type": "Spell",
+       "SubType": "Boost",
+	   "Restriction": "Normal",
+       "Description": "Aumenta o ATK +2 ate o fim do turno do oponente, nao acumulativo",
+	   "Rarity": "Comum",
+	   "Script": "?"
+    },{
+       "id": "ST30456931",
+       "Name": "Clear Mind",
+       "Type": "Spell",
+       "SubType": "Boost",
+	   "Restriction":"Normal",
+       "Description": "Aumenta o DEF +2 ate o fim do turno do oponente, nao acumulativo",
+	   "Rarity": "Comum",
+	   "Script": "?"
+    },{
+       "id": "ST78395504",
+       "Name": "Forbidden Ritual",
+       "Type": "Spell",
+       "SubType": "Evolution",
+	   "Restriction":"Normal",
+       "Description": "Evolue um monstro pelo mesmo Tipo,uma vez no duelo cada Unidade",
+	   "Rarity": "Epic",
+	   "Script": "?"
+    },{
+       "id": "ST97738205",
+       "Name": "Forbidden Cicle",
+       "Type": "Spell",
+       "SubType": "Evolution",
+	   "Restriction": "Normal",
+       "Description": "Evolue um monstro pelo mesmo Atributo,uma vez no duelo cada Unidade",
+	   "Rarity": "Epic",
+	   "Script": "?"
+    },{
+       "id": "ST69110723",
+       "Name": "Emotional Eartquake",
+       "Type": "Trap",
+       "SubType": "Deboost",
+	   "Restriction":"Normal",
+       "Description": "Diminui o ATK -2",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "ST62789547",
+       "Name": "Dizzy Drink",
+       "Type": "Trap",
+       "SubType": "Deboost",
+	   "Restriction":"Normal",
+       "Description": "Diminui a DEF -2",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "ST71733870",
+       "Name": "Sand of Cronos",
+       "Type": "Trap",
+       "SubType": "Status",
+	   "Restriction":"Normal",
+       "Description": "Sleep Ignore Jogar moeda",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "ST91089974",
+       "Name": "Thunder of Zeus",
+       "Type": "Trap",
+       "SubType": "Status",
+	   "Restriction":"Normal",
+       "Description": "Paralize Ignore Jogar moeda",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "ST46023112",
+       "Name": "Lava Geiser",
+       "Type": "Trap",
+       "SubType": "Status",
+	   "Restriction":"Normal",
+       "Description": "Burn Ignore Jogar moeda",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "ST45754346",
+       "Name": "Poison Seed",
+       "Type": "Trap",
+       "SubType": "Status",
+	   "Restriction":"Normal",
+       "Description": "Poison Ignore Jogar moeda",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "ST42646713",
+       "Name": "Classic Trap",
+       "Type": "Trap",
+       "SubType": "Destruction",
+	   "Restriction":"Normal",
+       "Description": "Jogue uma moeda,cara- Reduz a Vida a 0 e manda pra enfermaria e coroa- Burn",
+	   "Rarity": "Epic",
+	   "Script": "?"
+    },{
+       "id": "ST63956496",
+       "Name": "Half-Half",
+       "Type": "Trap",
+       "SubType": "Life Drain",
+	   "Restriction":"Normal",
+       "Description": "Reduz a vida pela metade",
+	   "Rarity": "UltraComum",
+	   "Script": "?"
+    },{
+       "id": "ST33463210",
+       "Name": "Emergency Evolution",
+       "Type": "Trap",
+       "SubType": "Evolution",
+	   "Restriction":"Normal",
+       "Description": "Evolui a Unidade automaticamente, uma vez no duelo cada Unidade",
+	   "Rarity": "Epic",
+	   "Script": "?"
+    },{
+       "id": "ST28404024",
+       "Name": "Last Scrificie",
+       "Type": "Trap",
+       "SubType": "Superboost",
+	   "Restriction":"Normal",
+       "Description": "Aumenta o ATK +4 , Reduz a vida -2 + Burn Effect",
+	   "Rarity": "Rare",
+	   "Script": "?"
+    }
+  ],
+  "Equip": [
+	{
+       "id": "E57846599",
+       "Name": "Dragonic Sword of True",
+       "Type": "Equip",
+	   "Restriction":"Dragon/Drake",
+       "Description": "ATK +2 / DEF -1",
+	   "Boost": "ATK/2",
+	   "Deboost": "DEF/1",
+	   "Hability": "None",
+	   "Rarity": "Rare"
+    },{
+       "id": "E18816987",
+       "Name": "Dragonic Gauntlet of Valor",
+       "Type": "Equip",
+	   "Restriction":"Dragon/Drake",
+       "Description": "DEF +2 / Life -1",
+	   "Boost": "DEF/2",
+	   "Deboost": "Life/1",
+	   "Hability": "None",
+	   "Rarity": "Rare"
+    },{
+       "id": "E18099302",
+       "Name": "Dragonic Wand of Justice",
+       "Type": "Equip",
+	   "Restriction":"Dragon/Drake",
+       "Description": "Life +3/ ATK -2",
+	   "Boost": "Life/3",
+	   "Deboost": "ATK/2",
+	   "Hability": "None",
+	   "Rarity": "Rare"
+    },{
+       "id": "E00000000",
+       "Name": "Templary Sword",
+       "Type": "Equip",
+	   "Restriction":"Warrior/Knight",
+       "Description": "ATK +2 / Life -1",
+	   "Boost": "ATK/2",
+	   "Deboost": "Life/1",
+	   "Hability": "None",
+	   "Rarity": "Rare"
+    },{
+       "id": "E15623896",
+       "Name": "Templary Helm",
+       "Type": "Equip",
+	   "Restriction":"Warrior/Knight",
+       "Description": "DEF +2 / ATK -1",
+	   "Boost": "DEF/2",
+	   "Deboost": "ATK/1",
+	   "Hability": "None",
+	   "Rarity": "Rare"
+    },{
+       "id": "E53713902",
+       "Name": "Templary Gauntlet",
+       "Type": "Equip",
+	   "Restriction":"Normal",
+       "Description": "Life +3/ DEF -2",
+	   "Boost": "Life/3",
+	   "Deboost": "DEF/2",
+	   "Hability": "None",
+	   "Rarity": "Rare"
+    },{
+       "id": "E95083086",
+       "Name": "Metal Claw",
+       "Type": "Equip",
+	   "Restriction":"Dragon/Cyber/Machine",
+       "Description": "ATK +2 / Life -3",
+	   "Boost": "ATK/2",
+	   "Deboost": "Life/3",
+	   "Hability": "None",
+	   "Rarity": "UltraComum"
+    },{
+       "id": "E83071680",
+       "Name": "Metal Wings",
+       "Type": "Equip",
+	   "Restriction":"Angel/Demon/Witch",
+       "Description": "ATK +2 / DEF -3",
+	   "Boost": "ATK/2",
+	   "Deboost": "DEF/3",
+	   "Hability": "None",
+	   "Rarity": "UltraComum"
+    },{
+       "id": "E48896859",
+       "Name": "Calice of Doomed",
+       "Type": "Equip",
+	   "Restriction":"Vampir/Insect/Paranormal",
+       "Description": "Life +3/ DEF -3",
+	   "Boost": "Life/3",
+	   "Deboost": "DEF/3",
+	   "Hability": "None",
+	   "Rarity": "UltraComum"
+    },{
+       "id": "E21113453",
+       "Name": "Trident of the Tribes",
+       "Type": "Equip",
+	   "Restriction":"Pyro/Thunder/Rock/Plant",
+       "Description": "DEF +3 / ATK -3",
+	   "Boost": "DEF/3",
+	   "Deboost": "ATK/3",
+	   "Hability": "None",
+	   "Rarity": "UltraComum"
+    },{
+       "id": "E52515672",
+       "Name": "Ancient Horn",
+       "Type": "Equip",
+	   "Restriction":"Dinosaur/Guardian/Alien",
+       "Description": "ATK +2 / DEF -3",
+	   "Boost": "ATK/2",
+	   "Deboost": "DEF/3",
+	   "Hability": "None",
+	   "Rarity": "UltraComum"
+    },{
+       "id": "E48475933",
+       "Name": "Magical Eyes",
+       "Type": "Equip",
+	   "Restriction":"Sea-Monster/Winged-Beast/Reptile",
+       "Description": "ATK +2 / Life -2",
+	   "Boost": "ATK/2",
+	   "Deboost": "Life/2",
+	   "Hability": "None",
+	   "Rarity": "UltraComum"
+    },{
+       "id": "E12810432",
+       "Name": "Ring of Pharaoh",
+       "Type": "Equip",
+	   "Restriction":"Normal",
+       "Description": "ATK +4 / DEF -2 / Life -1",
+	   "Boost": "ATK/4",
+	   "Deboost": "DEF/2/Life/1",
+	   "Hability": "None",
+	   "Rarity": "Rare"
+    }
+  ]
+}

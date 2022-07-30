@@ -1,0 +1,204 @@
+{
+   "SpellTrap":[
+      {
+         "id":"64489767",
+         "Name":"Volcanic Arena",
+         "Type":"Spell",
+         "SubType":"Terreno",
+         "Restriction":"None",
+         "Description":"- Dragon , Rock e Pyro - Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento",
+         "Script":"00000001",
+         "Rarity":"Epic"
+      },
+      {
+         "id":"64470291",
+         "Name":"Darkness Florest",
+         "Type":"Spell",
+         "SubType":"Terreno",
+         "Restriction":"None",
+         "Description":"- Vampir , Wich e Paranormal - Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento",
+         "Script":"00000002",
+         "Rarity":"Epic"
+      },
+      {
+         "id":"42440932",
+         "Name":"Gate of Underworld ",
+         "Type":"Spell",
+         "SubType":"Terreno",
+         "Restriction":"None",
+         "Description":"- Warrior , Demon e Guardian - Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento",
+         "Script":"00000003",
+         "Rarity":"Epic"
+      },
+      {
+         "id":"14882278",
+         "Name":"Kingdom of Sky",
+         "Type":"Spell",
+         "SubType":"Terreno",
+         "Restriction":"None",
+         "Description":"- Angel , Plant , Insect e Thunder - Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento",
+         "Script":"00000004",
+         "Rarity":"Epic"
+      },
+      {
+         "id":"76960987",
+         "Name":"Divine Protection ",
+         "Type":"Spell",
+         "SubType":"Protection",
+         "Restriction":"None",
+         "Description":"Proximo Movimento dessa unidade nao eh destruido por efeitos",
+         "Script":"00000005",
+         "Rarity":"UltraComum"
+      },
+      {
+         "id":"48752280",
+         "Name":"Moviment Atecipation",
+         "Type":"Spell",
+         "SubType":"Protection",
+         "Restriction":"None",
+         "Description":"Proximo Movimento dessa unidade, não é afetado por Spell ou trap ",
+         "Script":"00000006",
+         "Rarity":"UltraComum"
+      },
+      {
+         "id":"68623007",
+         "Name":"Positive Signal",
+         "Type":"Spell",
+         "SubType":"Boost",
+         "Restriction":"None",
+         "Description":"Aumenta o ATK +2 ate o fim do turno do oponente, nao acumulativo.",
+         "Script":"00000007",
+         "Rarity":"UltraComum"
+      },
+      {
+         "id":"30836218",
+         "Name":"Clear Mind",
+         "Type":"Spell",
+         "SubType":"Boost",
+         "Restriction":"None",
+         "Description":"Aumenta o DEF +2 ate o fim do turno do oponente, nao acumulativo.",
+         "Script":"00000008",
+         "Rarity":"Comum"
+      },
+      {
+         "id":"35419125",
+         "Name":"Forbidden Ritual",
+         "Type":"Spell",
+         "SubType":"Evolution",
+         "Restriction":"None",
+         "Description":"Evolue um monstro pelo mesmo Tipo ,uma vez no duelo para cada Unit",
+         "Script":"00000009",
+         "Rarity":"Epic"
+      },
+      {
+         "id":"06168474",
+         "Name":"Forbidden Cicle",
+         "Type":"Spell",
+         "SubType":"Evolution",
+         "Restriction":"None",
+         "Description":"Evolue um monstro pelo mesmo Atributo ,uma vez no duelo para cada Unit",
+         "Script":"00000010",
+         "Rarity":"Epic"
+      },
+      {
+         "id":"64059758",
+         "Name":"Emotional Eartquake ",
+         "Type":"Trap",
+         "SubType":"Deboost",
+         "Restriction":"None",
+         "Description":"Diminui o ATK -2",
+         "Script":"00000011",
+         "Rarity":"Comum"
+      },
+      {
+         "id":"71221984",
+         "Name":"Dizzy Drink",
+         "Type":"Trap",
+         "SubType":"Deboost",
+         "Restriction":"None",
+         "Description":"Diminui a DEF -2",
+         "Script":"00000012",
+         "Rarity":"Comum"
+      },
+      {
+         "id":"83908912",
+         "Name":"Sand of Cronos",
+         "Type":"Trap",
+         "SubType":"Status",
+         "Restriction":"None",
+         "Description":"Causa Sleep , Ignore Jogar moeda",
+         "Script":"00000013",
+         "Rarity":"Comum"
+      },
+      {
+         "id":"85950610",
+         "Name":"Thunder of Zeus",
+         "Type":"Trap",
+         "SubType":"Status",
+         "Restriction":"None",
+         "Description":"Causa Paralize , Ignore Jogar moeda",
+         "Script":"00000014",
+         "Rarity":"Comum"
+      },
+      {
+         "id":"11849540",
+         "Name":"Lava Geiser ",
+         "Type":"Trap",
+         "SubType":"Status",
+         "Restriction":"None",
+         "Description":"Causa Burn , Ignore Jogar moeda",
+         "Script":"00000015",
+         "Rarity":"Comum"
+      },
+      {
+         "id":"44860894",
+         "Name":"Poison Seed ",
+         "Type":"Trap",
+         "SubType":"Status",
+         "Restriction":"None",
+         "Description":"Causa Poison ,Ignore Jogar moeda",
+         "Script":"00000016",
+         "Rarity":"Comum"
+      },
+      {
+         "id":"26542547",
+         "Name":"Classic Trap",
+         "Type":"Trap",
+         "SubType":"Destruction",
+         "Restriction":"None",
+         "Description":"Reduz a Vida a 0 e manda pra enfermaria , caso seja imune a trap cause Burn, ignorando imunidade a efeito de Trap e Burn.",
+         "Script":"00000017",
+         "Rarity":"Rare"
+      },
+      {
+         "id":"73898560",
+         "Name":"Half-Half",
+         "Type":"Trap",
+         "SubType":"Life Drain ",
+         "Restriction":"None",
+         "Description":"Reduz a vida pela metade",
+         "Script":"00000018",
+         "Rarity":"UltraComum"
+      },
+      {
+         "id":"09902667",
+         "Name":" Emergency Evolution",
+         "Type":"Trap",
+         "SubType":"Evolution",
+         "Restriction":"None",
+         "Description":"Evolui a Unit automaticamente, uma vez no duelo para cada Unit",
+         "Script":"00000019",
+         "Rarity":"Epic"
+      },
+      {
+         "id":"94697324",
+         "Name":"Last Scrificie",
+         "Type":"Trap",
+         "SubType":"SuperBoost",
+         "Restriction":"None",
+         "Description":"almenta o ATK +4 , Reduz a vida -6 + Burn Effect",
+         "Script":"00000020",
+         "Rarity":"Rare"
+      }
+   ]
+}

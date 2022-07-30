@@ -1,0 +1,1048 @@
+Beta Test - Zyan 0.0.2 - ✩ ✪ ✫ ⋆ ★ ☆ 
+
+	Index
+	Id-0
+	Name-1
+	type-2
+	rank-3
+	element-4
+	special-5
+	life-6
+	atk-7
+	def-8
+	status-9
+	effect1-10
+	effect2-11
+	evolution-12
+	evolcust1-13
+	evol1-14
+	evolcust2-15
+	evol2-16
+	evolcust3-17
+	evol3-18
+	rarityup-19
+	rarity-20
+	
+	Element:
+	Divinity [Dv],Radioativity [R],Genetic [G],
+	Natural [Nl],Elemental [El],Light [L],Dark [D],
+	Fire [F],Earth [Eh],Wind [Wi], Water [W],
+	Metal [M],Ice [I],Nature [N],Eletricity [E] 
+	
+	Spell , Trap , Action , Equip 
+	
+	Type:
+	Warrior, Dragon ,
+	Angel ,Demon ,
+	Wicth ,Vampir ,Paranormal ,
+	Sea-Monster ,Beast ,Winged-Beast ,
+	Dinosaur ,Reptile ,
+	Guardian ,Machine ,Cyber ,
+	Insect ,Plant ,
+	Rock ,Pyro ,Thunder ,
+	Alien ,Mytholic-Beast ,Mytholic-God .
+	
+	Rank:
+	Civil ,Soldier ,Combatant ,General ,Ruler ,Queen ,King ,God ,Anti-God, Ultimate
+	
+	Ctype:
+	Vanilla, Effect, Magic, Trap, Action
+	
+	Special:
+	Spell/Trap (Normal, Equip ,Continuous )  
+	 - Campo Spell/Trap (Continuous, Trigger )
+	 Action ??? :
+		Slow 		(Somente ativa no seu turno)
+		Moviment	(Ativa apos um movimento )
+		Battle		(Ativa Durante uma batalha)
+		Protection	(Ativa Apos Batalha ou antes de ser destruido)
+	Monsters   (
+	Normal [Sem Evoluçao] ,
+	Evolution [Evoluçao Especifica] , 
+	Mutant [Evoluçao por Trap], 
+	Fusion [Evolution por Magic - utiliza 2 Monstros Especificos (Nome , Tipo ,elemento e/ou Rank) dura 2-12 turnos ] ,
+	Heroic [Evolution Especifica, apos destruiçao por batalha retorna pra versao anterior] ,
+	Ant-Heroic [Evolution Especifica, apos destruiçao por efeito retorna pra versao anterior] )
+	 - End Line - (Normal , Mutant , Fusion , Heroic ,Ant-Heroic)
+	 
+	Special Feature - Create your self unit [Rare] 
+	
+		- Escolha uma tipo [exceto Mytholic-Beast/Mytholic-God]
+		- Ecolha um elemento [Fire / Earth / Wind / Water]
+		- Escolha um sexo [M /F]
+		-O jogador tem que distribuir 9[+1 Life] points 
+		- Escolher uma Skill 
+			+ Disponivel - 
+			Fighter
+			Aggressor 
+			Defender
+			Power Astral
+			Spiked
+	
+	Rarity Base 	X 	Rank
+	ATK+DEF+Life
+				Comum	UltraComum	Rare	Epic	Legendary
+				✪		✪✪			✪✪✪		✪✪✪✪	✪✪✪✪✪
+	Civil		8		9			10		12		15
+	Soldier		10-12	13-14		15		18		20
+	Combatant	15-18	19-21		22		24		25
+	General		19-20	21-24		26		28		30
+	[King]		-		26-28		30		35		40			
+	[God]		-		-			42		46		50
+	
+	Rarity Base X N. Effects 
+
+				Comum	UltraComum	Rare	Epic	Legendary
+				✪		✪✪			✪✪✪		✪✪✪✪	✪✪✪✪✪
+	Civil		0		0			1		1		1-2
+	Soldier		0		1			1		1-2		2
+	Combatant	1		1-2			1-2		2		2
+	General		1-2		2			2		2		2-3
+	[King]		-		2			2		2-3		3			
+	[God]		-		-			2-3		3		3
+	
+	Rarity Base X Total Effects Force
+	
+				Comum	UltraComum	Rare			Epic			Legendary
+
+	Civil		0		0			[2]✪✪			[3]✪✪✪			[4]✪✪✪✪
+	Soldier		0		[3]✪✪✪		[3]✪✪✪			[4]✪✪✪✪			[5]✪✪✪✪✪
+	Combatant	[3]✪✪✪	[4]✪✪✪✪		[4]✪✪✪✪			[5]✪✪✪✪✪		[6]✪✪✪✪✪✪
+	General		[4]✪✪✪✪	[5]✪✪✪✪✪	[5]✪✪✪✪✪		[6]✪✪✪✪✪✪		[8]✪✪✪✪✪✪✪✪
+	[King]		-		[6]✪✪✪✪✪✪	[7]✪✪✪✪✪✪✪		[8]✪✪✪✪✪✪✪✪		[10]✪✪✪✪✪✪✪✪✪✪			
+	[God]		-		-			[9]✪✪✪✪✪✪✪✪✪	[10]✪✪✪✪✪✪✪✪✪✪	[12]✪✪✪✪✪✪✪✪✪✪✪✪
+	
+	Habilidades - Evergreen's
+	
+	Habilidades Espaço/Pasivas:[Verde]
+	Levitate 		-[✪✪✪] 	Pode se mover sobre uma unidade, pulando para o proximo espaço,se ela nao tiver levitate.
+	Anti-Levitate	-[✪✪✪] 	Unidades no campo não podem pular unidades do oponente.
+	Fighter			-[✪✪] 	Todas unidades do oponente proximos a essa unidade tem que ataca-la. Essa habilidade ativa apenas 1 vez por turno. 
+	[ok]Eternal Life	-[✪✪✪✪✪]Recupere 1 de Vida todo fim de turno, o Max de vida é o dobro da vida original dessa unidade .
+	[ok]Eternal Bersek	-[✪✪✪✪✪]Toda vez que essa unidade batalhar, após a batalha ganha 1 ponto de ATK, o Max de ATK é o dobro do ATK original dessa unidade.
+	[ok]Eternal Guardian-[✪✪✪✪]	Toda vez que essa unidade batalhar, após a batalha ganha 1 ponto de DEF, o Max de DEF é o dobro do DEF original dessa unidade.
+	
+	Habilidades Batalha:[Roxo][ok]
+	Aggressor 		-[✪] 	Essa unidade utiliza o ATK no calculo de dano.
+	Defender 		-[✪] 	Essa unidade utiliza o DEF no calculo de dano.
+	Power Astral 	-[✪] 	Essa unidade utiliza a VIDA no calculo de dano.
+	Anti-Aggressor 	-[✪✪] 	A unidade que atacar essa unidade, utiliza o VIDA no calculo de dano.
+	Anti-Defender 	-[✪✪] 	A unidade que atacar essa unidade, utiliza o ATK no calculo de dano.
+	Anti-Astral 	-[✪✪] 	A unidade que atacar essa unidade, utiliza a DEF no calculo de dano.
+	Brute Force 	-[✪✪✪] 	As duas unidades quando batalhar com essa unidade utiliza o ATK no calculo de dano.
+	Control Force 	-[✪✪✪] 	As duas unidades quando batalhar com essa unidade utiliza o DEF no calculo de dano.
+	Astral Force 	-[✪✪✪] 	As duas unidades quando batalhar com essa unidade utiliza a VIDA no calculo de dano.
+	Vampirism		-[✪✪✪✪] Toda vez que essa unidade causa dano, recupera VIDA na mesma quantidade de dano causado, o Max de vida é o dobro da vida original dessa unidade .
+	Double Arms		-[✪✪✪✪] Essa Unidade causa o Dobro de DANO.
+	Shilded			-[✪✪✪] 	Essa Unidade recebe a metade do DANO, aredondado para cima.
+	Spiked			-[✪✪] 	Toda vez que essa unidade batalhar cause 1 de DANO.
+	
+	Habilidades Caotica:[Branco]
+	Doubtful Effect	-[✪✪] 	No inicio de cada turno essa habilidade ganha um efeito aleatorio entre Poisonous, Flame, Send Sleep, Eletrocute e Overdo.Essa habilidade fica modificada ate o fim do turno.
+	Doubtful Force	-[✪✪✪] 	No inicio de cada turno essa habilidade ganha um efeito aleatorio entre Aggressor, Defender, Power Astral, Brute Force, Control Force e Astral Force.Essa habilidade fica modificada ate o fim do turno.
+	Doubtful Teasure-[✪✪✪✪] No inicio de cada turno essa habilidade ganha um efeito aleatorio entre Vampirism, Double Arms, Shilded. Essa habilidade fica modificada ate o fim do turno.
+	Doubtful Eternal-[✪✪✪✪✪]No inicio de cada turno essa habilidade ganha um efeito aleatorio entre Eternal Bersek, Eternal Guardian, Eternal Life. Essa habilidade fica modificada ate o fim do turno.
+	
+	Habilidades Status:[Vermelho]
+	Poisonous		-[✪✪✪] 	Quando essa unidade batalha , pode causar Poison.	[Jogue uma moeda, Cara : Poison 	/ Coroa : Safe + Tempo decidido no D6]
+	Flame			-[✪✪✪✪] Quando essa unidade batalha , pode causar Burn.		[Jogue uma moeda, Cara : Burn 		/ Coroa : Safe + Tempo decidido no D6]
+	Send Sleep		-[✪✪] 	Quando essa unidade batalha , pode causar Sleep.	[Jogue uma moeda, Cara : Sleep 		/ Coroa : Safe + Tempo decidido no D6]
+	Eletrocute		-[✪] 	Quando essa unidade batalha ,pode causar Paralize.	[Jogue uma moeda, Cara : Paralize 	/ Coroa : Safe + Tempo decidido no D6]
+	Overdo			-[✪] 	Quando essa unidade batalha ,pode causar Fadigue.	[Jogue uma moeda, Cara : Fadige 	/ Coroa : Safe + Tempo decidido no D6]
+	
+	Efeitos 		+ Tempo decidido no D6
+	Poison 			- No final de cada turno perde 1 de vida.
+	Burn			- Diminui o ATK em 1, enquanto estiver com esse status.Perde 1 de vida a cada turno.
+	Paralize		- Diminui a DEF em 2, enquanto estiver com esse status.
+	Sleep			- Não se movimenta ou ataca, enquanto estiver com esse status.
+	Fadige			- Não ataca, enquanto estiver com esse status.
+--------------------------------------------
+
+	Evolution - Evoluçao natural sao obrigatorias, quando uma unidade evolui ela reseta todos seus status.
+		As evoluçoes sao categorizadas por 3 tipos:
+		Natural - Segue a linha de texto da carta anterior.Assim que aquela condiçao acontecer evolua. [ Baby Red Dragon > Red Dragon I]
+		Elemental Line - Usa uma unidade do mesmo elemento , mais para que ela evolua presisa pagar energia , descrita na propria carta.
+		Type Line - Usa uma unidade do mesmo Tipo , mais para que ela evolua presisa pagar energia , descrita na propria carta.
+--------------------------------------------
+	Upgrade
+	- Todas as unidades podem se melhorar e aumentar a sua raridade,
+	com isso ganha:
+		+ algum buff ATK/DEF/Life
+		+ Pode fazer upgrade de alguma habilidade de uma lista de 2 novas posibilidades.
+			- As habilidades ocupam o lugar de outra habilidade ja existente.
+			- Em alguns casos podem ocupar como nova habilidade adicional.
+	Materiais necessario:
+	Raridade			Cupom de Upgrade	Material
+	Comum > UltraComum		1 UltraComum	100 UltraComum
+	UltraComum > Rare		1 Rare			100 Rare
+	Rare > Epic				1 Epic			100 Epic
+	Epic > Legendary		1 Legendary		100	Legendary
+	- Quando o jogador fizer algum upgrade será valido para as 2 cópias.
+	Materiais
+	- Quando o jogador ganha a 3 copia de alguma unidade ele recebe no lugar seu valor em material
+	Raridade		Material
+	Comum			1 UltraComum
+	UltraComum		5 UltraComum
+	Rare			5 Rare
+	Epic			7 Epic
+	Legendary		10 Legendary
+	
+	- O jogador pode trocar, a cada 10 material por 1 de raridade maior.
+	- Unidades tem um valor de materiais para poder ser criados, mais um cupom de Criaçao.
+	Raridade		Material
+	Comum			50	UltraComum
+	UltraComum		150 UltraComum
+	Rare			150	Rare
+	Epic			150 Epic
+	Legendary		150 Legendary
+--------------------------------------------
+			
+	Regras Finais
+	Cada jogador tem que ter: 
+		5 Unidades 						[Obrigatorio]
+			- Cada Deck pode conter apenas no maximo 2 copias iguais 
+		+ Linha evolutiva				[opcional]
+		+ 1 Equip para cada unit		[opcional]
+		5 Spell/Trap 					[Obrigatorio]
+			- Cada Deck pode conter apenas 1 copia , nao pode haver duplicatas
+		5 Action Card					[Opcional]
+	Espaços no campo:
+		Castelo - Cada jogador posui 1 na extremidade do campo, nas cores Vermelho ou Azul.
+		Zona de Invocaçao - Cada jogador posui 3 enfrente ao seu Castelo, na cor Laranja.
+		Zona do Comandante - Espaço especifico pra colocar o seu COMANDDER GOD existem 2 no campo , caso nao esteja sendo usado pode se mover sobre ele , na cor Amarela
+		Campo Normal - 19 Espaços usados para espalhar as Spell/Trap e se mover , cor Cinza.
+	Como Jogar:
+		Antes que o jogo começe, os jogadores escolhe quem começa [atraves de jokepo ou dados],
+		as 10 Spell/Trap sao espalhadas pelo campo aleatoriamente, somente nos campos normais.
+		A cada inicio de turno, os dois jogador ganha 1 energia.[As energias sao ultilizadas para ativaçao de action cards ou evoluçao]
+		Durante seu turno ,aquele jogador pode:
+			Invocar uma Unidade [Somente nas casas Laranjas na frente do seu castelo]
+			Mover cada unidade ou atacar outra unidade inimiga
+				Cada unidade pode se mover/atacar 1 vez por turno
+			Batalha, O calculo de dano ocore da seguinte maneira:
+				A unidade Atacante ira utilizar seu valor ATK, enquanto a unidade Defensora utilizará o valor DEF.
+				Onde o valor resultante será subtraído do valor LIFE da unidade com menor valor utilizado naquela batalha.
+				Existem habilidades que modificam os valores ultilizados no calculo de dano, sendo alguns deles:
+				Defender [usa  a DEF], Aggressor [Usa o ATK ] e Power Astral [usa a VIDA] , tanto atacando quanto defendendo.
+			Se a unidade Defensora for destruida após o ataque , a unidade atacante asume o lugar daquela unidade.
+			Sempre que uma unidade se mover para um novo espaço, verifica se exite alguma spell/trap, se ouver ela se ativa.
+			[Algumas spell/trap so pode ativar 1 vez para cada unidade]
+		Durante qualquer turno , dependendo da restriçao , ele pode ativar  alguma alction card que ele deseja e tenha energia suficiente.
+		Status:
+			Quando uma unidade esta com status , ela ira durar o tempo determinado pelo dado. 
+			Mas pode ser removido quando voltar para sua zona de invocaçao[espaços laranjas].
+		Enfermaria:
+			Sempre que uma unidade tem a sua vida reduzida a 0 ou menos, seje por batalha ou Spell/Trap, ela ira imediatamente para a enfermaria.
+			Todos os status da Unidade sao removidos, aumentos e diminuiçoes referente ao campo sao removidos, exceto a vida que aumentara aos poucos.
+			Unidades na enfermaria aumentam sua vida a cada começo de turno , ganham 1 ponto de VIDA ,onde o maximo é a sua Vida Original.
+			Se uma unidade estiver com pelo menos a metade da vida original, ela pode voltar para o campo de batalha com a mesma quantidade de vida que saiu da enfermaria.
+			Quando uma unidade recupera toda a sua vida ela sai da enfermaria.
+		Para vencer o jogo, basta colocar qualquer unidade que posua no castelo inimigo. 
+		SOMENTE A UNIDADE INIMIGA PODE ENTRAR NO CASTELO ,ULTILIZANDO SOMENTE O ESPAÇO NA FRENTE DO CASTELO COMO ENTRADA, suas unidades nao pode se mover para o proprio castelo.
+
+Warrior		[+]	[D]	Shino, Ninja RI > Shino, Ninja RII > Shino, Black Ninja -> Shino, Black King Ninja 		( > Shino, Gold King Ninja 	>	Shino, Teasure Curse)
+																			-> Shino, Monster Ninja 		( > Shino, Selvage Ninja 	> 	Shino, Warewolf Ninja)
+			[+]	[F]	Samurai Zaph > Zaph , Samurai of Fire > Zaph, Samurai of Flames > Zaph, Infernal Samurai( > Zaph ,Infernal Demon Samurai> 	Zaph ,Goddness of Demons)
+Dragon 		[+]	[F]	Baby Red Dragon > Red Dragon I > Red Dragon II 	-> Red Dragon Alternative 				( > Red Dragon Alternative Gold	>	Red Dragon Dark Gold)
+																	-> Red Dragon Real 						( > Red Dragon Real Punch 		> 	Red Dragon God Claws)
+			[+] [Nl]Baby Brown Dragon > Brown Dragon > Metal Brown Dragon > Cyber Brown Dragon 				( > Galiart, Cyber Brown Dragon	> Great Galiart, Cyber Brown Dragon)
+			[+]	[El]Black Drake > Black Diamant Drake > Shinning Black Diamant Drake >Darkness Diamant Drake( > King Darkness Diamant Drake > MAX Darkness Light Drake)
+Angel 		[+]	[W]	Pablo, Sea Angel  > Pablo, Commander Sea > Pablo, Deep Angel > Pablo, Angelical Sea-Light( > Pablo, Ark of Deep > Pablo, Archangel of Deep World)
+Demon 		[+]	[R]	Lester D., Plutun > Lester D., Elite > Lester D., Commander > Lester D., Radioative		( > Lester D., Radioative Claws	> Lester D., Supreme Radioative)
+Witch 		[+]	[G]	Morgan, Aprendice > Morgan, DNA Witch > Morgan, MutanDNA I > Morgan MutanDNA II			( > Morgan, Queen of Witch > Morgan, Goddness of Witch)
+Vampir 		[+]	[E]	Nicolas Wattson > Nicolas , Volt of night > Nicolas, Volt Eyes > Nicolas, OMaster		( > Lord Nicolas, OMaster > Lord Nicolas, Ultimate OMaster)
+Paranormal 	[+]	[N]	Ruann, New Phantom > Ruann, Knight Phantom I > Ruann,Knight Phantom II > Ruann, General of Phantons( > Ruann, King of Phantons > Ruann, God of Phantons)
+Sea-Monster [+]	[W] Octos ,The Kraken > Big Octos >Legendary Kraken > Legendary Kraken of Abbys World		( > Legendary Kraken, King of Abbys World > Legendary Kraken, God Octos)il
+Beast 		[+]	[I]	Arthur, The Bunny > Arthur, Knight Bunny > Arthur, Knight of Cristal Sword > Arthur, Cristal Knight( > Arthur, Cristal Knight-King > Arthur, Cristal Knight-God) 
+Winged-Beast[+]	[F]	Flame Egg > Bird Flame Egg >Phoenix The Rock >Reactved Phoenix Rock 					( > Black Phoenix Rock > Black Flaming Phoenix Rock)
+Dinosaur 	[+]	[M]	Topz > Topz, Winged-Dinosaur I> Topz, Winged-Dinosaur II > Topz, Chrome Winged-Dinosaur	( > Topz, Platinum Winged-Dinosaur > Topz, Diamant Winged-Dinosaur)
+Reptile 	[+]	[G]	Nalia > Nalia, Morph Serpent > Nalia Serpent of Two-Heads > Nalia, World Hydra 			( > Nalia, Underworld Hydra > Nalia, Goddness of Underworld)	
+Guardian 	[+]	[E]	Licton > Licton of Tabaax > Licton, Guardian of Tabaax > Licton of Tabaax Ruins			( > Licton ,Last Guardian of Tabaax Ruins > Licton, God of New Tabaax)
+Machine 	[+]	[M]	Aero Soldian > Aero Soldian K24 > Aero Soldian K24 Buster > Aero Soldian Destroyer 		( > Aero Soldier Destroyer Crown > Aero Soldier Destroyer SKY)
+Cyber 		[+]	[El]Malek > Malek, Elemental Gamma > Malek, Elemental Beta > Malek, Elemental Alpha			( > Malek, Elemental Alpha-Queen > Malek, Elemental Alpha-Goddness)
+Insect		[+]	[L]	Xaraan > Xaraan,Pink Praise-God > Xaraan,Big Praise-God > Xaraan, All-Mother Praise-God	( > Xaraan, Queen All-Mother > Xaraan, Goddness All-Mother)
+Plant 		[+]	[Wi]Rokke> Rokke, Flower Bird > Rokke, Hummingbird > Rokke,Flowery Hummingbird				( > Rokke,Hummingbird of Petal Rain > Rokke,Hummingbird of Dark-Blood Rain)[Beija-flor + urtiga pintado]
+Rock 		[+]	[D]	Baldai > Baldai,Tyro of Dark  > Baldai,Tyro of Obscure  > Baldai, Herald of Darkness 	( > Baldai,King Herald of Darkness > Baldai,GOD Herald of Darkness)[Minotauro]
+Pyro 		[+]	[R]	Atform > Atform, Atom Mane > Atform, Atom Roar > Atform, Atomic King 					( > Atform, Blue Atomic King > Atform, Atomic King of Manticores)[Leao]
+Thunder 	[+]	[W] Nagnu > Nagnu, The Whale > Nagnu, Sparkle Whale > Nagnu, Lightning of Deep				( > Nagnu, Fastness Lightning > Nagnu God-Fastness)[baleia]
+Alien 		[+]	[Eh]Erlxi > Erlxi of Prurex > Erlxi, Prurex Soldier > Erlxi, Prurex Dictator				( > Erlxi,Ruin of Prurex > Erlxi,Planet Destroyer)
+Myth.-Beast	[]	[I]		( > ??? > ???)[medusa]
+Myth.-God	[]	[Dv]Frige
+
+20 Spell/Trap 		4EP/4R/7Uc/4C
+	1- Spell -✪✪✪ 	Terreno ( Dragon , Rock e Pyro ) - Volcanic Arena - Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento
+	2- Spell -✪✪✪ 	Terreno ( Vampir , Witch e Paranormal ) - Darkness Florest - Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento
+	3- Spell -✪✪✪ 	Terreno ( Warrior , Demon e Guardian ) - Gate of Underworld - Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento
+	4- Spell -✪✪✪ 	Terreno ( Angel , Plant , Insect e Thunder ) - Kingdom of Sky - Almenta o ATK + 2 Sobre o terreno, Ganha +1 Rage movimento
+	5- Spell -✪ 	Proteçao - Divine Protection - Proximo Movimento nao é destruido por efeitos
+	6- Spell -✪ 	Proteçao - Moviment Atecipation - Proximo Movimento Nao ativa a carta sobreposta 
+	7- Spell -✪ 	Boost - Positive Signal - Aumenta o ATK +2 ate o fim do turno do oponente, nao acumulativo.
+	8- Spell -✪ 	Boost - Clear Mind - Aumenta o DEF +2 ate o fim do turno do oponente, nao acumulativo.
+	9- Spell -✪✪✪✪ 	Evolution - Forbidden Ritual - Evolue um monstro pelo mesmo Tipo,uma vez no duelo cada Unidade
+	10-Spell -✪✪✪✪ 	Evolution - Forbidden Cicle - Evolue um monstro pelo mesmo Atributo,uma vez no duelo cada Unidade
+	11- Trap -✪✪ 	Deboost - Emotional Eartquake - Diminui o ATK -2
+	12- Trap -✪✪ 	Deboost - Dizzy Drink - Diminui a DEF -2
+	13- Trap -✪✪ 	Status - Sand of Cronos - Sleep Ignore Jogar moeda
+	14- Trap -✪✪ 	Status - Thunder of Zeus - Paralize Ignore Jogar moeda
+	15- Trap -✪✪ 	Status - Lava Geiser - Burn Ignore Jogar moeda
+	16- Trap -✪✪ 	Status - Poison Seed - Poison Ignore Jogar moeda
+	17- Trap -✪✪✪✪ 	Destruiçao - Classic Trap - jogue uma moeda,cara: Reduz a Vida a 0 e manda pra enfermaria e coroa: Burn
+	18- Trap -✪✪ 	Life Drain - Half-Half - Reduz a vida pela metade
+	19- Trap -✪✪✪✪ 	Evolution - Emergency Evolution - Evolui a Unidade automaticamente, uma vez no duelo cada Unidade
+	20- Trap -✪✪✪ 	Superboost - Last Scrificie - Aumenta o ATK +4 , Reduz a vida -2 + Burn Effect
+	
+10 Action Card			1EP/2R/4Uc/3C
+	1- Battle 	-✪✪✪ 	Cust 2 - Fast  Rescue! - Nega a destruiçao por batalha e restaura a vida
+	2- Normal 	-✪ 		Cust 1 - Urgent Enfermary - Recupera metade da vida
+	3- Battle 	-✪✪ 	Cust 1 - Magic Coffe - Aumenta o ATK +4 durante aquela batalha
+	4- Battle 	-✪✪ 	Cust 1 - Shield of Gods - Aumenta a DEF +5 Durante aquela batalha 
+	5- Moviment -✪✪ 	Cust 1 - Impossible Moviment - Nega Destruiçao por efeitos de Spell/Trap Quando movimenta
+	6- Moviment -✪✪✪ 	Cust 3 - Moviment of Hermes - Ganha +1 de Rage até o fim do turno.
+	7- Normal 	-✪✪ 	Cust 1 - Seed of Gods - Cura qualquer Status
+	8- Normal 	-✪ 		Cust 1 - Second Chance - Pode relançar o DADO
+	9- Normal 	-✪ 		Cust 1 - Second Toss - Pode Relançar a Moeda
+	10- Normal 	-✪✪✪✪ 	Cust 2 - Divine Armor - Imunidade de efeitos por 1 turno
+	
+13 Equip 
+	1- [ Dragon/Drake Exclusive ] -✪✪✪ 			Dragonic Sword of True 	- ATK +2 / DEF -1
+	2- [ Dragon/Drake Exclusive ] -✪✪✪ 		Dragonic Gauntlet of Valor 	- DEF +2 / Life -1
+	3- [ Dragon/Drake Exclusive ] -✪✪✪ 		Dragonic Wand of Justice	- Life +3/ ATK -2
+	4- [ Dragon , Cyber e Machine ] -✪✪				Metal Claw 			- ATK +2 / Life -3
+	5- [ Angel , Demon e Witch ] -✪✪				Metal Wings 		- ATK +2 / DEF -3
+	6- [ Vampir , Paranormal e Insect ] -✪✪			Calice of Doomed 	- Life +3/ DEF -3 
+	7- [ Pyro ,Thunder ,Rock e Plant ]-✪✪		Trident of the Tribes 	- DEF +3 / ATK -3
+	8- [ Warrior/Knight Exclusive ] -✪✪✪ 			Templary Sword 		- ATK +2 / Life -1
+	9- [ Warrior/Knight Exclusive ] -✪✪✪ 			Templary Helm 		- DEF +2 / ATK -1
+	10-[ Warrior/Knight Exclusive ] -✪✪✪			Templary Gauntlet 	- Life +3/ DEF -2
+	11-[ Dinosaur, Guardian e Alien ] -✪✪ 			Ancient Horn		- ATK +2 / DEF -3
+	12-[ Sea-Monster,Winged-Beast e  Reptile] -✪✪ 	Magical Eyes		- ATK +2 / Life -2
+	13-[ Beast, Mytholic-Beast e Mytholic-God ]-✪✪✪ Ring of Pharaoh 	- ATK +4 / DEF -2 / Life -1 
+	
+DECK 
+Inicial
+	Unidades
+	Pablo, Sea Angel > Pablo, Commander Sea
+	Ruann, New Phantom > Ruann, Knight Phantom I
+	Belion Sulman > Belion 50N3
+	Rokke > Rokke, Flower Bird
+	Octos ,The Kraken 
+	
+	Action Cards
+	1 - Urgent Enfermary
+	1 - Second Toss
+	
+	Spell/Trap
+	1 - Positive Signal
+	1 - Clear Mind
+	1 - Thunder of Zeus
+	1 - Emotional Eartquake
+	1 - Divine Protection
+	
+Dual Rivals DRAGONS Vs WARRIORS
+
+DRAGONS [2R/6Uc/4C]
+	Units
+	[+]	[Uc]Baby Red Dragon 	>[Uc] Red Dragon I 			>[R]Red Dragon II 
+	[+]	[Uc]Baby Brown Dragon 	>[Uc]Brown Dragon 			>[R]Metal Brown Dragon
+	[+]	[Uc]Topz 				>[Uc]Topz, Winged-Dinosaur I
+	[+]	[C]Nalia 				>[C]Nalia, Morph Serpent 
+	[+]	[C]Atform 				>[C]Atform, Atom Mane
+	Action Cards [2 Aleatorio]
+		1- Battle - Cust 1 - Urgent Enfermary - Recupera metade da vida
+		1- Moviment - Cust 1 - Impossible Moviment - Nega Destruiçao por efeitos de Spell/Trap Quando movimenta
+		1- Normal - Cust 1 - Second Chance - Pode relançar o DADO
+	Equips [1 Aleatorio]
+		1- [ Dragon/Drake Exclusive ] - Dragonic Sword of True - 		ATK +2/DEF -1
+		1- [ Dragon/Drake Exclusive ] - Dragonic Gauntlet of Valor - 	DEF +2/Life -1
+		1- [ Dragon/Drake Exclusive ] - Dragonic Wand of Justice - 		Life +2/ATK -2
+	Spell/Trap [ 5 Cards]
+		1 - Volcanic Area - terreno - 64489767
+		1 - Clear Mind - Spell - 30836218
+		1 - Positive Signal - Spell - 68623007
+		1 - Sand of Cronos - Trap - 83908912
+		1 - Half-Half - Trap - 73898560
+	
+WARRIORS[2R/4Uc/6C]
+	Units
+	[+]	[C]Samurai Zaph 		>[C] Zaph , Samurai of Fire 	
+	[+]	[C]Shino, Ninja RI 		>[Uc]Shino, Ninja RII		>[R]Shino, Black Ninja	
+	[+]	[C]Morgan, Aprendice	>[C] Morgan, DNA Witch
+	[+]	[C]Nicolas Wattson 		>[Uc]Nicolas , Volt of Night
+	[+]	[Uc]Arthur, The Bunny	>[Uc]Arthur, Knight Bunny	>[R]Arthur, Knight of Cristal Sword
+	Action Cards [2 Aleatorio]
+		1- Battle - Cust 1 - Urgent Enfermary - Recupera metade da vida
+		1- Moviment - Cust 1 - Impossible Moviment - Nega Destruiçao por efeitos de Spell/Trap Quando movimenta
+		1- Normal - Cust 1 - Second Toss - Pode Relançar a Moeda
+	Equips [1 Aleatorio]
+		1- [ Warrior/Knight Exclusive ] - Templary Sword - 		ATK +2/Life -1
+		1- [ W arrior/Knight Exclusive ] - Templary Helm - 		DEF +3/ATK -1
+		1- [ Warrior/Knight Exclusive ] - Templary Gauntlet - 	Life +3/DEF -2
+	Spell/Trap [ 5 Cards]
+		1 - Gate of Underworld - terreno - 42440932
+		1 - Clear Mind - Spell - 30836218
+		1 - Positive Signal - Spell - 68623007
+		1 - Sand of Cronos - Trap - 83908912
+		1 - Half-Half - Trap - 73898560
+		
+Pack -
+Units - 
+Basico	50Gem	100G	-1 unidade -		C45/I35/R13/E6,5/L0,5
+Combo	500Gem	1000G	-10 unidades - 		C45/I35/R13/E6,5/L0,5 
+		+ 1 Cupom Rarity Upgrade/Criaçao	I35/R25/E13/L7/Cr20
+
+Action Casrds-
+Basico	150Gem	300G	-1 unidade -		C45/I35/R13/E6,5/L0,5
+Combo	750Gem	1500G	-6 unidades - 		C45/I35/R13/E6,5/L0,5 
+
+Equips -
+Basico	250Gem	500G	-1 unidade -		C45/I35/R13/E6,5/L0,5
+Combo	2500Gem	5000G	-11 unidades - 		C45/I35/R13/E6,5/L0,5 
+
+Contem - 
+Normal Ticket	3 Unidades - 1 Rara ou acima garatida 
+Silver Ticket	5 Unidades - 1 Epic ou Acima Garantida
+Gold Ticket		5 Unidades - 1 Epic ou acima garantida + 1 Cupom Rarity Upgrade/Criaçao
+
+Comum- 		45%    	500/1000
+UltraComum-	35%		300/1000
+Rare-		13,0%	130/1000
+Epic-		6,5%	065/1000
+Legendary -	0,5%	005/1000
+
+Total 150 - 25 Linhas Evolutivas - 2 boosters
+Comum			- 25/25
+UltraComum		- 45/45
+Rare			- 35/35
+Epic			- 25/25
+Legendary		- 20/20
+
+--------------------------------------------
+Booster [War] Dragons Alliance [32]
+--------------------------------------------
+Dragon
+Dinosaur
+Pyro
+Reptile
+Alien
+Rock
+
+Comum			4
+	Atform							01298914
+	Atform, Atom Mane				70652926
+	Nalia							91101527
+	Nalia, Morph Serpent			86972631
+UltraComum		15
+	Baby Red Dragon					19327076
+	Red Dragon I					31350162
+	Baby Brown Dragon				90291455
+	Brown Dragon					46185131
+	Black Drake						86100532
+	Topz							89979754
+	Topz, Winged-Dinosaur I			56582605
+	Atform, Atom Roar				54966189
+	Atform, Atomic King				15085464
+	Nalia Serpent of Two-Heads		35211127
+	Erlxi							67812444
+	Erlxi of Prurex					25669767
+	Erlxi, Prurex Soldier			22974919
+	Baldai							09011912
+	Baldai,Tyro of Dark				48701524
+Rare			10
+	Red Dragon II					89473243
+	Metal Brown Dragon				71324355
+	Black Diamant Drake				08412215
+	Shinning Black Diamant Drake 	85433092
+	Topz, Winged-Dinosaur II		86803968
+	Topz, Chrome Winged-Dinosaur 	24918120
+	Nalia, World Hydra				02990634
+	Erlxi, Prurex Dictator			98731738
+	Baldai,Tyro of Obscure			89016038
+	Baldai, Herald of Darkness		85305706
+	
+Epic			3
+	Red Dragon Alternative			47212692
+	Cyber Brown Dragon				33763676
+	Darkness Diamant Drake			44110028
+
+--------------------------------------------
+Booster [War] Warriors Alliance	[28]
+--------------------------------------------
+Warrior
+Beast
+Witch
+Vampir
+Sea-Monster
+Winged-Beast
+Machine
+
+Comum				7
+	Shino , Ninja RI				46824624
+	Samurai Zaph					69717455
+	Zaph , Samurai of Fire			19750750
+	Morgan, Aprendice				71062197
+	Morgan, DNA Witch				64327900
+	Nicolas Wattson					82757771
+	Octos ,The Kraken				87448461
+UltraComum			8
+	Shino , Ninja II				81504785
+	Zaph , Samurai of Flames		77801122
+	Morgan MutanDNA I				65557452
+	Morgan MutanDNA II				85579894
+	Nicolas , Volt of night			63566715
+	Nicolas, Volt Eyes				20633856
+	Big Octos						83924556
+	Flame Egg						71534192
+Rare				9
+	Shino , Black Ninja				18181557
+	Shino , Black King Ninja		46553854
+	Zaph , Infernal Samurai			22315637
+	Nicolas, OMaster				29251371
+	Legendary Kraken				56696184
+	Bird Flame Egg					75679588
+	Phoenix The Rock				30061628
+	Aero Soldian					59123012
+	Aero Soldian K24				49173717
+Epic				4
+	Legendary Kraken of Abbys World	51987800
+	Reactved Phoenix Rock			92612158
+	Aero Soldian K24 BUSTER			97533081
+	Aero Soldier Destroyer			38344266
+	
+--------------------------------------------
+Unidades Raridade e ID
+--------------------------------------------
+Comum			- 24 
+	Belion Sulman							59121230
+	Belion 50N3								72320973
+	Nalia									91101527
+	Nalia, Morph Serpent					86972631
+	Pablo, Sea Angel						42682560
+	Pablo, Commander Sea					83736909
+	Nicolas Wattson							82757771
+	Ruann, New Phantom						60801023
+	Ruann, Knight Phantom I					27235072
+	Licton									38396699
+	Licton of Tabaax						76863157
+	Xaraan									38894942
+	Nagnu									49092289
+	Shino , Ninja RI						46824624
+	Samurai Zaph							69717455
+	Zaph , Samurai of Fire					19750750
+	Atform									01298914
+	Atform, Atom Mane						70652926
+	Morgan, Aprendice						71062197
+	Morgan, DNA Witch						64327900
+	Lester D., Plutun						02945817
+	Lester D., Elite						15500606
+	Octos ,The Kraken						87448461
+	Malek									86657079
+	Rokke									93971865
+	
+UltraComum		- 45 
+	Baby Red Dragon							19327076
+	Red Dragon I							31350162
+	Baby Brown Dragon						90291455
+	Brown Dragon							46185131
+	Black Drake								86100532
+	Belion LIBRA Star						57642742
+	Belion LIBRA D.							46598437
+	Belion LIBRA Cruzader					59676329
+	Topz									89979754
+	Topz, Winged-Dinosaur I					56582605
+	Nalia Serpent of Two-Heads				35211127
+	Pablo, Deep Angel						03686794
+	Pablo, Angelical Sea-Light				55469111
+	Nicolas , Volt of night					63566715
+	Nicolas, Volt Eyes						20633856
+	Ruann, Knight Phantom II				18681621
+	Ruann, General of Phantons				49559153
+	Licton, Guardian of Tabaax				22521873
+	Licton of Tabaax Ruins					32584234
+	Xaraan,Pink Praise-God					45000303
+	Xaraan,Big Praise-God					00457610
+	Nagnu, The Whale						28336398
+	Shino , Ninja II						81504785
+	Zaph , Samurai of Flames				77801122
+	Flame Egg								71534192
+	Atform, Atom Roar						54966189
+	Atform, Atomic King						15085464
+	Atform, Blue Atomic King				40428197
+	Morgan MutanDNA I						65557452
+	Morgan MutanDNA II						85579894
+	Lester D., Commander					31540149
+	Lester D., Radioative					10394948
+	Big Octos								83924556
+	Arthur, The Bunny						90819440
+	Arthur, Knight Bunny					78429588
+	Malek, Elemental Gamma					80311205
+	Malek, Elemental Beta					03696622
+	Rokke, Flower Bird						28056900
+	Rokke, Hummingbird						20523865	
+	Baldai									09011912
+	Baldai,Tyro of Dark						48701524
+	Nagnu, Sparkle Whale					54839202	
+	Erlxi									67812444
+	Erlxi of Prurex							25669767
+	Erlxi, Prurex Soldier					22974919
+	
+Rare			- 37
+	Red Dragon II							89473243
+	Metal Brown Dragon						71324355
+	Black Diamant Drake						08412215
+	Shinning Black Diamant Drake 			85433092
+	Aero Soldian							59123012
+	Aero Soldian K24						49173717
+	Belion LIBRA Silver						99676325
+	Topz, Winged-Dinosaur II				86803968
+	Topz, Chrome Winged-Dinosaur 			24918120
+	Nalia, World Hydra						02990634
+	Nalia, Underworld Hydra					69928287
+	Pablo, Ark of Deep						12550338
+	Pablo, Archangel of Deep World			13511224
+	Nicolas, OMaster						29251371
+	Ruann, King of Phantons					45493152
+	Ruann, God of Phantons					05921639
+	Licton ,Last Guardian of Tabaax Ruins	27261105
+	Xaraan, All-Mother Praise-God			27025464
+	Xaraan, Queen All-Mother				53092954
+	Nagnu, Lightning of Deep				76371586
+	Shino , Black Ninja						18181557
+	Shino , Black King Ninja				46553854
+	Zaph , Infernal Samurai					22315637
+	Bird Flame Egg							75679588
+	Phoenix The Rock						30061628
+	Atform, Atomic King of Manticores		17067628
+	Morgan, Queen of Witch					38950397
+	Lester D., Radioative Claws				17866116
+	Legendary Kraken						56696184
+	Arthur, Knight of Cristal Sword			29168778
+	Arthur, Cristal Knight					63357641
+	Malek, Elemental Alpha					03696622
+	Rokke,Flowery Hummingbird				37342181
+	Baldai,Tyro of Obscure					89016038
+	Baldai, Herald of Darkness				85305706
+	Erlxi, Prurex Dictator					98731738
+	Erlxi,Ruin of Prurex					66449075
+	
+Epic			- 24
+	Red Dragon Alternative					47212692
+	Cyber Brown Dragon						33763676
+	Darkness Diamant Drake					44110028
+	Aero Soldian K24 BUSTER					97533081
+	Topz, Platinum Winged-Dinosaur			88093650
+	Nalia, Goddness of Underworld			64443267
+	Lord Nicolas, OMaster					63717268
+	Licton, God of New Tabaax				21569087
+	Xaraan, Goddness All-Mother				32704760
+	Nagnu, Fastness Lightning				49669411
+	Erlxi,Planet Destroyer					41839924
+	Shino , Gold King Ninja					15616233
+	Shino , Teasure Curse					35616231
+	Zaph ,Infernal Demon Samurai			41582934
+	Zaph ,Goddness of Demons				43582914
+	Aero Soldier Destroyer					38344266
+	Aero Soldier Destroyer Crown			65071473
+	Reactved Phoenix Rock					92612158
+	Morgan, Goddness of Witch				68357933
+	Legendary Kraken of Abbys World			51987800
+	Arthur, Cristal Knight-King				67999235	
+	Malek, Elemental Alpha-Queen			30948887
+	Rokke,Hummingbird of Petal Rain			37421831
+	Baldai,King Herald of Darkness			69955474
+	
+Legendary		- 19 
+	Red Dragon Alternative Gold				92315357
+	Red Dragon Dark Gold					72313559
+	Galiart, Cyber Brown Dragon				28204528
+	Great Galiart, Cyber Brown Dragon		88240522
+	King Darkness Diamant Drake				02957731
+	MAX Darkness Light Drake				12957730
+	Topz, Diamant Winged-Dinosaur			26793344
+	Lord Nicolas, Ultimate OMaster			73406950
+	Nagnu God-Fastness						78238016
+	Aero Soldier Destroyer SKY				35071476
+	Black Phoenix Rock						99548253
+	Black Flaming Phoenix Rock				39548259
+	Lester D., Supreme Radioative			97420344
+	Legendary Kraken, King of Abbys World	67796763
+	Legendary Kraken, God Octos				61883196
+	Arthur, Cristal Knight-God				36319331
+	Malek, Elemental Alpha-Goddness			11514960
+	Rokke,Hummingbird of Dark-Blood Rain	51032087
+	Baldai,GOD Herald of Darkness			38202382
+	
+--------------------------------------------
+#Compre e revele ....
+Invoque- 
+	#Especialmente/Normal
+	Merger/Abosolute/Evolution
+Adicione/Remova do seu Estoque - Energia
+Almente/Diminua - ATK e DEF
+#Compre/Discarte/
+	Selecione/Destrua/Banir - 
+Reduza/Almente - LP
+#Face-Acima/Abaixo
+Alcance = Rage
+
+--------------------------------------------
+I - Book of Dragons
+	- Mero 
+		Dragao / Legenadary /Fire
+		General > King > Ultimate (DEATH)
+	- Codd
+		Dragao / Legenadary / Electric
+		Civil > Soldier > Combatant > General > Ruler
+	- Nethrus
+		Beast / Animgen / Radioativity
+		Soldier > Combatant > General > Ruler
+	- Abymera
+		Guardian / Original / Elemental
+		Soldier > Combatant > General > Ruler
+		
+II - Book of Warrior
+	- Doryen
+		Warrior / Legenadary / Natural
+		Civil > Soldier > Combatant > General > Ruler > Ultimate
+	- Wylla
+		Warrior / Elf / Nature
+		Soldier > Combatant > General > Queen
+	- Drav
+		Paranormal / Curse / Dark
+		Combatant > General > King 
+		
+III - Book of Angel
+	- Celesthe
+		Angel / Legenadary / Light
+		Civil > Soldier > Combatant > General > Queen > Ultimate
+	- Jaxson
+		Demon / Incubus / Dark
+		Civil > Soldier > Combatant > General > King
+	- Nator
+		Reptile / Kaiju / Wind
+		Civil > Soldier > Combatant (DEATH)
+	- Foradia
+		Demon / Sucubus / Water
+		Civil > Soldier > Combatant > General > Queen
+		
+IV - Book of Demon
+	- Duggan
+		Demon / Legenadary / Ice
+		Soldier > Combatant > General > King > Ultimate
+	- Felice
+		Angel / Serafin / Earth
+		Civil > Soldier > Combatant > General > Queen
+	- Rhamiel
+		Angel / Querubin / Light
+		Civil > Soldier > Combatant [DEATH]
+	- Stiwa
+		Alien / Cyborg / Metal
+		Soldier > Combatant > General > Ruler
+		
+V - Book of Witch
+	- Torin Crypth
+		Witch / Legenadary / Nature
+		Combatant > General > Queen > Ultimate
+	- Dezra
+		Mystic / Beast / Electric
+		Civil > Soldier > Combatant > General > Ruler
+	- Anisis
+		Winged-Beast / Bird / Genetic
+		
+VI - Book of Vampir
+	-Hendrik
+		Vampir / Legenadary / Genetic
+		Civil > Soldier > Combatant > General > King > Ultimate
+	-Erebus
+		Pyro / Elemental / Natural
+		Soldier > Combatant > General > Ruler
+	-Zaleria Mirafiel
+		Mystic / Serien / Radioativity
+		Civil > Soldier > Combatant > General > Queen
+		
+XIII - Book of Sea-Monster
+	- Lobstiathan
+		Sea-Monster / Legenadary / Ice
+		Civil > Soldier > Combatant > General > King > Ultimate
+	-Bozek
+		Sea-Monster / Kaiju / Water
+		Soldier > Combatant > General [DEATH]
+	-Rosemarot
+		Plant / Original / Wind
+		Civil > Soldier > Combatant > General > Queen 
+		
+XII - Book of Winged-Beast
+	- Sparkeyes
+		Winged-Beast / Legenadary / Electric
+	- Avityrannus
+		Dinosaur / Ancient / Wind
+	- Boomer
+		Machine / Antiq / Earth
+	-Whirl 
+		Insect / Original / Nature
+		
+XI - Book of Beast
+	-Ekkos
+		Beast / Legenadary / Elemental
+	- Sijune
+		Winged-Beast / Bird / Wind
+	- Jidah
+		Guardian / Original / Nature
+	- Dovon
+		Alien / Beast / Water
+	
+VII - Book of Dinosaur
+	- Lasiorex (hairy king)
+		Dinosaur / Legenadary / Fire
+	- Velotitan
+		Dinosaur / Kaiju / Earth
+	-Ataxia
+		Warrior / Elf / Radioativity
+	
+VIII - Book of Reptile
+	- Vudis
+		Reptile / Legenadary / Dark
+	- Liudh
+		Insect / Original / Fire
+	- Garion
+		Dragon / Drake / Elemental
+	
+XIV - Book of Machine
+	- Mewok
+		Machine / Legenadary / Elemental
+	- Airog
+		Machine / Original / Metal
+	- Laurellis
+		Plant / Original / Nature
+	
+XV - Book of Cyber
+	- 
+	
+	-
+	-
+	-
+	
+XVI - Book of Guardian
+	-
+	-
+	-
+	-
+	
+IX - Book of Insect
+	-
+	-
+	-
+	
+X - Book of Plant
+	-
+	-
+	-
+	
+XVII - Book of Rock
+	-
+	-
+	-
+	
+XVIII - Book of Pyro
+	-
+	-
+	-
+	
+XIX - Book of Thunder
+	-
+	-
+	-
+	
+XX - Book of Paranormal
+	-
+	-
+	-
+	-
+	
+XXI - Book of Alien
+	-
+	-
+	-
+	
+XXII - Book of Mystic
+	-
+	-
+	-
+	-
+
+
+Zyan - Tipos e Sub-Typos descriçao
+
+	Element:
+God			Divinity 
+Bio			Radioativity / Genetic / Natural 
+YngYang		Elemental / Light / Dark 
+Element		Fire / Earth / Wind / Water 
+Force		Metal / Ice / Nature / Eletricity 
+
+	Monster:
+		Evolution - Natural / Form Charge / Forced
+		Mutant - Forced Trap / Magic 
+		Fusion - 2 Unidade especifica viram 1, dura por 3-11 turnos
+		Heroic - Transformaçao Temporaria 3-11 turnos
+		Ant-Heroic - Transformaçao Permanente, apos uso e contagem de turnos [3-11] ele fica fora da partida
+		
+	Rank:
+		Civil 
+		Soldier 
+		Combatant 
+		General 
+		Ruler / Queen / King 
+		God / Ant-God / Ultimate
+
+	Warrior -
+		Dwarf- Anoes
+		Elf/Dark Elf- Elfos 
+		Ninja/Samurai- Clan rivais 
+		Tatic- Humanos do Combate de qualquer era
+		Human- Humanos de outros tipos
+		Animgen's- Animais meio humanos
+		Minion - Orcs/goblins e outros que sao comandado
+		Ancient
+		Magical
+		Elemental 
+		Legenadary
+	Dragon
+		Wyverns - 2 asas + 2 membros
+		Wyrms - 2 asas + 2 ou 4 menbros  e corpo alongado ( serpente )
+		Drake - 4 Menbros sem assas
+		Ancient - Dragoes primordiais
+		Original - Dragoes europeus 2 asas + 4 membros
+		Leviathan - Dragao que pode 'nadar' em algum ambiente 
+		Legenadary
+	Angel
+		Ancient
+		Querubin
+		Arcanjo
+		Serafin
+		Original 
+		Legenadary
+	Demon 
+		Ancient
+		Djinn - demonios da lampada
+		Sucubus/Incubus
+		Original 
+		Legenadary
+	Witch 
+		Elemental
+		Necromante
+		Stelar
+		Dark
+		Tecno
+		Ancient 
+		Legenadary
+	Vampir 
+		Original
+		Sucubus/Incubus
+		Lamia - meio vampiro meio animais
+		Ancient 
+		Legenadary
+	Sea-Monster
+		Leviathan
+		Fish
+		Kaiju
+		Ancient
+		Original 
+		Legenadary
+	Beast 
+		Original
+		Animgen
+		Ancient
+		Kaiju 
+		Legenadary
+	Winged-Beast
+		Bird
+		Kaiju
+		Ancient
+		Original 
+		Legenadary
+	Dinosaur 
+		Kaiju
+		Ancient
+		Original 
+		Legenadary
+	Reptile 
+		Kaiju
+		Ancient
+		Original 
+		Legenadary
+	Guardian 
+		Kaiju
+		Giant
+		Ancient
+		Original
+		Primordial 
+		Legenadary
+	Machine 
+		Antiq
+		Cyborg
+		Original
+		Ancient 
+		Legenadary
+	Cyber 
+		Cyborg
+		Original
+		Ancient 
+		Legenadary
+	Paranormal 
+		Ghost
+		Zombies
+		Elemental
+		Magical
+		Curse 
+		Legenadary
+	Insect 
+		Elemental
+		Giant
+		Ancient
+		Original 
+		Legenadary
+	Plant 
+		Elf
+		Elemental
+		Ancient
+		Original 
+		Legenadary
+	Rock 
+		Elemental
+		Ancient
+		Original 
+		Legenadary
+	Pyro 
+		Elemental
+		Ancient
+		Original 
+		Legenadary
+	Thunder  
+		Legenadary
+		Elemental
+		Ancient
+		Original
+	Alien  
+		Beast
+		Winged 
+		Legenadary
+		Elemental
+		Ancient
+		Original
+		Cyborg
+		Reptilian
+	Mystic - 
+		Beast
+		Winged
+		Human
+		Legenadary
+		Original
+		Guardian
+		Ancient
+	Mytholic-Beast 
+		Legenadary
+	Mytholic-God  
+		Legenadary
+		Giant
+		Elemental
+		Primordial

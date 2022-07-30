@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 8e88baaa58c87cf418e4fbe47050ddab
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _originalUnit: {instanceID: 0}
+  - unit: {instanceID: 0}
+  - self: {instanceID: 0}
+  - atk: {instanceID: 0}
+  - def: {instanceID: 0}
+  - life: {instanceID: 0}
+  - _AtualHex: {instanceID: 0}
+  - _MatNoMove: {fileID: 2100000, guid: 45a2710e32d0cae43ad12075ba43975e, type: 2}
+  - _MatCanMove: {fileID: 2463992919536637834, guid: cefb9cc63fa32964f9f6f8cc6a3748c2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
