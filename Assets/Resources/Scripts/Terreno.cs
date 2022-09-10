@@ -10,6 +10,8 @@ public class Terreno : MonoBehaviour
     public GameObject _SelfTerreno;
     public bool _HasUnit= false;
 	public GameObject _UnitOver;
+	public GameObject _LastUnitOver;
+	public SceneVariables_Battle SVB;
 	
     public bool _OnRange = false;
     public bool _CanMoveOver = true;
@@ -54,6 +56,7 @@ public class Terreno : MonoBehaviour
 	    _VFXDeath.SetActive(false);
 	    _VFXHeal.SetActive(false);
 	    _VFXEvolution.SetActive(false);
+	    SVB = FindObjectOfType<SceneVariables_Battle>();
 	    //if (_PlayerOwner && _HexType == "Summon"){ _PlayerOwnerID = SceneVariables_Battle.p1.ID; }
 	    //else if (_PlayerOwner != true && _HexType == "Summon") { _PlayerOwnerID = SceneVariables_Battle.p2.ID; }
     }
@@ -84,6 +87,9 @@ public class Terreno : MonoBehaviour
 	
     public void OnMouseDown()
 	{
+		var aud = FindObjectOfType<ManagerSound>();
+		aud.audio.clip = aud.click;
+		aud.audio.Play();
 		CheckSpell();
     	SceneVariables_Battle._TerrenoAnterior = SceneVariables_Battle._LastTerreno;
     	SceneVariables_Battle._LastTerreno = _SelfTerreno;
@@ -97,22 +103,22 @@ public class Terreno : MonoBehaviour
         case "Summon":
 	        //Se estiver movendo, se move, caso contrario tenta invocar,se foi o dono que clicou.
 	        if (SceneVariables_Battle.p1.onMove && _OnRange && _CanMoveOver)
-                	{ MoveUnit();
-                	Debug.Log("Movendo...");}
+	        	{ MoveUnit();
+		        SVB.DebugText("Movendo unit : " + SceneVariables_Battle._UnitToMove );}
 	        else if ( _PlayerOwner && SceneVariables_Battle.p1.canSummon)
                 {if (SceneVariables_Battle.atualTurnID == _PlayerOwnerID)
                 { SceneVariables_Battle.p1.onSummon = true;
-	                Debug.Log("Escolha unidade para invocar...");}
-                else {Debug.Log("Não pode invocar no turno inimigo");}
+	                SVB.DebugText("Escolha unidade para invocar...");}
+                else {SVB.DebugText("Não pode invocar no turno inimigo");}
                 }
 	        else if (_PlayerOwner && SceneVariables_Battle.p1.canSummon != true)
-                {Debug.Log("Ja invocou nesse turno");
+                {SVB.DebugText("Ja invocou nesse turno");
                 CancelMoveUnit();}
                 else if ( _PlayerOwner )
                 	{ CancelMoveUnit();
-	                Debug.Log("Local de invocaçao inimiga.");	} 
+	                SVB.DebugText("Local de invocaçao inimiga.");	} 
                 else{ CancelMoveUnit();
-	                Debug.Log("Cancelando Movimento.");
+	                SVB.DebugText("Cancelando Movimento.");
 		            Debug.Log("Dados: PlayerOwnerID " + _PlayerOwnerID + " Atual Turn -" + SceneVariables_Battle.atualTurnID + "e PodeInvocar: " + SceneVariables_Battle.p1.canSummon );}
                 break;
         case "Commander":
@@ -169,7 +175,7 @@ public class Terreno : MonoBehaviour
 		SceneVariables_Battle.p1.onSummon = false;
 		var x =SceneVariables_Battle._UnitToMove.GetComponent<UnitField>();
 		x._CanMove = false;
-		
+		x.unit._TimeToReset --;
 	}
 	
 	private UnitField x;
@@ -178,11 +184,28 @@ public class Terreno : MonoBehaviour
 	    Debug.DrawRay(_ray.transform.position, _ray.transform.TransformDirection(Vector3.forward)* 1f, Color.green);
 	    if (Physics.Raycast(_ray.transform.position, _ray.transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, 1f))
 	    { 
+		    var aud2 = FindObjectOfType<ManagerSound>();
+		    if (_SpellData.Name != "" && _SpellActived == true && _UnitOver != _LastUnitOver)
+		    {
+		    	StartCoroutine(AnimActive());
+		    	_VFXSpellActive.SetActive(true);
+			    aud2.audio.clip = aud2.active;
+			    aud2.audio.Play();
+		    	SVB.DebugText(_SpellData.Name + " Spell Re-Ativou!"); 
+		    	_LastUnitOver = hitinfo.transform.gameObject;
+		    	SpellEffects.SpellToActive(_SpellData.Script , _LastUnitOver.GetComponent<UnitField>());
+		    }
 		    if (_SpellData.Name != "" && _SpellActived != true){
 		    	_SpellActived = true ;
 		    	StartCoroutine(AnimActive());
 		    	_VFXSpellActive.SetActive(true);
-		    	Debug.Log(_SpellData.Name + " Spell Ativou!"); }
+			    aud2.audio.clip = aud2.active;
+			    aud2.audio.Play();
+		    	SVB.DebugText(_SpellData.Name + " Spell Ativou!");
+		    	_LastUnitOver = hitinfo.transform.gameObject;
+		    	SpellEffects.SpellToActive(_SpellData.Script , _LastUnitOver.GetComponent<UnitField>());
+		    }
+		    
 	        //Debug.Log(hitinfo.collider);
             _HasUnit = true;
 		    _UnitOver = hitinfo.transform.gameObject;
@@ -190,17 +213,14 @@ public class Terreno : MonoBehaviour
 		    unit = x.unit;
 		    x._AtualHex = _SelfTerreno;
 		    x._Visinhos = _Visinhos;
-		    if (_SpellData.id != "")
-		    {
-		    	
-		    }
 		    if (_PlayerOwner != x._isplayer && _HexType == "Castelo")
 		    {
 		    	Debug.Log(" Player "+ SceneVariables_Battle.atualTurn + "Win !!!");
 		    }
 		    
         }else
-        {
+	    {
+	        _LastUnitOver = null;
             _HasUnit = false;
 	        _UnitOver = null;
 	        unit = null ;

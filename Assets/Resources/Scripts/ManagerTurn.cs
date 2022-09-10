@@ -19,16 +19,27 @@ public class ManagerTurn : MonoBehaviour
 	private bool _PosPlayerHud;
     public void NextTurn()
 	{
-		// Habilidade Eternal Life
+		// Habilidade Eternal Life + Reset Mod Atributes
 		var unitZ = FindObjectsOfType<Unit>();
 		foreach (Unit u in unitZ)
 		{
+			u._TimeToReset --;
 			if (u._effect1 == "Eternal Life" || u._effect2 == "Eternal Life" )
 			{	//Debug.Log(u._effect1 + " e " + u._effect2);
 				if (u._life < u._originalLife*2)
 				{
 					u._life++;
 				}
+				
+			}
+			if (u._OnStatus == "Sleep")
+			{ u._UnitOnField.GetComponent<UnitField>()._CanMove = false;}
+		}
+		var terrenoZ = FindObjectsOfType<Terreno>();
+		foreach (Terreno t in terrenoZ)
+		{
+			if (t._SpellData.SubType == "Terreno" && t._LastUnitOver != null){
+				SpellEffects.SpellToActive(t._SpellData.Script , t._LastUnitOver.GetComponent<UnitField>());
 			}
 		}
 		// troca de turno

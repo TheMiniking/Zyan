@@ -40,6 +40,9 @@ public class SceneVariables_Battle : MonoBehaviour
 	[ShowInInspector] public static int PlayerEnergy;
 	[ShowInInspector] public static int EnemyEnergy;
 	
+	[Title("Battle Variables")]
+	[ShowInInspector] public static string[] DebugLogList = new string[] {};
+	
 	[Title("In test - Não apagar")]
     [ShowInInspector] public static Dictionary<string, string> idList = new Dictionary<string, string>();
     
@@ -66,14 +69,14 @@ public class SceneVariables_Battle : MonoBehaviour
 		playerData = playerOBJ.Player;
 		playerID = playerData.ID;
 		enemyID = ""+ Random.Range(0,99999999);
-		enemyName = "Gesonel";
+		enemyName = "AI Lv 1";
 		p1.ID = playerID;
 		p1.IsPlayer1 = true;
 		p1.Name = playerData.Name;
 		p2.ID = enemyID;
 		p2.IsPlayer1 = false;
 		p2.Name = enemyName;
-		p1.Rank = "Soldier";
+		p1.Rank = "Civil";
 		p2.Rank = "Civil";
     }
 
@@ -132,6 +135,12 @@ public class SceneVariables_Battle : MonoBehaviour
 		ManagerTurn v = FindObjectOfType<ManagerTurn>();
 		v.NextTurn();
 	}
+	
+	public void DebugText(string tx){
+		ArrayUtility.Add<string>(ref DebugLogList, tx);
+		debugText.text = tx;
+	}
+	
 	[System.Serializable]
 	public class BattlePlayerData{
 		public string ID;

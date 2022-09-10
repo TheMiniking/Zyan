@@ -38,7 +38,13 @@ public class Unit : MonoBehaviour
 	public UnitObj selfObjUnit;
     public int _originalAtk;
     public int _originalDef;
-    public int _originalLife;
+	public int _originalLife;
+	public int _TotallAtk;
+	public int _TotalDef;
+	public int _TotalLife;
+	public int _ModAtk;
+	public int _ModDef;
+	public int _ModLife;
     
 	[Title("Boost/Deboost")]
 	public Zyan.EquipClass _Equip;
@@ -55,6 +61,8 @@ public class Unit : MonoBehaviour
 	public int _PermanentModATK;
 	public int _PermanentModDEF;
 	public Zyan.EvolutionCheck _EvolutionCheck;
+	public int _TimeToReset = -1;
+	public bool _ResetMod;
     
 	[Title("Unit OBJ e Valores")]
     public GameObject _Self ;
@@ -83,6 +91,9 @@ public class Unit : MonoBehaviour
 	public Animator _CardBGAnim;
     public GameObject _Summon;
 	public GameObject _UnitPrefab;
+	public TMP_Text _vModATK;
+	public TMP_Text _vModDEF;
+	public TMP_Text _vModLife;
     
 	[Title("Owner infos")]
 	public string _OwnerID;
@@ -142,13 +153,27 @@ public class Unit : MonoBehaviour
     private void FixedUpdate()
     {
 	    if (_Index != -1) { UpdateCard(); }
-	    if ( _life <= 0 ) { SendToEnfermary();}
+	    if ( _TotalLife <= 0 ) { SendToEnfermary();}
 	    if ( _UnitOnField != null) {_OnField = true;}
 	    else {_OnField = false;}
+	    if (_TimeToReset == 0 ){ _ResetMod = true;}
+	    if (_ResetMod) {ResetMod();}
     }
+    
+	public void ResetMod(){
+		_ProvisoryModATK = 0;
+		_ProvisoryModDEF = 0;
+		_UnitOnField.GetComponent<UnitField>()._SpecialStatus = "";
+		_ResetMod = false;
+		_TimeToReset = -1;
+	}
+    
     
 	public void OnClick()
 	{
+		var aud = FindObjectOfType<ManagerSound>();
+		aud.audio.clip = aud.clickUI;
+		aud.audio.Play();
 		var z = FindObjectOfType<Manager_UI>();
 		z._TerrenoName = "";
 		z.UpdateUI(_Self);
@@ -211,12 +236,12 @@ public class Unit : MonoBehaviour
 	        var o = _UnitOnField.GetComponent<UnitField>();
 	        var t = o._AtualHex;
 	        _Terreno = t.GetComponent<Terreno>();}
-        else{ if (_life >= _originalLife / 2 + 0.5f )
+        else{ if (_TotalLife >= Mathf.RoundToInt((_originalLife + _boostLife - _DeboostLife) / 2) )
             {	_SelfButton.interactable = true;
                 _Off.gameObject.SetActive(false);}
         	else{_SelfButton.interactable = false;
                 _Off.gameObject.SetActive(true); }}
-        if ( _life >= _originalLife )
+		if ( _TotalLife >= _originalLife + _boostLife - _DeboostLife )
         {   _CardBGAnim.SetBool("Enfermary", false) ;
 	        _OnEnfermary = false;
 	        _Enfermary.SetActive(false);}
@@ -224,7 +249,7 @@ public class Unit : MonoBehaviour
         	{	_OnEnfermary = false;
 	        	_CardBGAnim.SetBool("Enfermary", false);
 	        	_Enfermary.SetActive(false);
-        	}else if (_life < _originalLife)
+        	}else if (_TotalLife < _originalLife + _boostLife - _DeboostLife)
         	{	_OnEnfermary = true;
 	        	_CardBGAnim.SetBool("Enfermary", true);
         		_Enfermary.SetActive(true);
@@ -266,19 +291,28 @@ public class Unit : MonoBehaviour
 	
 	private void VerifyUIColor()
 	{
+		_TotallAtk = _atk + _boostATK - _DeboostATK + _ProvisoryModATK + _PermanentModATK;
+		_TotalDef = _def + _boostDEF - _DeboostDEF+ _ProvisoryModDEF + _PermanentModDEF;
+		_TotalLife =_life + _boostLife - _DeboostLife;
+		_ModAtk = _boostATK - _DeboostATK + _ProvisoryModATK + _PermanentModATK;
+		_ModDef = _boostDEF - _DeboostDEF+ _ProvisoryModDEF + _PermanentModDEF;
+		_ModLife = _boostLife - _DeboostLife;
+		if (_TotallAtk <= 0) _TotallAtk = 0;
+		if (_TotalDef <= 0) _TotalDef = 0;
 		// Muda cor das letras se estiver maior ou menor que o original
-		if (_originalAtk < _atk + _boostATK - _DeboostATK)				{_vATK.color = _boost;}
-		else if (_originalAtk == _atk + _boostATK - _DeboostATK)		{_vATK.color = Color.white;}
+		if (_originalAtk < _TotallAtk)				{_vATK.color = _boost;}
+		else if (_originalAtk == _TotallAtk)		{_vATK.color = Color.white;}
 		else {_vATK.color = _deboost;}
-		_vATK.text = "" + (_atk + _boostATK - _DeboostATK);
-		if (_originalDef < _def + _boostDEF - _DeboostDEF)				{_vDEF.color = _boost;}
-		else if (_originalDef == _def + _boostDEF - _DeboostDEF)		{_vDEF.color = Color.white;}
+		_vATK.text = "" + _TotallAtk;
+		if (_originalDef < _TotalDef)				{_vDEF.color = _boost;}
+		else if (_originalDef == _TotalDef)			{_vDEF.color = Color.white;}
 		else {_vDEF.color = _deboost;}
-		_vDEF.text = "" + (_def + _boostDEF - _DeboostDEF);
-		if (_originalLife > _life + _boostLife - _DeboostLife)			{_vLife.color = _boost;}
-		else if (_originalLife == _life + _boostLife - _DeboostLife)	{_vLife.color = Color.white;}
+		_vDEF.text = "" + _TotalDef;
+		if (_originalLife >_TotalLife)				{_vLife.color = _boost;}
+		else if (_originalLife == _TotalLife)		{_vLife.color = Color.white;}
 		else{_vLife.color = _boost;}
-		_vLife.text = "" + (_life + _boostLife - _DeboostLife);
+		_vLife.text = "" + _TotalLife;
+		
 	}
 	
 	private void VerifyResources()

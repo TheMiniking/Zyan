@@ -14,6 +14,9 @@ public class Manager_UI : MonoBehaviour
 	public TMP_Text _ATK;
 	public TMP_Text _DEF;
 	public TMP_Text _Life;
+	public TMP_Text _ModATK;
+	public TMP_Text _ModDEF;
+	public TMP_Text _ModLife;
 	public RawImage _Type;
 	public RawImage _Element;
 	public RawImage _Rank;
@@ -134,6 +137,27 @@ public class Manager_UI : MonoBehaviour
 		_ATK.text = "" + hud.ATK;
 		_DEF.text = "" + hud.DEF;
 		_Life.text = ""+ hud.Life;
+		if (unit._ModAtk > 0) {
+			_ModATK.gameObject.SetActive(true);
+			_ModATK.text = "+ " + unit._ModAtk;}
+		else if (unit._ModAtk < 0) {
+			_ModATK.gameObject.SetActive(true);
+			_ModATK.text = "" + unit._ModAtk;}
+		else{_ModATK.gameObject.SetActive(false);}
+		if (unit._ModDef > 0) {
+			_ModDEF.gameObject.SetActive(true);
+			_ModDEF.text = "+ " + unit._ModDef;}
+		else if (unit._ModDef < 0) {
+			_ModDEF.gameObject.SetActive(true);
+			_ModDEF.text = "" + unit._ModDef;}
+			else{_ModDEF.gameObject.SetActive(false);}
+		if (unit._ModLife > 0) {
+			_ModLife.gameObject.SetActive(true);
+			_ModLife.text = "+ " + unit._ModAtk;}
+		else if (unit._ModLife < 0) {
+			_ModLife.gameObject.SetActive(true);
+			_ModLife.text = "" + unit._ModLife;}
+			else{_ModLife.gameObject.SetActive(false);}
 		_Type.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._type);
 		_Element.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._element);
 		_Rank.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._rank);

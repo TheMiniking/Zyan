@@ -29,6 +29,7 @@ public class UnitField : MonoBehaviour
 	public bool _BoostMoviment;
 	public string _SpecialStatus;
 	public SpriteRenderer _StatusImg;
+	public SceneVariables_Battle SVB;
 	
 	[Title("Animation :")]
 	[PreviewField]public Sprite[] _AnimPoison;
@@ -45,6 +46,8 @@ public class UnitField : MonoBehaviour
     // Start is called before the first frame update
     void Start()
 	{	
+		
+		SVB = FindObjectOfType<SceneVariables_Battle>();
 		_originalUnit = SceneVariables_Battle._LastSummonUnit.gameObject;
 	    unit = _originalUnit.GetComponent<Unit>();
 	    self = this.gameObject ;
@@ -66,10 +69,15 @@ public class UnitField : MonoBehaviour
 	    if (unit._OnStatus!= "No" && unit._OnStatusTurn > 0 && onAnim != true)
 	    {	_StatusImg.gameObject.SetActive(true);
 		    AnimStatus(unit._OnStatus);
-		    Debug.Log("On status : "+ unit._OnStatus);
+		    SVB.DebugText("On status : "+ unit._OnStatus);
 		    onAnim = true;}
     }
     
+	void OnDestroy(){
+		var aud = FindObjectOfType<ManagerSound>();
+		aud.audio.clip = aud.explosao;
+		aud.audio.Play();
+	}
     
 	public void UpMaterial()
 	{
@@ -80,14 +88,13 @@ public class UnitField : MonoBehaviour
 	    rend.sharedMaterials = mat;
 	}
     
+	/*
+	// Remoçao do pasar o mouse - mudar o metodo
 	public void OnMouseOver()
 	{
-		var z = FindObjectOfType<Manager_UI>();
-		if (_AtualHex.GetComponent<Terreno>()._SpellData.id != "" && _AtualHex.GetComponent<Terreno>()._SpellActived)
-		{ z._TerrenoName = _AtualHex.GetComponent<Terreno>()._SpellData.Name;}
-		else{z._TerrenoName ="Terreno : " + _AtualHex.GetComponent<Terreno>()._HexType;}
-		z.UpdateUI(_originalUnit);
+		
 	}
+	*/
     
 	public void AnimStatus( string status){
 		switch (status){
@@ -126,41 +133,46 @@ public class UnitField : MonoBehaviour
     
 	public void OnMouseDown()
 	{	
+		var z = FindObjectOfType<Manager_UI>();
+		if (_AtualHex.GetComponent<Terreno>()._SpellData.id != "" && _AtualHex.GetComponent<Terreno>()._SpellActived)
+		{ z._TerrenoName = _AtualHex.GetComponent<Terreno>()._SpellData.Name;}
+		else{z._TerrenoName ="Terreno : " + _AtualHex.GetComponent<Terreno>()._HexType;}
+		z.UpdateUI(_originalUnit);
 		SceneVariables_Battle._TerrenoAnterior = SceneVariables_Battle._LastTerreno;
 		SceneVariables_Battle._LastTerreno = _AtualHex;
-		Debug.Log("Click : " + unit._name);
+		SVB.DebugText("Click : " + unit._name);
 		switch ( SceneVariables_Battle.atualTurn)
 		{
 		case "P1":
 			if (_isplayer){
-				 if (_CanMove)
+				if (_CanMove && unit._OnStatus != "Sleep")
 					{SceneVariables_Battle.p1.onMove = true;
 					SceneVariables_Battle._UnitToMove = this;
-					Debug.Log("Pronto para mover :" + this);
+					Debug.Log("Pronto para mover :" + unit._name);
 					foreach ( GameObject x in _Visinhos){
 						if (x != null)
 						{var y = x.GetComponent<Terreno>();
 							y._OnRange = true;}}}
-				else {Debug.Log("Nao pode mover : " + this);}}
+				else {SVB.DebugText("Nao pode mover : " + unit._name);}}
 			else {
-				Debug.Log("indo pra batalha :" + this);
+				SVB.DebugText("indo pra batalha :" + this);
 				if (_AtualHex.GetComponent<Terreno>()._UnitOver.GetComponent<UnitField>() != SceneVariables_Battle._UnitToMove)
 				{ FindObjectOfType<Manager_Battle>().Batalha(SceneVariables_Battle._UnitToMove._originalUnit, _originalUnit );}
 				else
-				{Debug.Log("Não é seu turno " + this);}}
+				{SVB.DebugText("Não é seu turno !");}}
 		break;
 		case "P2":
 			if (_isplayer != true){
 				if (_CanMove)
 				{SceneVariables_Battle.p2.onMove = true;
 					SceneVariables_Battle._UnitToMove = this;
-					Debug.Log("Pronto para mover :" + this);
+					SVB.DebugText("Pronto para mover : " + unit._name);
 					foreach ( GameObject x in _Visinhos){
 						if (x != null)
 						{var y = x.GetComponent<Terreno>();
 							y._OnRange = true;}}}
-				else {Debug.Log("Nao pode mover : " + this);}}
-			else {Debug.Log("Não é seu turno " + this);}
+				else {SVB.DebugText("Nao pode mover : " + unit._name);}}
+			else {SVB.DebugText("Não é seu turno !");}
 			break;
 	
 		}

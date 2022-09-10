@@ -10,7 +10,7 @@ public class PlayerDeckOBJ : ScriptableObject
 	public Zyan.PlayerDecks Deck;
 	public Zyan.SpellClass[] SpellTrap; 
 	
-	void Start () => UpdateData();
+	void Awake () => UpdateData();
 	
 	[Button]
 	public void UpdateData() => OnValidate();
