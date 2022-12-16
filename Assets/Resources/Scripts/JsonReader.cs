@@ -35,7 +35,7 @@ public static class JsonReader
 		WriteFile (GetPath (filename), content);
 	}
 	//Save para IdIndex
-	public static void SaveToJSONIdIndex (Zyan.IdIndex[] toSave, string filename) {
+	public static void SaveToJSONIdIndex (List<Zyan.IdIndex> toSave, string filename) {
 		Debug.Log (GetPath (filename));
 		string content = GetJson.ToJsonId (toSave, true);
 		WriteFile (GetPath (filename), content);
@@ -62,7 +62,7 @@ public static class JsonReader
 	}
 	
 	// Cria os AssetsObjects com base no Json
-	public static void CreateAsset(string type)
+	/*public static void CreateAsset(string type)
 	{
 		switch (type)
 		{
@@ -110,7 +110,7 @@ public static class JsonReader
 			break;
 		}
 		
-	}
+	}*/
 	
 	//Cards -- Le o arquivo json e retorna ela como lista
 	public static Zyan.CardList[] ReadListFromJSONCard (string filename) {
@@ -122,10 +122,10 @@ public static class JsonReader
 		return cards.Cards;
 	}
 	//IDList -- Le o arquivo json e retorna ela como lista
-	public static Zyan.IdIndex[] ReadListFromJSONId (string filename) {
+	public static List<Zyan.IdIndex> ReadListFromJSONId (string filename) {
 		string content = ReadFile (GetPath (filename));
 		if (string.IsNullOrEmpty (content) || content == "{}") {
-			return new Zyan.IdIndex[1];
+			return new List<Zyan.IdIndex>{};
 		}
 		Zyan.IdIndexList id = JsonUtility.FromJson<Zyan.IdIndexList> (content);
 		return id.IndexList;
@@ -245,7 +245,7 @@ public static class GetJson {
 		return fala.Dialogo;
 	}
 	// Load for index
-	public static Zyan.IdIndex[] FromJsonIdIndex (string json) {
+	public static List<Zyan.IdIndex> FromJsonIdIndex (string json) {
 		Zyan.IdIndexList id = JsonUtility.FromJson<Zyan.IdIndexList> (json);
 		return id.IndexList;
 	}
@@ -262,8 +262,14 @@ public static class GetJson {
 		cards.Cards = array;
 		return JsonUtility.ToJson (cards, prettyPrint);
 	}
-	// Transforma array idList para JSON string , formatado
+	/* Transforma array idList para JSON string , formatado
 	public static string ToJsonId (Zyan.IdIndex[] array, bool prettyPrint) {
+		Zyan.IdIndexList id = new Zyan.IdIndexList ();
+		id.IndexList = array;
+		return JsonUtility.ToJson(id, prettyPrint);
+	}*/
+	// Transforma list idList para JSON string , formatado
+	public static string ToJsonId (List<Zyan.IdIndex> array, bool prettyPrint) {
 		Zyan.IdIndexList id = new Zyan.IdIndexList ();
 		id.IndexList = array;
 		return JsonUtility.ToJson(id, prettyPrint);

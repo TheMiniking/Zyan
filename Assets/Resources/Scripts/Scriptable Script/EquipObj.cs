@@ -38,7 +38,7 @@ public class EquipObj : ScriptableObject
 	public void LoadSelf()
 	{
 		Zyan.EquipCardList[] cards = JsonReader.ReadListFromJSONEquip();
-		Zyan.IdIndex[] dat = JsonReader.ReadListFromJSONId("Equip.mk");
+		List<Zyan.IdIndex> dat = JsonReader.ReadListFromJSONId("Equip.mk");
 		if (id != "")
 		{
 			foreach (Zyan.EquipCardList item in cards)

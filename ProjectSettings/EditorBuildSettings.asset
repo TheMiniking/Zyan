@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Tela Inicial - Simples.unity
+    guid: ab63ecf3f0687af4cbec2c4521f3a839
+  - enabled: 1
+    path: Assets/Scenes/Store.unity
+    guid: a606cfa9108a5ae41b5966ba82c7c39b
+  - enabled: 1
     path: Assets/Scenes/Battle-NoVS.unity
     guid: 8a2feb75e4abf2f41bdf89a03f65ff3f
   m_configObjects:

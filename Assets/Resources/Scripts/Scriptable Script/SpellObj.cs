@@ -26,7 +26,7 @@ public class SpellObj : ScriptableObject
 	public void LoadSelf()
 	{
 		Zyan.SpellCardList[] cards = JsonReader.ReadListFromJSONSpellTrap();
-		Zyan.IdIndex[] dat = JsonReader.ReadListFromJSONId("Spell.mk");
+		List<Zyan.IdIndex> dat = JsonReader.ReadListFromJSONId("Spell.mk");
 		if (id != "")
 		{
 			foreach (Zyan.SpellCardList item in cards)

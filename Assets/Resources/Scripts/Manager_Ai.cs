@@ -6,15 +6,15 @@ using UnityEditor;
 
 public class Manager_Ai : MonoBehaviour
 {
-	public GameObject[] enemyUnits;
-	public GameObject[] onField ;
-	public GameObject[] onHand ;
-	public GameObject[] canSummonUnits ;
-	public GameObject[] canMoveUnits ;
-	public GameObject[] summonSpot;
-	public GameObject[] vp;
-	public GameObject[] bp;
-	public GameObject[] summonSpot2;
+	public List<GameObject> enemyUnits;
+	public List<GameObject> onField ;
+	public List<GameObject> onHand ;
+	public List<GameObject> canSummonUnits ;
+	public List<GameObject> canMoveUnits ;
+	public List<GameObject> summonSpot;
+	public List<GameObject> vp;
+	public List<GameObject> bp;
+	public List<GameObject> summonSpot2;
 	
 	public Terreno terreno;
 	private bool aiOn;
@@ -41,15 +41,15 @@ public class Manager_Ai : MonoBehaviour
     
 	public void AiChoiseNextStep()
 	{
-		ArrayUtility.Clear<GameObject>(ref onHand);
-		ArrayUtility.Clear<GameObject>(ref onField);
-		ArrayUtility.Clear<GameObject>(ref canMoveUnits);
+		onHand = new List<GameObject>{};
+		onField = new List<GameObject>{};
+		canMoveUnits = new List<GameObject>{};
 		foreach (GameObject g in enemyUnits)
 		{	//Separa os do campo e os da mao, com o gameobject da mao.
 			var f =g.GetComponent<Unit>();
 			if (f._OnField)
-			{ArrayUtility.Add<GameObject>(ref onField, g);}
-			else{ArrayUtility.Add<GameObject>(ref onHand, g);}
+			{onField.Add(g);}
+			else{onHand.Add(g);}
 		}
 		foreach (GameObject g in onField)
 		{	//Separa os do campo se pode movimentar.
@@ -58,16 +58,16 @@ public class Manager_Ai : MonoBehaviour
 			var t = e.GetComponent<UnitField>();
 			if (t._CanMove)
 			{
-				ArrayUtility.Add<GameObject>(ref canMoveUnits, g);
+				canMoveUnits.Add(g);
 			}
 		}
 		// Escolhe proximo passo, priorizando a sequencia
 		// Summon [quantas vezes possivel> Movimento > finalizar o turno.
-		if( onField.Length > 0 && canMoveUnits.Length > 0)
+		if( onField.Count > 0 && canMoveUnits.Count > 0)
 		{
 			AiMoviment();
 			return;
-		}else if (SceneVariables_Battle.p2.canSummon && SceneVariables_Battle.atualTurn == "P2" && onHand.Length > 0)
+		}else if (SceneVariables_Battle.p2.canSummon && SceneVariables_Battle.atualTurn == "P2" && onHand.Count > 0)
 		{
 			AiSummon();
 			return;
@@ -81,34 +81,34 @@ public class Manager_Ai : MonoBehaviour
 	public void AiSummon()
 	{
 		Debug.Log("Ai tentando invocar...");
-		ArrayUtility.Clear<GameObject>(ref canSummonUnits);
+		canSummonUnits = new List<GameObject>{};
 		foreach (GameObject g in onHand)
 		{	// verifica os que podem ser invocados.
 			var d = g.GetComponent<Unit>();
 			if (d._life > d._originalLife/2+0.5f)
 			{
-				ArrayUtility.Add<GameObject>(ref canSummonUnits, g);
+				canSummonUnits.Add(g);
 			}
 		}
 		
-		if (canSummonUnits.Length > 0)
+		if (canSummonUnits.Count > 0)
 		{	// Verifica quantos podem ser invocados
-			var x = Random.Range(0,canSummonUnits.Length);
+			var x = Random.Range(0,canSummonUnits.Count);
 			var z = canSummonUnits[x];
 			var unit = z.GetComponent<Unit>();
-			ArrayUtility.Clear<GameObject>(ref summonSpot2);
+			summonSpot2 = new List<GameObject>{};
 			foreach (GameObject g in summonSpot)
 			{// verifica sem tem lugar para invocar livre.
 				var f = g.GetComponent<Terreno>();
 				if(f._HasUnit != true)
 				{
-					ArrayUtility.Add<GameObject>(ref summonSpot2, g);
+					summonSpot2.Add(g);
 				}
 			}
 			
-			if (summonSpot2.Length > 0)
+			if (summonSpot2.Count > 0)
 			{//completa a invocaçao se possivel.
-			var u = Random.Range(0, summonSpot2.Length);
+				var u = Random.Range(0, summonSpot2.Count);
 			SceneVariables_Battle._LastTerreno = summonSpot2[u];
 			SceneVariables_Battle._LastSummonUnit = unit;
 			unit.FinishSummon();
@@ -126,15 +126,16 @@ public class Manager_Ai : MonoBehaviour
 	public void AiMoviment()
 	{
 		Debug.Log("AI começando a Mover.");
-		ArrayUtility.Clear<GameObject>(ref canMoveUnits);
-		ArrayUtility.Clear<GameObject>(ref onHand);
-		ArrayUtility.Clear<GameObject>(ref onField);
+		onHand = new List<GameObject>{};
+		onField = new List<GameObject>{};
+		canMoveUnits = new List<GameObject>{};
 		foreach (GameObject g in enemyUnits)
 		{	//Separa os do campo e os da mao, com o gameobject da mao.
 			var f =g.GetComponent<Unit>();
 			if (f._OnField)
-			{ArrayUtility.Add<GameObject>(ref onField, g);}
-			else{ArrayUtility.Add<GameObject>(ref onHand, g);}
+			{onField.Add(g);}
+			else{onHand.Add(g);}
+			Debug.Log(onHand.Count +" , "+ onField.Count  + " , "+ canMoveUnits.Count);
 		}
 		foreach (GameObject g in onField)
 		{	// verifica quantos do campo ainda podem se mover
@@ -143,10 +144,10 @@ public class Manager_Ai : MonoBehaviour
 			var t = e.GetComponent<UnitField>();
 			if (t._CanMove)
 			{
-				ArrayUtility.Add<GameObject>(ref canMoveUnits, g);
+				canMoveUnits.Add(g);
 			}
 		}
-		if (canMoveUnits.Length > 0)
+		if (canMoveUnits.Count > 0)
 		{// escolhe para qual terreno se mover,se possivel.
 			var choiseUnit = canMoveUnits[0];
 			var x = choiseUnit.GetComponent<Unit>();
@@ -154,8 +155,8 @@ public class Manager_Ai : MonoBehaviour
 			var z = x2.GetComponent<UnitField>();
 			z.OnMouseDown();
 			var visinhos = z._Visinhos;
-			ArrayUtility.Clear<GameObject>(ref vp);
-			ArrayUtility.Clear<GameObject>(ref bp);
+			vp = new List<GameObject>{};
+			bp = new List<GameObject>{};
 			foreach (GameObject g in visinhos)
 			{
 				if (g != null)
@@ -163,16 +164,16 @@ public class Manager_Ai : MonoBehaviour
 					terreno = g.GetComponent<Terreno>();
 					if (terreno._HasUnit != true)
 					{
-						ArrayUtility.Add<GameObject>(ref vp, g);
+						vp.Add(g);
 					}else
 					{
 						var tt = terreno._UnitOver.GetComponent<UnitField>();
-						if (tt._isplayer){ArrayUtility.Add<GameObject>(ref bp, tt.gameObject);}
+						if (tt._isplayer){bp.Add(tt.gameObject);}
 					}
 					
 				}
 			}
-			if ( bp.Length > 0){
+			if ( bp.Count > 0){
 				var go = Random.Range(1,3);
 				switch (go)
 				{
@@ -185,9 +186,9 @@ public class Manager_Ai : MonoBehaviour
 					x5.Batalha(atk._originalUnit, def._originalUnit);
 					break;
 				case 2:
-					if (vp.Length > 0)
+					if (vp.Count > 0)
 					{
-						var goTo = Random.Range(0,vp.Length);
+						var goTo = Random.Range(0,vp.Count);
 						var terreno = vp[goTo];
 						var t = terreno.GetComponent<Terreno>();
 						t.MoveUnit();
@@ -201,9 +202,9 @@ public class Manager_Ai : MonoBehaviour
 					break;
 				}
 				
-			}else if (vp.Length > 0)
+			}else if (vp.Count > 0)
 			{
-				var goTo = Random.Range(0,vp.Length);
+				var goTo = Random.Range(0,vp.Count);
 				var terreno = vp[goTo];
 				var t = terreno.GetComponent<Terreno>();
 				t.MoveUnit();

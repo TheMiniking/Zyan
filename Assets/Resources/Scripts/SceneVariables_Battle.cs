@@ -41,7 +41,7 @@ public class SceneVariables_Battle : MonoBehaviour
 	[ShowInInspector] public static int EnemyEnergy;
 	
 	[Title("Battle Variables")]
-	[ShowInInspector] public static string[] DebugLogList = new string[] {};
+	[ShowInInspector] public static List<string> DebugLogList = new List<string> {};
 	
 	[Title("In test - Não apagar")]
     [ShowInInspector] public static Dictionary<string, string> idList = new Dictionary<string, string>();
@@ -63,9 +63,9 @@ public class SceneVariables_Battle : MonoBehaviour
 		{GameObject.Destroy(this.gameObject);}
 		else {scenesVariables = this.gameObject;
 			DontDestroyOnLoad(scenesVariables);}
-		LoadAssetPlayer();
-		playerOBJ.LoadPlayerDATA();
-		playerOBJ.LoadInventary();
+		//LoadAssetPlayer();
+		//playerOBJ.LoadPlayerDATA();
+		//playerOBJ.LoadInventary();
 		playerData = playerOBJ.Player;
 		playerID = playerData.ID;
 		enemyID = ""+ Random.Range(0,99999999);
@@ -87,32 +87,32 @@ public class SceneVariables_Battle : MonoBehaviour
 		var r = Resources.Load<PlayerDeckOBJ>("Player/Deck/Warriors");
 		_EnemyDeck = r.Deck;
 		var terrenoMisturados = FindObjectsOfType<Terreno>();
-		Terreno[] terrenosNormal = new Terreno[0];
+		List<Terreno> terrenosNormal = new List<Terreno>{};
 		foreach ( Terreno tr in terrenoMisturados)
 		{
 			if (tr._HexType == "Normal")
-			{ ArrayUtility.Add<Terreno>( ref terrenosNormal , tr);}
+			{ terrenosNormal.Add( tr);}
 		}
 		foreach ( Zyan.SpellClass sp in t.SpellTrap)
 		{
-			int w = Random.Range(0,terrenosNormal.Length);
+			int w = Random.Range(0,terrenosNormal.Count);
 			terrenosNormal[w]._SpellData = sp;
-			ArrayUtility.Remove<Terreno>(ref terrenosNormal, terrenosNormal[w]);
+			terrenosNormal.Remove(terrenosNormal[w]);
 		}
 		foreach ( Zyan.SpellClass sp2 in r.SpellTrap)
 		{
-			int w2 = Random.Range(0,terrenosNormal.Length);
+			int w2 = Random.Range(0,terrenosNormal.Count);
 			terrenosNormal[w2]._SpellData = sp2;
-			ArrayUtility.Remove<Terreno>(ref terrenosNormal, terrenosNormal[w2]);
+			terrenosNormal.Remove(terrenosNormal[w2]);
 		}
 	}
-	
+	#if (UNITY_EDITOR) 
 	[Button]
 	private static void LoadAssetPlayer()
 	{
 		playerOBJ = AssetDatabase.LoadAssetAtPath<PlayerInventaryOBJ>("Assets/Resources/Player/Player.asset");
 	}
-	
+	#endif
 	public void LoadID()
 	{
 		p1.ID = playerID;
@@ -137,7 +137,7 @@ public class SceneVariables_Battle : MonoBehaviour
 	}
 	
 	public void DebugText(string tx){
-		ArrayUtility.Add<string>(ref DebugLogList, tx);
+		DebugLogList.Add(tx);
 		debugText.text = tx;
 	}
 	

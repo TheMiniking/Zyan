@@ -8,9 +8,9 @@ using UnityEditor;
 [CreateAssetMenu (fileName = "Action Inventary", menuName = "Zyan Assets/Create Action Inventary")]
 public class ActionInventaryOBJ : ScriptableObject
 {
-	public ActionObj[] ActionObj;
-	public Zyan.ActionClass[] Action ;
-	public Zyan.IdIndex[] Data;
+	public List<ActionObj> ActionObj;
+	public List<Zyan.ActionClass> Action ;
+	public List<Zyan.IdIndex> Data;
 	
 	void OnValidate() => LoadAll();
 	
@@ -18,15 +18,16 @@ public class ActionInventaryOBJ : ScriptableObject
 	public void LoadAll()
 	{
 		if (ActionObj != null)
-		{ArrayUtility.Clear<ActionObj>(ref ActionObj);}
-		ActionObj = Resources.LoadAll<ActionObj>("Scripts/Action/");
-		Action = new Zyan.ActionClass[0];
-		Data = new Zyan.IdIndex[0];
+		{ActionObj = new List<ActionObj>{};}
+		var pg = Resources.LoadAll<ActionObj>("Scripts/Action/");
+		foreach (ActionObj p in pg){ActionObj.Add(p); }
+		Action = new List<Zyan.ActionClass>{};
+		Data = new List<Zyan.IdIndex>{};
 		foreach (ActionObj a in ActionObj)
 		{
 			a.LoadSelf();
-			ArrayUtility.Add<Zyan.ActionClass>(ref Action , a.Card);
-			ArrayUtility.Add<Zyan.IdIndex>(ref Data , a.Data);
+			Action.Add(a.Card);
+			Data.Add(a.Data);
 		}
 	}
 }

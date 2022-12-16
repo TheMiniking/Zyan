@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   Player:
-    Name: Visitante
-    ID: 95017342
+    Name: Visit64389771
+    ID: 64389771
     iTesouros:
       coin: 0
       gem: 0
@@ -607,33 +607,44 @@ MonoBehaviour:
       Id: 81085004
       Quantidade: 0
     - index: 10
-      Id: 32384565
+      Id: 32834565
       Quantidade: 0
     - index: 11
-      Id: 06475134
+      Id: 46485134
       Quantidade: 0
     - index: 12
-      Id: 92176051
+      Id: 90171051
       Quantidade: 0
     - index: 13
-      Id: 25641212
+      Id: 32384565
       Quantidade: 0
     - index: 14
-      Id: 49835942
+      Id: 06475134
       Quantidade: 0
     - index: 15
-      Id: 31399518
+      Id: 92176051
       Quantidade: 0
     - index: 16
-      Id: 28787236
+      Id: 25641212
       Quantidade: 0
     - index: 17
-      Id: 74927492
+      Id: 49835942
       Quantidade: 0
     - index: 18
+      Id: 31399518
+      Quantidade: 0
+    - index: 19
+      Id: 28787236
+      Quantidade: 0
+    - index: 20
+      Id: 74927492
+      Quantidade: 0
+    - index: 21
       Id: 23231814
       Quantidade: 0
-    HistoryMode: 
+    HistoryMode:
+    - InicioP1
+    Decks: []
   DeckInventary: {fileID: 11400000, guid: 795b687abb8a8d34cbf953b182ef80af, type: 2}
   ActionInventary: {fileID: 11400000, guid: 32a7fcf88029d694783655048abc19eb, type: 2}
   EquipInventary: {fileID: 11400000, guid: 322c75a4ffcdc1c4a8dfe26afd4765c1, type: 2}

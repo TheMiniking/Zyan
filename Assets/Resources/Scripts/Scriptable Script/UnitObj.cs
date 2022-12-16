@@ -41,7 +41,7 @@ public class UnitObj : ScriptableObject
 	public void LoadSelf()
 	{
 		Zyan.CardList[] cards = JsonReader.ReadListFromJSONCard();
-		Zyan.IdIndex[] dat = JsonReader.ReadListFromJSONId("Card.mk");
+		List<Zyan.IdIndex> dat = JsonReader.ReadListFromJSONId("Card.mk");
 		if (id != "")
 		{
 			foreach (Zyan.CardList item in cards)

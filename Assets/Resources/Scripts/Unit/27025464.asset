@@ -12,51 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1adf1348f239c4d8c733b1190e8a11, type: 3}
   m_Name: 27025464
   m_EditorClassIdentifier: 
-  id: 
-  Name: 
-  Type: 
-  Rank: 
-  Element: 
-  Special: 
-  ATK: 0
-  DEF: 0
-  Life: 0
-  Status: 
-  Effect1: 
-  Effect2: 
-  Evolution: 
-  EvolCust1: 
-  EvolCust2: 
-  EvolCust3: 
-  Evol1: 
-  Evol2: 
-  Evol3: 
-  RarityUp: 
-  Rarity: 
+  id: 27025464
+  Name: Xaraan, All-Mother Praise-God
+  Type: Insect
+  Rank: General
+  Element: Light
+  Special: Evolution
+  ATK: 7
+  DEF: 7
+  Life: 12
+  Status: None
+  Effect1: Power Astral
+  Effect2: Vampirism
+  Evolution: Destroy 1 unit in battle -
+  EvolCust1: Battle,2
+  EvolCust2: Energy,6
+  EvolCust3: Energy,6
+  Evol1: None
+  Evol2: None
+  Evol3: None
+  RarityUp: None
+  Rarity: Rare
   Card:
-    id: 
-    Name: 
-    Type: 
-    Rank: 
-    Element: 
-    Special: 
-    ATK: 0
-    DEF: 0
-    Life: 0
-    Status: 
-    Effect1: 
-    Effect2: 
-    Evolution: 
-    EvolCust1: 
-    EvolCust2: 
-    EvolCust3: 
-    Evol1: 
-    Evol2: 
-    Evol3: 
-    RarityUp: 
-    Rarity: 
-    OBJ: {fileID: 0}
+    id: 27025464
+    Name: Xaraan, All-Mother Praise-God
+    Type: Insect
+    Rank: General
+    Element: Light
+    Special: Evolution
+    ATK: 7
+    DEF: 7
+    Life: 12
+    Status: None
+    Effect1: Power Astral
+    Effect2: Vampirism
+    Evolution: Destroy 1 unit in battle -
+    EvolCust1: Battle,2
+    EvolCust2: Energy,6
+    EvolCust3: Energy,6
+    Evol1: None
+    Evol2: None
+    Evol3: None
+    RarityUp: None
+    Rarity: Rare
+    OBJ: {fileID: 11400000}
   Data:
-    index: 0
-    Id: 
+    index: 123
+    Id: 27025464
     Quantidade: 0

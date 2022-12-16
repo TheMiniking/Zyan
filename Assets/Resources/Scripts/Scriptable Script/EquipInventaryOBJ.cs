@@ -8,9 +8,9 @@ using UnityEditor;
 [CreateAssetMenu (fileName = "Equip Inventary", menuName = "Zyan Assets/Create Equip Inventary")]
 public class EquipInventaryOBJ : ScriptableObject
 {
-	public EquipObj[] equipObj;
-	public Zyan.EquipClass[] Equip ;
-	public Zyan.IdIndex[] Data;
+	public List<EquipObj> equipObj;
+	public List<Zyan.EquipClass> Equip ;
+	public List<Zyan.IdIndex> Data;
 	
 	void OnValidate() => LoadAll();
 	
@@ -18,15 +18,16 @@ public class EquipInventaryOBJ : ScriptableObject
 	public void LoadAll()
 	{
 		if (equipObj != null)
-		{ArrayUtility.Clear<EquipObj>(ref equipObj);}
-		equipObj = Resources.LoadAll<EquipObj>("Scripts/Equip/");
-		Equip = new Zyan.EquipClass[0];
-		Data = new Zyan.IdIndex[0];
+		{equipObj = new List<EquipObj>{};}
+		var pg = Resources.LoadAll<EquipObj>("Scripts/Equip/");
+		foreach (EquipObj p in pg){equipObj.Add(p); }
+		Equip = new List<Zyan.EquipClass>{};
+		Data = new List<Zyan.IdIndex>{};
 		foreach (EquipObj a in equipObj)
 		{
 			a.LoadSelf();
-			ArrayUtility.Add<Zyan.EquipClass>(ref Equip , a.Card);
-			ArrayUtility.Add<Zyan.IdIndex>(ref Data , a.Data);
+			Equip.Add(a.Card);
+			Data.Add(a.Data);
 		}
 	}
 }

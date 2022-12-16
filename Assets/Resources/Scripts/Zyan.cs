@@ -49,11 +49,12 @@ public class Zyan : MonoBehaviour
 		public string ID;
 		public InventaryTesouros iTesouros; 
 		public InventaryModifications[] iModifications;
-		public IdIndex[] InventaryCards;
-		public IdIndex[] InventaryActionCards;
-		public IdIndex[] InventarySpell;
-		public IdIndex[] InventaryEquip;
-		public int[] HistoryMode;
+		public List<IdIndex> InventaryCards;
+		public List<IdIndex> InventaryActionCards;
+		public List<IdIndex> InventarySpell;
+		public List<IdIndex> InventaryEquip;
+		public List<string> HistoryMode;
+		public List<PlayerDeckOBJ> Decks;
 	}
 	
 	[Serializable]
@@ -96,7 +97,7 @@ public class Zyan : MonoBehaviour
 	[System.Serializable]
 	public class IdIndexList
 	{
-		public IdIndex[] IndexList; 
+		public List<IdIndex> IndexList; 
 	}
 	
 	

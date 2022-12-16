@@ -100,11 +100,16 @@ public class Unit : MonoBehaviour
 	public bool _isPlayer = true ;
 	public int _slotDeck;
 	public Zyan.TimeUnits Slot;
+	
+	[Title("Visualizaçao Tela Inicial")]
+	public bool telaInicial = false;
+	
    
     void Start()
-    {
+	{
 	    _Self = this.gameObject;
-	    if (_isPlayer){
+		if (telaInicial){}
+		else if (_isPlayer){
 	    	switch (_slotDeck)
 	    	{
 	    	case 1 :
@@ -149,6 +154,12 @@ public class Unit : MonoBehaviour
 	    }
 	    LoadCardDATA();
     }
+    
+	public void VisualUpdate(string id){
+		_id = id;
+		selfObjUnit = Resources.Load<UnitObj>("Scripts/Unit/"+_id);
+		LoadCardDATA();
+	}
     
     private void FixedUpdate()
     {

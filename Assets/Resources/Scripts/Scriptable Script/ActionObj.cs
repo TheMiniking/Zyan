@@ -27,7 +27,7 @@ public class ActionObj : ScriptableObject
 	public void LoadSelf()
 	{
 		Zyan.ActionCardList[] cards = JsonReader.ReadListFromJSONAction();
-		Zyan.IdIndex[] dat = JsonReader.ReadListFromJSONId("Action.mk");
+		List<Zyan.IdIndex> dat = JsonReader.ReadListFromJSONId("Action.mk");
 		if (id != "")
 		{
 			foreach (Zyan.ActionCardList item in cards)

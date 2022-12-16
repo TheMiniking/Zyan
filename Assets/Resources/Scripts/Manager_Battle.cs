@@ -349,8 +349,8 @@ public class Manager_Battle : MonoBehaviour
 		}
 	}
 	
-	private string[] super_a = new string[]{};
-	private string[] super_d = new string[]{};
+	private List<string> super_a = new List<string>{};
+	private List<string> super_d = new List<string>{};
 	public string TesteForce()
 	{
 		var a = _Atacante.GetComponent<Unit>();
@@ -362,12 +362,12 @@ public class Manager_Battle : MonoBehaviour
 		var x = "";
 		var a_val = "";
 		var d_val = "";
-		ArrayUtility.Clear<string>(ref super_a);
-		ArrayUtility.Clear<string>(ref super_d);
-		ArrayUtility.Add<string>(ref super_a, a_eff1);
-		ArrayUtility.Add<string>(ref super_a,a_eff2);
-		ArrayUtility.Add<string>(ref super_d,d_eff1);
-		ArrayUtility.Add<string>(ref super_d,d_eff2);
+		super_a = new List<string>{};
+		super_d = new List<string>{};
+		super_a.Add(a_eff1);
+		super_a.Add(a_eff2);
+		super_d.Add(d_eff1);
+		super_d.Add(d_eff2);
 		foreach (string s in super_d)
 		{
 			switch (s)
@@ -502,21 +502,21 @@ public class Manager_Battle : MonoBehaviour
 		return x;
 	}
 	
-	private string[] diceTurn = new string[]{};
-	public string[] PlayStatus()
+	private List<string> diceTurn = new List<string>{};
+	public List<string> PlayStatus()
 	{
-		ArrayUtility.Clear<string>(ref diceTurn);
+		diceTurn = new List<string>{};
 		var coin = Random.Range(0 , 2);
 		switch(coin)
 		{//cara - ativa efeito
 		case 0 :
 			var dice = Random.Range(1,7);
-			ArrayUtility.Add<string>(ref diceTurn, "Active");
-			ArrayUtility.Add<string>(ref diceTurn, dice.ToString());
+			diceTurn.Add( "Active");
+			diceTurn.Add(dice.ToString());
 			break;
 		case 1 :
-			ArrayUtility.Add<string>(ref diceTurn, "No");
-			ArrayUtility.Add<string>(ref diceTurn, "0");
+			diceTurn.Add("No");
+			diceTurn.Add("0");
 			break;
 		} 
 		Debug.Log( diceTurn[0] + " " + diceTurn[1] );

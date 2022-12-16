@@ -8,9 +8,9 @@ using UnityEditor;
 [CreateAssetMenu (fileName = "Spell Inventary", menuName = "Zyan Assets/Create Spell Inventary")]
 public class SpellInventaryOBJ : ScriptableObject
 {
-	public SpellObj[] spellObj;
-	public Zyan.SpellClass[] Spell ;
-	public Zyan.IdIndex[] Data;
+	public List<SpellObj> spellObj;
+	public List<Zyan.SpellClass> Spell ;
+	public List<Zyan.IdIndex> Data;
 	
 	void OnValidate() => LoadAll();
 	
@@ -18,15 +18,16 @@ public class SpellInventaryOBJ : ScriptableObject
 	public void LoadAll()
 	{
 		if (spellObj != null)
-		{ArrayUtility.Clear<SpellObj>(ref spellObj);}
-		spellObj = Resources.LoadAll<SpellObj>("Scripts/Spell/");
-		Spell = new Zyan.SpellClass[0];
-		Data = new Zyan.IdIndex[0];
+		{spellObj = new List<SpellObj>{};}
+		var pg = Resources.LoadAll<SpellObj>("Scripts/Spell/");
+		foreach (SpellObj p in pg){spellObj.Add(p); }
+		Spell = new List<Zyan.SpellClass>{};
+		Data = new List<Zyan.IdIndex>{};
 		foreach (SpellObj a in spellObj)
 		{
 			a.LoadSelf();
-			ArrayUtility.Add<Zyan.SpellClass>(ref Spell , a.Card);
-			ArrayUtility.Add<Zyan.IdIndex>(ref Data , a.Data);
+			Spell.Add(a.Card);
+			Data.Add(a.Data);
 		}
 	}
 }
