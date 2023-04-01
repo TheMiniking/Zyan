@@ -19,7 +19,7 @@ public class ManagerSound : MonoBehaviour
 		LoadMusic();
 	}
 	
-	public void LoadMusicList() => musicList = Resources.LoadAll<AudioClip>("Music");
+	public void LoadMusicList() => musicList = Resources.LoadAll<AudioClip>("Music/Musics");
 	
 	[Button]
 	public void LoadMusic() { 

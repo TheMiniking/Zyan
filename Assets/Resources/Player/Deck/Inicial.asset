@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db12e19dcd9efe246826a1f35f1fc092, type: 3}
   m_Name: Inicial
@@ -15,44 +15,89 @@ MonoBehaviour:
   Deck:
     timeName: Inicial
     Slot1:
-      Civil: 
-      Soldier: 
+      Civil: 42682560
+      Soldier: 83736909
       Combatant: 
       General: 
       King: 
       God: 
       Equip: 
     Slot2:
-      Civil: 
-      Soldier: 
+      Civil: 60801023
+      Soldier: 27235072
       Combatant: 
       General: 
       King: 
       God: 
       Equip: 
     Slot3:
-      Civil: 
-      Soldier: 
+      Civil: 59121230
+      Soldier: 72320973
       Combatant: 
       General: 
       King: 
       God: 
       Equip: 
     Slot4:
-      Civil: 
-      Soldier: 
+      Civil: 93971865
+      Soldier: 28056900
       Combatant: 
       General: 
       King: 
       God: 
       Equip: 
     Slot5:
-      Civil: 
+      Civil: 87448461
       Soldier: 
       Combatant: 
       General: 
       King: 
       God: 
       Equip: 
+    SpellTrap:
+    - id: 68623007
+      Name: Positive Signal
+      Type: Spell
+      SubType: Boost
+      Restriction: None
+      Description: Aumenta o ATK +2 ate o fim do turno do oponente, nao acumulativo.
+      Script: 00000007
+      Rarity: UltraComum
+      OBJ: {fileID: 11400000, guid: 23d713787ce9e524497a8b151e4df04d, type: 2}
+    - id: 30836218
+      Name: Clear Mind
+      Type: Spell
+      SubType: Boost
+      Restriction: None
+      Description: Aumenta o DEF +2 ate o fim do turno do oponente, nao acumulativo.
+      Script: 00000008
+      Rarity: Comum
+      OBJ: {fileID: 11400000, guid: 5f30b73913bdf2442aa0ed5afd79528a, type: 2}
+    - id: 64059758
+      Name: 'Emotional Eartquake '
+      Type: Trap
+      SubType: Deboost
+      Restriction: None
+      Description: Diminui o ATK -2
+      Script: 00000011
+      Rarity: Comum
+      OBJ: {fileID: 11400000, guid: 65a74358ca102ca4b8930de870c8078f, type: 2}
+    - id: 76960987
+      Name: 'Divine Protection '
+      Type: Spell
+      SubType: Protection
+      Restriction: None
+      Description: Proximo Movimento dessa unidade nao eh destruido por efeitos
+      Script: 00000005
+      Rarity: UltraComum
+      OBJ: {fileID: 11400000, guid: 1076bc4288ac7334c9b456ee1022f7a1, type: 2}
+    - id: 85950610
+      Name: Thunder of Zeus
+      Type: Trap
+      SubType: Status
+      Restriction: None
+      Description: Causa Paralize , Ignore Jogar moeda
+      Script: 00000014
+      Rarity: Comum
+      OBJ: {fileID: 11400000, guid: 97abaf1e7d86b2447a7191ed0cc9b46c, type: 2}
     OBJ: {fileID: 11400000}
-  SpellTrap: []

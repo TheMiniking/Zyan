@@ -13,6 +13,9 @@ public class ManagerTurn : MonoBehaviour
     public SpriteRenderer turnBG;
 	public UnitField[] unitFList ;
 	[ShowInInspector] public static bool _PlayerTurn;
+	public SceneVariables_Battle svb;
+	
+	void Awake()=> svb.Start();
 	
 	void Start()=> NextTurn();
 	
@@ -23,16 +26,16 @@ public class ManagerTurn : MonoBehaviour
 		var unitZ = FindObjectsOfType<Unit>();
 		foreach (Unit u in unitZ)
 		{
-			u._TimeToReset --;
-			if (u._effect1 == "Eternal Life" || u._effect2 == "Eternal Life" )
+			u._Self._TimeToReset = u._Self._TimeToReset>=0?(u._Self._TimeToReset-1):-1;
+			if (u._Self._effect1 == "Eternal Life" || u._Self._effect2 == "Eternal Life" )
 			{	//Debug.Log(u._effect1 + " e " + u._effect2);
-				if (u._life < u._originalLife*2)
+				if (u._Self._life < u._Self._originalLife*2)
 				{
-					u._life++;
+					u._Self._life++;
 				}
 				
 			}
-			if (u._OnStatus == "Sleep")
+			if (u._Self._OnStatus == "Sleep")
 			{ u._UnitOnField.GetComponent<UnitField>()._CanMove = false;}
 		}
 		var terrenoZ = FindObjectsOfType<Terreno>();
@@ -43,34 +46,36 @@ public class ManagerTurn : MonoBehaviour
 			}
 		}
 		// troca de turno
-		SceneVariables_Battle.turnCount++;
-		SceneVariables_Battle.PlayerEnergy++;
-		SceneVariables_Battle.EnemyEnergy++;
+		svb.turnCount++;
+		svb.PlayerEnergy++;
+		svb.EnemyEnergy++;
         switch (_PlayerTurn)
        {case true:
-	        SceneVariables_Battle.atualTurn = "P2";
-	       SceneVariables_Battle.atualTurnID = SceneVariables_Battle.enemyID;
-	        SceneVariables_Battle.p2.canSummon = true;
+	        svb.atualTurn = "P2";
+	       svb.atualTurnID = svb.enemyID;
+	        svb.p2.canSummon = true;
             turnBG.color = Color.green;
 	        _PlayerTurn = false;
             break;
         case false:
-	        SceneVariables_Battle.atualTurn = "P1";
-	        SceneVariables_Battle.atualTurnID = SceneVariables_Battle.playerID;
-	        SceneVariables_Battle.p1.canSummon = true;
+	        svb.atualTurn = "P1";
+	        svb.atualTurnID = svb.playerID;
+	        svb.p1.canSummon = true;
             turnBG.color = Color.white;
 	        _PlayerTurn = true;
 	        break; 
        }
-        turnCount.text = "" + SceneVariables_Battle.turnCount;
-        player.text = "" + SceneVariables_Battle.atualTurn;
+        turnCount.text = "" + svb.turnCount;
+        player.text = "" + svb.atualTurn;
 	    unitFList = FindObjectsOfType<UnitField>();
-	    foreach ( UnitField c in unitFList)
-        {c._CanMove = true;}
 	    var un = FindObjectsOfType<Unit>();
 	    foreach (Unit u in un)
 	    {if (u._Enfermary)
-	    {u.TurnEnfermary();}}
+	    {u._Self.TurnEnfermary();}}
+		foreach ( UnitField c in unitFList)
+		{if(c.unit._Self._OnStatus!="Sleep")c._CanMove = true;}
+		Manager_UI ui = FindObjectOfType<Manager_UI>();
+		ui.StShowAuto();
 	}
 	
     public void ResetScene()

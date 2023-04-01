@@ -41,13 +41,20 @@ public class Manager_UI : MonoBehaviour
 	public TMP_Text _DetailDescription;
 	public GameObject _DetailOBJ;
 	public TMP_Text _TerrenoNameTxt;
+	public TMP_Text _DescriptionTxt;
 	public TMP_Text _TerrenoNameInfoTxt;
 	public TMP_Text _TerrenoDescription;
 	public string _TerrenoName;
 	public GameObject _TerrenoDescOBJ;
 	public GameObject _TerrenoMiniOBJ;
 	public Button _TerrenoBt;
-	
+	public Button _PassBt;
+	public Button _CancelSummonBt;
+	public GameObject _Fases;
+	public TMP_Text _FaseTurns;
+	public TMP_Text _FasePlayer;
+	public int _out;
+	public SceneVariables_Battle svb;
 	
 	[ShowInInspector] public Zyan.InfoItem[] itemList;
 	[Button] public void LoadItens() => itemList = JsonReader.ReadListFromJSONInfo();
@@ -55,29 +62,45 @@ public class Manager_UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		_EnName.text = SceneVariables_Battle.p2.Name;
-		_PlName.text = SceneVariables_Battle.p1.Name;
-		_EnRank.text = "Rank " + SceneVariables_Battle.p2.Rank;
-	    _PlRank.text = "Rank " + SceneVariables_Battle.p1.Rank;
+		_EnName.text = svb.p2.Name;
+		_PlName.text = svb.p1.Name;
+		_EnRank.text = "Rank " + svb.p2.Rank;
+	    _PlRank.text = "Rank " + svb.p1.Rank;
 	    LoadItens();
 	    var u = FindObjectOfType<Unit>();
-	    UpdateUI(u.gameObject);
+	    UpdateUI(u);
     }
 
     // Update is called once per frame
     void Update()
     {
-		_EnEnergy.text = SceneVariables_Battle.EnemyEnergy.ToString();
-		_PlEnergy.text = SceneVariables_Battle.PlayerEnergy.ToString();
-	    if (unit != null) UpdateUI(unit.gameObject);
+		_EnEnergy.text = svb.EnemyEnergy.ToString();
+		_PlEnergy.text = svb.PlayerEnergy.ToString();
+	    if (unit != null) UpdateUI(unit);
 	    if (_TerrenoName == "") {_TerrenoMiniOBJ.gameObject.SetActive(false);}
 	    else {_TerrenoMiniOBJ.gameObject.SetActive(true);
 		    _TerrenoNameTxt.text = _TerrenoName;}
+	    if (svb.atualTurn=="P1"){
+	    	if (svb.p1.onSummon && !_CancelSummonBt.gameObject.activeSelf ){
+	    		_CancelSummonBt.gameObject.SetActive(true);
+	    		_CancelSummonBt.gameObject.GetComponentInChildren<TMP_Text>().text = "Cancel Summon";
+				_PassBt.gameObject.SetActive(false);}
+	    	else if(!svb.p1.onSummon && !svb.p1.onMove ){
+	    		_CancelSummonBt.gameObject.SetActive(false);
+		    	_PassBt.gameObject.SetActive(true);
+	    	}else {
+	    		_CancelSummonBt.gameObject.SetActive(true);
+		    	_PassBt.gameObject.SetActive(false);
+		    	_CancelSummonBt.gameObject.GetComponentInChildren<TMP_Text>().text = "Cancel Move";}
+	    }else {
+	    	_CancelSummonBt.gameObject.SetActive(false);
+		    _PassBt.gameObject.SetActive(false);
+	    }
     }
     
 	public void UpdateTerreno(){
 		var found2 = false;
-		var t2 =SceneVariables_Battle._LastTerreno.GetComponent<Terreno>();
+		var t2 =svb._LastTerreno.GetComponent<Terreno>();
 		if (t2._SpellData.id == ""){
 		foreach ( Zyan.InfoItem i in itemList ){
 			var d = _TerrenoName.Split(" ");
@@ -120,52 +143,53 @@ public class Manager_UI : MonoBehaviour
 		}
 	}
     
-	public void UpdateUI(GameObject _unitShow )
+	public void UpdateUI(Unit _unitShow )
 	{
 		unit = _unitShow.GetComponent<Unit>();
-		hud.Name = unit._name;
-		hud.ATK = unit._atk + unit._boostATK - unit._DeboostATK;
-		hud.DEF = unit._def + unit._boostDEF - unit._DeboostDEF;
-		hud.Life = unit._life + unit._boostLife - unit._DeboostLife;
-		hud.Type = unit._type;
-		hud.Element = unit._element;
-		hud.Rank = unit._rank;
-		hud.Status = unit._status;
-		hud.Effect1 = unit._effect1;
-		hud.Effect2 = unit._effect2;
-		_Name.text = unit._name;
+		hud.Name = unit._Self._name;
+		hud.ATK = unit._Self._atk + unit._Self._boostATK - unit._Self._DeboostATK;
+		hud.DEF = unit._Self._def + unit._Self._boostDEF - unit._Self._DeboostDEF;
+		hud.Life = unit._Self._life + unit._Self._boostLife - unit._Self._DeboostLife;
+		hud.Type = unit._Self._type;
+		hud.Element = unit._Self._element;
+		hud.Rank = unit._Self._rank;
+		hud.Status = unit._Self._status;
+		hud.Effect1 = unit._Self._effect1;
+		hud.Effect2 = unit._Self._effect2;
+		_Name.text = unit._Self._name;
 		_ATK.text = "" + hud.ATK;
 		_DEF.text = "" + hud.DEF;
 		_Life.text = ""+ hud.Life;
-		if (unit._ModAtk > 0) {
+		if (unit._Self._ModAtk > 0) {
 			_ModATK.gameObject.SetActive(true);
-			_ModATK.text = "+ " + unit._ModAtk;}
-		else if (unit._ModAtk < 0) {
+			_ModATK.text = "+ " + unit._Self._ModAtk;}
+		else if (unit._Self._ModAtk < 0) {
 			_ModATK.gameObject.SetActive(true);
-			_ModATK.text = "" + unit._ModAtk;}
+			_ModATK.text = "" + unit._Self._ModAtk;}
 		else{_ModATK.gameObject.SetActive(false);}
-		if (unit._ModDef > 0) {
+		if (unit._Self._ModDef > 0) {
 			_ModDEF.gameObject.SetActive(true);
-			_ModDEF.text = "+ " + unit._ModDef;}
-		else if (unit._ModDef < 0) {
+			_ModDEF.text = "+ " + unit._Self._ModDef;}
+		else if (unit._Self._ModDef < 0) {
 			_ModDEF.gameObject.SetActive(true);
-			_ModDEF.text = "" + unit._ModDef;}
+			_ModDEF.text = "" + unit._Self._ModDef;}
 			else{_ModDEF.gameObject.SetActive(false);}
-		if (unit._ModLife > 0) {
+		if (unit._Self._ModLife > 0) {
 			_ModLife.gameObject.SetActive(true);
-			_ModLife.text = "+ " + unit._ModAtk;}
-		else if (unit._ModLife < 0) {
+			_ModLife.text = "+ " + unit._Self._ModAtk;}
+		else if (unit._Self._ModLife < 0) {
 			_ModLife.gameObject.SetActive(true);
-			_ModLife.text = "" + unit._ModLife;}
+			_ModLife.text = "" + unit._Self._ModLife;}
 			else{_ModLife.gameObject.SetActive(false);}
-		_Type.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._type);
-		_Element.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._element);
-		_Rank.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._rank);
-		_Effect1.texture = Resources.Load<Texture2D>("Imagens/iconInfo/" + unit._effect1);
-		_Effect2.texture = Resources.Load<Texture2D>("Imagens/iconInfo/" + unit._effect2);
-		_Status.texture = Resources.Load<Texture2D>("Imagens/iconInfo/" + unit._status);
-		_NameEffect.text = unit._type + " / " + unit._element + " / " + unit._rank;
-		_Effect.text = unit._evolution;
+		_Type.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._Self._type);
+		_Element.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._Self._element);
+		_Rank.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._Self._rank);
+		_Effect1.texture = Resources.Load<Texture2D>("Imagens/iconInfo/" + unit._Self._effect1);
+		_Effect2.texture = Resources.Load<Texture2D>("Imagens/iconInfo/" + unit._Self._effect2);
+		_Status.texture = Resources.Load<Texture2D>("Imagens/iconInfo/" + unit._Self._status);
+		//_NameEffect.text = unit._type + " / " + unit._element + " / " + unit._rank;
+		//_Effect.text = unit._evolution;
+		/*Energy Evolution - Desativado por enquanto 
 		if (unit._OnField){
 			if (unit._isPlayer){
 				_ButtonElemntEvo.gameObject.SetActive(true);
@@ -185,12 +209,13 @@ public class Manager_UI : MonoBehaviour
 			}else {_ButtonElemntEvo.gameObject.SetActive(false);
 				_ButtonTypeEvo.gameObject.SetActive(false);}
 		}else {_ButtonElemntEvo.gameObject.SetActive(false);
-			_ButtonTypeEvo.gameObject.SetActive(false);}
+		_ButtonTypeEvo.gameObject.SetActive(false);}
+		*/
 	}
 	
-	public void GoEvolType() => unit.TryEvolutionType(int.Parse(_TypeEvo.text));
+	public void GoEvolType() => unit._Self.TryEvolutionType(int.Parse(_TypeEvo.text));
 	
-	public void GoEvolElement() => unit.TryEvolutionElement(int.Parse(_ElementEvo.text));
+	public void GoEvolElement() => unit._Self.TryEvolutionElement(int.Parse(_ElementEvo.text));
 	
 	public void UpdateUIDescription(string data)
 	{
@@ -198,12 +223,12 @@ public class Manager_UI : MonoBehaviour
 		//criar json com infos e comletar isso com uma funçao.
 	}
 	
-	public void ShowDetailEffect1() => ShowDetail(unit._effect1);
-	public void ShowDetailEffect2() => ShowDetail(unit._effect2);
-	public void ShowDetailStatus() => ShowDetail(unit._status);
-	public void ShowDetailRank() => ShowDetail(unit._rank);
-	public void ShowDetailElement() => ShowDetail(unit._element);
-	public void ShowDetailType() => ShowDetail(unit._type);
+	public void ShowDetailEffect1() => ShowDetail(unit._Self._effect1);
+	public void ShowDetailEffect2() => ShowDetail(unit._Self._effect2);
+	public void ShowDetailStatus() => ShowDetail(unit._Self._status);
+	public void ShowDetailRank() => ShowDetail(unit._Self._rank);
+	public void ShowDetailElement() => ShowDetail(unit._Self._element);
+	public void ShowDetailType() => ShowDetail(unit._Self._type);
 	
 	public void ShowDetail( string data){
 		var found = false;
@@ -225,6 +250,22 @@ public class Manager_UI : MonoBehaviour
 		_TerrenoDescOBJ.gameObject.SetActive( false);
 		_TerrenoBt.interactable = true;
 	}
+	public void TurnShow(string turn, string player,bool inOut){
+		_FaseTurns.text  = "Turn " + turn;
+		_FasePlayer.text = player;
+		if (!inOut)LeanTween.moveLocalX(_Fases,0,1f);
+		else LeanTween.moveLocalX(_Fases,_out,1f);
+	}
+	
+	public IEnumerator TurnShowAuto(){
+		string turn = svb.turnCount.ToString();
+		string player = ManagerTurn._PlayerTurn?svb.p1.Name:svb.p2.Name;
+		TurnShow(turn,player,false);
+		yield return new WaitForSecondsRealtime (2f);
+		TurnShow(turn,player,true);
+	}
+	
+	public void StShowAuto()=> StartCoroutine(TurnShowAuto());
 	
 	public class UItens{
 		public string Name;

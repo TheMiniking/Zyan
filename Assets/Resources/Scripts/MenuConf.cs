@@ -56,7 +56,7 @@ public class MenuConf : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
-		if (Pause.active){
+		if (Pause.activeSelf){
 			musicOn = musicToggle.isOn;
 			musicVol = musicSlider.value;
 			if (musicOn){music.volume = musicVol;}
@@ -73,8 +73,6 @@ public class MenuConf : MonoBehaviour
 			else {PlayerPrefs.SetInt("effectOn", 0);}
 			musvol.text = ""+ Mathf.RoundToInt( musicVol * 100);
 			effvol.text = ""+ Mathf.RoundToInt(effectVol * 100);
-			
-			Debug.Log("Esta no menu Pause!!!");
 		}
     }
     

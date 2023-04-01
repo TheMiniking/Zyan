@@ -29,7 +29,9 @@ public class UnitField : MonoBehaviour
 	public bool _BoostMoviment;
 	public string _SpecialStatus;
 	public SpriteRenderer _StatusImg;
-	public SceneVariables_Battle SVB;
+	public SceneVariables_Battle svb;
+	
+	private SceneVariables_Battle.SVBLog _LogTemp = new SceneVariables_Battle.SVBLog();
 	
 	[Title("Animation :")]
 	[PreviewField]public Sprite[] _AnimPoison;
@@ -46,14 +48,11 @@ public class UnitField : MonoBehaviour
     // Start is called before the first frame update
     void Start()
 	{	
-		
-		SVB = FindObjectOfType<SceneVariables_Battle>();
-		_originalUnit = SceneVariables_Battle._LastSummonUnit.gameObject;
-	    unit = _originalUnit.GetComponent<Unit>();
+		_originalUnit = svb._LastSummonUnit.gameObject;
 	    self = this.gameObject ;
 	    unit._UnitOnField = self;
 		_isplayer = unit._isPlayer;
-		_Id = unit._id;
+		_Id = unit._Self._id;
     }
 
 	// Update is called once per frame
@@ -62,21 +61,26 @@ public class UnitField : MonoBehaviour
 	    atk.text	= unit._vATK.text;
 	    def.text	= unit._vDEF.text;
 	    life.text	= unit._vLife.text;
+	    unit._Terreno = _AtualHex.GetComponent<Terreno>();
 	    UpMaterial();
-	    if (unit._OnStatus == "No") 
+	    if (unit._Self._OnStatus == "No") 
 	    {	onAnim = false;
 		    _StatusImg.gameObject.SetActive(false);}
-	    if (unit._OnStatus!= "No" && unit._OnStatusTurn > 0 && onAnim != true)
+	    if (unit._Self._OnStatus!= "No" && unit._Self._OnStatusTurn > 0 && onAnim != true)
 	    {	_StatusImg.gameObject.SetActive(true);
-		    AnimStatus(unit._OnStatus);
-		    SVB.DebugText("On status : "+ unit._OnStatus);
-		    onAnim = true;}
+		    AnimStatus(unit._Self._OnStatus);
+		    onAnim = true;
+		    if(unit._Self._status== "Sleep") _CanMove= false;
+	    }
     }
     
 	void OnDestroy(){
 		var aud = FindObjectOfType<ManagerSound>();
 		aud.audio.clip = aud.explosao;
 		aud.audio.Play();
+		unit._OnField = false;
+		unit._Terreno = null;
+		unit._Self._UnitOnField = null;
 	}
     
 	public void UpMaterial()
@@ -126,55 +130,79 @@ public class UnitField : MonoBehaviour
 		yield return new WaitForSecondsRealtime (0.5f);
 		_StatusImg.sprite = status[1];
 		yield return new WaitForSecondsRealtime (0.5f);
-		if (unit._OnStatusTurn > 0) _StatusImg.sprite = _AnimDice[unit._OnStatusTurn-1];
+		if (unit._Self._OnStatusTurn > 0) _StatusImg.sprite = _AnimDice[unit._Self._OnStatusTurn-1];
 		yield return new WaitForSecondsRealtime (1f);
 		onAnim = false;
 	}
     
 	public void OnMouseDown()
 	{	
-		var z = FindObjectOfType<Manager_UI>();
-		if (_AtualHex.GetComponent<Terreno>()._SpellData.id != "" && _AtualHex.GetComponent<Terreno>()._SpellActived)
-		{ z._TerrenoName = _AtualHex.GetComponent<Terreno>()._SpellData.Name;}
-		else{z._TerrenoName ="Terreno : " + _AtualHex.GetComponent<Terreno>()._HexType;}
-		z.UpdateUI(_originalUnit);
-		SceneVariables_Battle._TerrenoAnterior = SceneVariables_Battle._LastTerreno;
-		SceneVariables_Battle._LastTerreno = _AtualHex;
-		SVB.DebugText("Click : " + unit._name);
-		switch ( SceneVariables_Battle.atualTurn)
+		SendToUI();
+		svb._TerrenoAnterior = svb._LastTerreno;
+		svb._LastTerreno = _AtualHex;
+		_LogTemp.Visual = "Click : " + unit._Self._name;
+		_LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Clicou na unit : " + unit.name;
+		svb.DebugText(_LogTemp);
+		switch ( svb.atualTurn)
 		{
 		case "P1":
 			if (_isplayer){
-				if (_CanMove && unit._OnStatus != "Sleep")
-					{SceneVariables_Battle.p1.onMove = true;
-					SceneVariables_Battle._UnitToMove = this;
-					Debug.Log("Pronto para mover :" + unit._name);
+				if (_CanMove && unit._Self._OnStatus != "Sleep")
+					{svb.p1.onMove = true;
+					svb._UnitToMove = this;
+					Debug.Log("Pronto para mover :" + unit._Self._name);
 					foreach ( GameObject x in _Visinhos){
-						if (x != null)
-						{var y = x.GetComponent<Terreno>();
-							y._OnRange = true;}}}
-				else {SVB.DebugText("Nao pode mover : " + unit._name);}}
+						if (x != null){var y = x.GetComponent<Terreno>()._OnRange = true;}}}
+				else {
+					_LogTemp.Visual = "Nao pode mover : " + unit._Self._name;
+					_LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Clicou na unit : " + unit.name;
+					svb.DebugText(_LogTemp);}}
 			else {
-				SVB.DebugText("indo pra batalha :" + this);
-				if (_AtualHex.GetComponent<Terreno>()._UnitOver.GetComponent<UnitField>() != SceneVariables_Battle._UnitToMove)
-				{ FindObjectOfType<Manager_Battle>().Batalha(SceneVariables_Battle._UnitToMove._originalUnit, _originalUnit );}
+				_LogTemp.Visual = "Indo pra batalha :" + unit.name;
+				_LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Indo para batalha : " + unit.name;
+				svb.DebugText(_LogTemp);
+				var ah = _AtualHex.GetComponent<Terreno>();
+				if (ah._UnitOver.GetComponent<UnitField>() != svb._UnitToMove && ah._OnRange)
+				{ FindObjectOfType<Manager_Battle>().Batalha(svb._UnitToMove._originalUnit, _originalUnit );}
 				else
-				{SVB.DebugText("Não é seu turno !");}}
+				{
+					_LogTemp.Visual = "Não é seu turno !" ;
+					_LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Tentou Jogar na unit do inimigo ";
+					svb.DebugText(_LogTemp);}}
 		break;
 		case "P2":
 			if (_isplayer != true){
-				if (_CanMove)
-				{SceneVariables_Battle.p2.onMove = true;
-					SceneVariables_Battle._UnitToMove = this;
-					SVB.DebugText("Pronto para mover : " + unit._name);
+				if (_CanMove && unit._Self._OnStatus != "Sleep")
+				{svb.p2.onMove = true;
+					svb._UnitToMove = this;
+					_LogTemp.Visual = "Pronto para mover : " + unit._Self._name;
+					_LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Pronto para mover : " + unit.name;
+					svb.DebugText(_LogTemp);
 					foreach ( GameObject x in _Visinhos){
 						if (x != null)
 						{var y = x.GetComponent<Terreno>();
 							y._OnRange = true;}}}
-				else {SVB.DebugText("Nao pode mover : " + unit._name);}}
-			else {SVB.DebugText("Não é seu turno !");}
+				else {
+					_LogTemp.Visual = "Nao pode mover : " + unit._Self._name;
+					_LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Tentou mover unit inimiga : " + unit.name;
+					svb.DebugText(_LogTemp);}}
+			else {
+				_LogTemp.Visual = "Não é seu turno !";
+				_LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Clicou na unit, sem ser dono : " + unit.name;
+				svb.DebugText(_LogTemp);}
 			break;
 	
 		}
 	}
+	
+	public void SendToUI(){
+		var z = FindObjectOfType<Manager_UI>();
+		if (_AtualHex.GetComponent<Terreno>()._SpellData.id != "" && _AtualHex.GetComponent<Terreno>()._SpellActived)
+		{ z._TerrenoName = _AtualHex.GetComponent<Terreno>()._SpellData.Name;
+			z._DescriptionTxt.text = svb._LastTerreno.GetComponent<Terreno>()._SpellData.Name!=null?
+				svb._LastTerreno.GetComponent<Terreno>()._SpellData.Description:"Um Terreno normal sem nada especial.";}
+		else{z._TerrenoName ="Terreno : " + _AtualHex.GetComponent<Terreno>()._HexType;}
+		z.UpdateUI(_originalUnit.GetComponent<Unit>());
+	}
+	
 }

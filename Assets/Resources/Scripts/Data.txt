@@ -34,7 +34,7 @@ Beta Test - Zyan 0.0.2 - ✩ ✪ ✫ ⋆ ★ ☆
 	Type:
 	Warrior, Dragon ,
 	Angel ,Demon ,
-	Wicth ,Vampir ,Paranormal ,
+	Witch ,Vampir ,Paranormal ,
 	Sea-Monster ,Beast ,Winged-Beast ,
 	Dinosaur ,Reptile ,
 	Guardian ,Machine ,Cyber ,
@@ -177,7 +177,7 @@ Beta Test - Zyan 0.0.2 - ✩ ✪ ✫ ⋆ ★ ☆
 	UltraComum > Rare		1 Rare			100 Rare
 	Rare > Epic				1 Epic			100 Epic
 	Epic > Legendary		1 Legendary		100	Legendary
-	- Quando o jogador fizer algum upgrade será valido para as 2 cópias.
+	- Quando o jogador fizer algum upgrade será valido para as outras cópias.
 	Materiais
 	- Quando o jogador ganha a 3 copia de alguma unidade ele recebe no lugar seu valor em material
 	Raridade		Material

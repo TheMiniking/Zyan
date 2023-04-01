@@ -36,7 +36,7 @@ Transform:
   - {fileID: 5314880067642318856}
   - {fileID: 7342078036962094554}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2170839101523556231
 MeshFilter:
@@ -134,6 +134,8 @@ MonoBehaviour:
   _SelfTerreno: {fileID: 2505221372279104152}
   _HasUnit: 0
   _UnitOver: {fileID: 0}
+  _LastUnitOver: {fileID: 0}
+  svb: {fileID: 11400000, guid: 26fc3798ce7f4de439a712586e87f69b, type: 2}
   _OnRange: 0
   _CanMoveOver: 1
   _Base: {fileID: 2463992919536637834, guid: cefb9cc63fa32964f9f6f8cc6a3748c2, type: 3}

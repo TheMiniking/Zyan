@@ -166,6 +166,12 @@ public static class JsonReader
 		Zyan.InfoitemNode item = JsonUtility.FromJson<Zyan.InfoitemNode> (i.text);
 		return item.ItensPT;
 	}
+	//Item -- Le o arquivo json e retorna ela como lista
+	public static Zyan.BoosterItem[] ReadListFromJSONBooster() {
+		var r = Resources.Load<TextAsset>("Scripts/Booster");
+		Zyan.BoosterItemNode boost = JsonUtility.FromJson<Zyan.BoosterItemNode> (r.text);
+		return boost.Booster;
+	}
 	// Player - Load arquivo player
 	public static Zyan.PlayerInventary ReadFromJSONPlayer (string filename) {
 		string content = ReadFile (GetPath (filename));

@@ -18,6 +18,7 @@ public class Manager_Battle : MonoBehaviour
 	public string effectWin;
 	public Texture2D[] dice;
 	public Texture2D[] coin;
+	public SceneVariables_Battle svb;
 	
     // Start is called before the first frame update
     void Start()
@@ -37,14 +38,14 @@ public class Manager_Battle : MonoBehaviour
 		_Defensor = defensor;
 		var x = _Atacante.GetComponent<Unit>();
 		var z = _Defensor.GetComponent<Unit>();
-		_AtacanteATK = x._TotallAtk;
-		_AtacanteDEF = x._TotalDef;
-		_AtacanteLife = x._TotalLife;
-		_AtacanteOriginalLife =x._originalLife;
-		_DefensorATK = z._TotallAtk;
-		_DefensorDEF = z._TotalDef;
-		_DefensorLife = z._TotalLife;
-		_DefensorOriginalLife = z._originalLife;
+		_AtacanteATK = x._Self._TotallAtk;
+		_AtacanteDEF = x._Self._TotalDef;
+		_AtacanteLife = x._Self._TotalLife;
+		_AtacanteOriginalLife =x._Self._originalLife;
+		_DefensorATK = z._Self._TotallAtk;
+		_DefensorDEF = z._Self._TotalDef;
+		_DefensorLife = z._Self._TotalLife;
+		_DefensorOriginalLife = z._Self._originalLife;
 		effectWin = TesteForce();
 		Debug.Log(effectWin);
 		switch (effectWin)
@@ -221,128 +222,128 @@ public class Manager_Battle : MonoBehaviour
 		var t2 = _Defensor.GetComponent<Unit>();
 		var t_2 = t2._Terreno;
 		// Dano adicional
-		if ( t1._effect1 == "Spiked" || t1._effect2 == "Spiked")	
-		{	t2._life --;
-			if (t1._effect1 == "Vampirism" ||t1._effect2 == "Vampirism")
-			{t1._life ++;}}	
-		if ( t2._effect1 == "Spiked" || t2._effect2 == "Spiked")	
-		{	t1._life --;
-			if (t2._effect2 == "Vampirism" ||t2._effect2 == "Vampirism")
-			{t2._life ++;}}
+		if ( t1._Self._effect1 == "Spiked" || t1._Self._effect2 == "Spiked")	
+		{	t2._Self._life --;
+			if (t1._Self._effect1 == "Vampirism" ||t1._Self._effect2 == "Vampirism")
+			{t1._Self._life ++;}}	
+		if ( t2._Self._effect1 == "Spiked" || t2._Self._effect2 == "Spiked")	
+		{	t1._Self._life --;
+			if (t2._Self._effect2 == "Vampirism" ||t2._Self._effect2 == "Vampirism")
+			{t2._Self._life ++;}}
 		// Dano batalha.	
 		if (t1 != unit)
 		{	
-			if (t1._effect1 == "Double Arms" || t1._effect2 == "Double Arms")
+			if (t1._Self._effect1 == "Double Arms" || t1._Self._effect2 == "Double Arms")
 			{ damage = 2 * damage ;}
-			if ( t2._effect1 == "Shilded" || t2._effect2 == "Shilded")
+			if ( t2._Self._effect1 == "Shilded" || t2._Self._effect2 == "Shilded")
 			{damage = Mathf.RoundToInt( damage/2 );}
-			if (t1._effect1 == "Vampirism" || t1._effect2 == "Vampirism")
-			{t1._life = t1._life + damage;}
+			if (t1._Self._effect1 == "Vampirism" || t1._Self._effect2 == "Vampirism")
+			{t1._Self._life = t1._Self._life + damage;}
 			// dano final
-			unit._life = unit._life - damage ;
+			unit._Self._life = unit._Self._life - damage ;
 			// Effeitos pos batalha Eternal Bersek e Eternal Guardian
-			if (t1._effect1 == "Eternal Bersek" || t1._effect2 == "Eternal Bersek")
-			{	if (t1._atk <= t1._originalAtk * 2)
-				{t1._atk ++ ;}}
-			if (t1._effect1 == "Eternal Guardian" || t1._effect2 == "Eternal Guardian")
-			{	if (t1._def <= t1._originalDef * 2)
-				{t1._def ++ ;}}
-			if (unit._life <= 0)
+			if (t1._Self._effect1 == "Eternal Bersek" || t1._Self._effect2 == "Eternal Bersek")
+			{	if (t1._Self._atk <= t1._Self._originalAtk * 2)
+				{t1._Self._atk ++ ;}}
+			if (t1._Self._effect1 == "Eternal Guardian" || t1._Self._effect2 == "Eternal Guardian")
+			{	if (t1._Self._def <= t1._Self._originalDef * 2)
+				{t1._Self._def ++ ;}}
+			if (unit._Self._life <= 0)
 			{
 				//unit._Terreno.AnimDeath();
 				Debug.Log("movendo depois da batalha : " + t1._UnitOnField.GetComponent<UnitField>());
-				SceneVariables_Battle._UnitToMove = t1._UnitOnField.GetComponent<UnitField>();
+				svb._UnitToMove = t1._UnitOnField.GetComponent<UnitField>();
 				t_2.MoveUnit();
 			}else 
 			{
 				// Effeitos pos batalha Eternal Bersek e Eternal Guardian
-				if (t2._effect1 == "Eternal Bersek" || t2._effect2 == "Eternal Bersek")
-				{	if (t2._atk <= t2._originalAtk * 2)
-					{t2._atk ++ ;}}
-				if (t2._effect1 == "Eternal Guardian" || t2._effect2 == "Eternal Guardian")
-				{	if (t2._def <= t2._originalDef * 2)
-					{t2._def ++ ;}}
+				if (t2._Self._effect1 == "Eternal Bersek" || t2._Self._effect2 == "Eternal Bersek")
+				{	if (t2._Self._atk <= t2._Self._originalAtk * 2)
+					{t2._Self._atk ++ ;}}
+				if (t2._Self._effect1 == "Eternal Guardian" || t2._Self._effect2 == "Eternal Guardian")
+				{	if (t2._Self._def <= t2._Self._originalDef * 2)
+					{t2._Self._def ++ ;}}
 				t_1.EndMoveUnit();
 			}
 		}else 
-		{	if (t2._effect1 == "Double Arms" || t2._effect2 == "Double Arms")
+		{	if (t2._Self._effect1 == "Double Arms" || t2._Self._effect2 == "Double Arms")
 			{ damage = 2 * damage ;}
-			if ( t1._effect1 == "Shilded" || t1._effect2 == "Shilded")
+			if ( t1._Self._effect1 == "Shilded" || t1._Self._effect2 == "Shilded")
 			{damage =  Mathf.RoundToInt(damage/2);}
-			if (t2._effect1 == "Vampirism" ||t2._effect2 == "Vampirism")
-			{t2._life = t1._life + damage; }
+			if (t2._Self._effect1 == "Vampirism" ||t2._Self._effect2 == "Vampirism")
+			{t2._Self._life = t1._Self._life + damage; }
 			// daano final
-			unit._life = unit._life - damage ;
+			unit._Self._life = unit._Self._life - damage ;
 			// Effeitos pos batalha Eternal Bersek e Eternal Guardian
-			if (t1._effect1 == "Eternal Bersek" || t1._effect2 == "Eternal Bersek")
-			{	if (t1._atk <= t1._originalAtk * 2)
-				{t1._atk ++ ;}}
-			if (t1._effect1 == "Eternal Guardian" || t1._effect2 == "Eternal Guardian")
-			{	if (t1._def <= t1._originalDef * 2)
-				{t1._def ++ ;}}
-			if (t2._effect1 == "Eternal Bersek" || t2._effect2 == "Eternal Bersek")
-			{	if (t2._atk <= t2._originalAtk * 2)
-				{t2._atk ++ ;}}
-			if (t2._effect1 == "Eternal Guardian" || t2._effect2 == "Eternal Guardian")
-			{	if (t2._def <= t2._originalDef * 2)
-				{t2._def ++ ;}}
+			if (t1._Self._effect1 == "Eternal Bersek" || t1._Self._effect2 == "Eternal Bersek")
+			{	if (t1._Self._atk <= t1._Self._originalAtk * 2)
+				{t1._Self._atk ++ ;}}
+			if (t1._Self._effect1 == "Eternal Guardian" || t1._Self._effect2 == "Eternal Guardian")
+			{	if (t1._Self._def <= t1._Self._originalDef * 2)
+				{t1._Self._def ++ ;}}
+			if (t2._Self._effect1 == "Eternal Bersek" || t2._Self._effect2 == "Eternal Bersek")
+			{	if (t2._Self._atk <= t2._Self._originalAtk * 2)
+				{t2._Self._atk ++ ;}}
+			if (t2._Self._effect1 == "Eternal Guardian" || t2._Self._effect2 == "Eternal Guardian")
+			{	if (t2._Self._def <= t2._Self._originalDef * 2)
+				{t2._Self._def ++ ;}}
 			t_1.EndMoveUnit();
 		}
-		if (t1._status == "Poisonous" || t1._status == "Flame" ||t1._status == "Send Sleep" || t1._status == "Eletrocute" || t1._status == "Overdo")
+		if (t1._Self._status == "Poisonous" || t1._Self._status == "Flame" ||t1._Self._status == "Send Sleep" || t1._Self._status == "Eletrocute" || t1._Self._status == "Overdo")
 		{
 			var status = PlayStatus();
 			if (status[0] == "Active")
 			{
-				switch (t1._status)
+				switch (t1._Self._status)
 				{
 				case "Poisonous":
-					t2._OnStatus = "Poison";
-					t2._OnStatusTurn = int.Parse(status[1]);
+					t2._Self._OnStatus = "Poison";
+					t2._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				case "Flame":
-					t2._OnStatus = "Burn";
-					t2._OnStatusTurn = int.Parse(status[1]);
+					t2._Self._OnStatus = "Burn";
+					t2._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				case "Send Sleep":
-					t2._OnStatus = "Sleep";
-					t2._OnStatusTurn = int.Parse(status[1]);
+					t2._Self._OnStatus = "Sleep";
+					t2._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				case "Eletrocute":
-					t2._OnStatus = "Paralize";
-					t2._OnStatusTurn = int.Parse(status[1]);
+					t2._Self._OnStatus = "Paralize";
+					t2._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				case "Overdo":
-					t2._OnStatus = "Fadige";
-					t2._OnStatusTurn = int.Parse(status[1]);
+					t2._Self._OnStatus = "Fadige";
+					t2._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				}
 			}
-		}else if (t2._status == "Poisonous" || t2._status == "Flame" ||t2._status == "Send Sleep" || t2._status == "Eletrocute" || t2._status == "Overdo")
+		}else if (t2._Self._status == "Poisonous" || t2._Self._status == "Flame" ||t2._Self._status == "Send Sleep" || t2._Self._status == "Eletrocute" || t2._Self._status == "Overdo")
 		{
 			var status = PlayStatus();
 			if (status[0] == "Active")
 			{
-				switch (t2._status)
+				switch (t2._Self._status)
 				{
 				case "Poisonous":
-					t1._OnStatus = "Poison";
-					t1._OnStatusTurn = int.Parse(status[1]);
+					t1._Self._OnStatus = "Poison";
+					t1._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				case "Flame":
-					t1._OnStatus = "Burn";
-					t1._OnStatusTurn = int.Parse(status[1]);
+					t1._Self._OnStatus = "Burn";
+					t1._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				case "Send Sleep":
-					t1._OnStatus = "Sleep";
-					t1._OnStatusTurn = int.Parse(status[1]);
+					t1._Self._OnStatus = "Sleep";
+					t1._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				case "Eletrocute":
-					t1._OnStatus = "Paralize";
-					t1._OnStatusTurn = int.Parse(status[1]);
+					t1._Self._OnStatus = "Paralize";
+					t1._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				case "Overdo":
-					t1._OnStatus = "Fadige";
-					t1._OnStatusTurn = int.Parse(status[1]);
+					t1._Self._OnStatus = "Fadige";
+					t1._Self._OnStatusTurn = int.Parse(status[1]);
 					break;
 				}
 			}
@@ -355,10 +356,10 @@ public class Manager_Battle : MonoBehaviour
 	{
 		var a = _Atacante.GetComponent<Unit>();
 		var d = _Defensor.GetComponent<Unit>();
-		var d_eff1 = d._effect1;
-		var d_eff2 = d._effect2;
-		var a_eff1 = a._effect1;
-		var a_eff2 = a._effect2;
+		var d_eff1 = d._Self._effect1;
+		var d_eff2 = d._Self._effect2;
+		var a_eff1 = a._Self._effect1;
+		var a_eff2 = a._Self._effect2;
 		var x = "";
 		var a_val = "";
 		var d_val = "";

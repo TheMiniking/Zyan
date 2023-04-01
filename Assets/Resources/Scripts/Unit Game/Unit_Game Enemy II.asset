@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399dd6612eb1c3341a39b49f360c5014, type: 3}
+  m_Name: Unit_Game Enemy II
+  m_EditorClassIdentifier: 
+  _OwnerID: 
+  _isPlayer: 0
+  _slotDeck: 2
+  Slot:
+    Civil: 46824624
+    Soldier: 81504785
+    Combatant: 18181557
+    General: 
+    King: 
+    God: 
+    Equip: 67659461
+  _Index: 0
+  _id: 46824624
+  _name: Shino , Ninja RI
+  _type: Warrior
+  _rank: Civil
+  _element: Natural
+  _special: Evolution
+  _atk: 4
+  _def: 1
+  _life: 3
+  _status: None
+  _effect1: None
+  _effect2: None
+  _evolution: Destroy 1 unit in battle - Shino , Ninja II.Elemental Evolution 4 Energy.
+    Type Evolution 3 Energy.
+  _evolCust1: Battle,1
+  _evolCust2: Energy,4
+  _evolCust3: Energy,3
+  _evol1: 81504785
+  _evol2: None
+  _evol3: None
+  _rarityUp: Life,1
+  _rarity: Comum
+  selfObjUnit: {fileID: 11400000, guid: e51137027ce685344a828cfbe5674bcb, type: 2}
+  _originalAtk: 4
+  _originalDef: 1
+  _originalLife: 3
+  _TotallAtk: 3
+  _TotalDef: 3
+  _TotalLife: 3
+  _ModAtk: -1
+  _ModDef: 2
+  _ModLife: 0
+  _Equip:
+    id: 67659461
+    Name: Templary Helm
+    Type: Equip
+    ExclusiveType: Warrior
+    TypeBonus1: None
+    TypeBonus2: None
+    TypeBonus3: None
+    TypeBonus4: None
+    TypeBonus5: None
+    TypeExcesao1: None
+    TypeExcesao2: None
+    TypeExcesao3: None
+    Status: None
+    BoostType: DEF
+    DeboostBool: ATK,1
+    BoostQnt: 2
+    Description: DEF +2, ATK -1 + Imunidade Status
+    ScriptID: 00000000
+    Rarity: Epic
+    Obj: {fileID: 11400000, guid: 957a687d02ac27b4fbfa5d4ee09e2703, type: 2}
+  _OnStatus: No
+  _OnStatusTurn: 0
+  _boostATK: 0
+  _boostDEF: 2
+  _boostLife: 0
+  _DeboostATK: 1
+  _DeboostDEF: 0
+  _DeboostLife: 0
+  _ProvisoryModATK: 0
+  _ProvisoryModDEF: 0
+  _PermanentModATK: 0
+  _PermanentModDEF: 0
+  _TimeToReset: -1
+  _ResetMod: 0
+  _EvolutionCheck:
+    ForbiddenRitual: 0
+    ForbiddenCalice: 0
+    EmergencyEvolution: 0
+  _Self: {fileID: 0}
+  _UnitOnUI: Unit 2
+  _UnitOnField: {fileID: 0}
+  _OnEnfermary: 0
+  _UnitPrefab: {fileID: 3238888193506458803, guid: aaee9686a383b9e42bb515718258a65d, type: 3}
+  telaInicial: 0
+  player: {fileID: 11400000, guid: 95a2c56dfbe73ba41a526b61541d4e53, type: 2}
+  svb: {fileID: 11400000, guid: 26fc3798ce7f4de439a712586e87f69b, type: 2}

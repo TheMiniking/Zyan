@@ -16,7 +16,7 @@ public class TriggerHand : MonoBehaviour
 	{
 		_RepresentUnit.LeanMoveLocal( _originalPosition + new Vector3 (0,40,0),0.25f);
 		var z = FindObjectOfType<Manager_UI>();
-		z.UpdateUI(_RepresentUnit);
+		z.UpdateUI(_RepresentUnit.GetComponent<Unit>());
 		
 	}
 	

@@ -5,85 +5,62 @@ using UnityEditor;
 using TMPro;
 using Sirenix.OdinInspector;
 
-public class SceneVariables_Battle : MonoBehaviour
+[CreateAssetMenu (fileName = "SceneVariable", menuName = "Zyan Assets/Create SceneVarable")]
+public class SceneVariables_Battle : ScriptableObject
 {
 	[Title("Scene Variables")]
-    [ShowInInspector] public GameObject uiUnitsManager;
-	[ShowInInspector] public GameObject battleManager;
-    [ShowInInspector] public GameObject anuncio;
 	[ShowInInspector] public TMP_Text debugText;
 	[ShowInInspector] private GameObject scenesVariables;
     
 	[Title("Player Variables")]
-	[ShowInInspector] public static Zyan.PlayerInventary playerData = new Zyan.PlayerInventary(){};
-	[ShowInInspector] public static string playerID;
-	[ShowInInspector] public static Zyan.PlayerDecks _PlayerDeck ;
-	[ShowInInspector] public static PlayerInventaryOBJ playerOBJ ;
+	[ShowInInspector] public string playerID;
+	[ShowInInspector] public Zyan.PlayerDecks _PlayerDeck ;
+	[ShowInInspector] public PlayerInventaryOBJ playerOBJ ;
 	
 	[Title("Enemy Variables")]
-	[ShowInInspector] public static string enemyName;
-	[ShowInInspector] public static string enemyID;
-	[ShowInInspector] public static Zyan.PlayerDecks _EnemyDeck ;
+	[ShowInInspector] public string enemyName;
+	[ShowInInspector] public string enemyID;
+	[ShowInInspector] public Zyan.PlayerDecks _EnemyDeck ;
 	
 	[Title("Battle Variables")]
-    [ShowInInspector] public static bool vsAI = true;
-	[ShowInInspector] public static BattlePlayerData p1 ;
-	[ShowInInspector] public static BattlePlayerData p2 ;
-	[ShowInInspector] public static string atualTurn;
-	[ShowInInspector] public static string atualTurnID;
-    [ShowInInspector] public static string atualTurnDisplay;
-    [ShowInInspector] public static int turnCount;
-    [ShowInInspector] public static GameObject _LastTerreno;
-	[ShowInInspector] public static GameObject _TerrenoAnterior;
-	[ShowInInspector] public static Unit _LastSummonUnit;
-	[ShowInInspector] public static UnitField _UnitToMove;
-	[ShowInInspector] public static int PlayerEnergy;
-	[ShowInInspector] public static int EnemyEnergy;
+    [ShowInInspector] public bool vsAI = true;
+	[ShowInInspector] public BattlePlayerData p1 = new BattlePlayerData();
+	[ShowInInspector] public BattlePlayerData p2 = new BattlePlayerData();
+	[ShowInInspector] public string atualTurn;
+	[ShowInInspector] public string atualTurnID;
+    [ShowInInspector] public string atualTurnDisplay;
+    [ShowInInspector] public int turnCount;
+    [ShowInInspector] public GameObject _LastTerreno;
+	[ShowInInspector] public GameObject _TerrenoAnterior;
+	[ShowInInspector] public Unit _LastSummonUnit;
+	[ShowInInspector] public UnitField _UnitToMove;
+	[ShowInInspector] public int PlayerEnergy;
+	[ShowInInspector] public int EnemyEnergy;
 	
 	[Title("Battle Variables")]
-	[ShowInInspector] public static List<string> DebugLogList = new List<string> {};
+	[ShowInInspector] public Dictionary<string, SVBLog> DebugLogList = new Dictionary<string, SVBLog> {};
 	
 	[Title("In test - Não apagar")]
-    [ShowInInspector] public static Dictionary<string, string> idList = new Dictionary<string, string>();
+    [ShowInInspector] public Dictionary<string, string> idList = new Dictionary<string, string>();
     
+	public class SVBLog{
+		public string Visual;
+		public string Detalhado;
+	} 
 	
-	public static string filenamePlayer = "Player.mk" ;
-	public static string filenameIdCards = "Card.mk" ;
-	public static string filenameIdSpell = "Spell.mk" ;
-	public static string filenameIdAction = "Action.mk" ;
-	public static string filenameIdEquip = "Equip.mk" ;
+	public string filenamePlayer = "Player.mk" ;
+	public string filenameIdCards = "Card.mk" ;
+	public string filenameIdSpell = "Spell.mk" ;
+	public string filenameIdAction = "Action.mk" ;
+	public string filenameIdEquip = "Equip.mk" ;
 
 	public Manger_JsonUnits json;
-    //// Start is called before the first frame update
-    void Start()
+	//// Start is called before the first frame update
+	[Button]
+	public void Start()
 	{
-		p1 = new BattlePlayerData();
-		p2 = new BattlePlayerData();
-		if (scenesVariables != null) 
-		{GameObject.Destroy(this.gameObject);}
-		else {scenesVariables = this.gameObject;
-			DontDestroyOnLoad(scenesVariables);}
-		//LoadAssetPlayer();
-		//playerOBJ.LoadPlayerDATA();
-		//playerOBJ.LoadInventary();
-		playerData = playerOBJ.Player;
-		playerID = playerData.ID;
-		enemyID = ""+ Random.Range(0,99999999);
-		enemyName = "AI Lv 1";
-		p1.ID = playerID;
-		p1.IsPlayer1 = true;
-		p1.Name = playerData.Name;
-		p2.ID = enemyID;
-		p2.IsPlayer1 = false;
-		p2.Name = enemyName;
-		p1.Rank = "Civil";
-		p2.Rank = "Civil";
-    }
-
-	void Awake()
-	{
-		var t = Resources.Load<PlayerDeckOBJ>("Player/Deck/Dragons");
-		_PlayerDeck = t.Deck;
+		playerOBJ.LoadPlayerDATA();
+		_PlayerDeck = playerOBJ.AtualDeck;
 		var r = Resources.Load<PlayerDeckOBJ>("Player/Deck/Warriors");
 		_EnemyDeck = r.Deck;
 		var terrenoMisturados = FindObjectsOfType<Terreno>();
@@ -93,22 +70,36 @@ public class SceneVariables_Battle : MonoBehaviour
 			if (tr._HexType == "Normal")
 			{ terrenosNormal.Add( tr);}
 		}
-		foreach ( Zyan.SpellClass sp in t.SpellTrap)
+		foreach ( Zyan.SpellClass sp in _PlayerDeck.SpellTrap)
 		{
 			int w = Random.Range(0,terrenosNormal.Count);
 			terrenosNormal[w]._SpellData = sp;
 			terrenosNormal.Remove(terrenosNormal[w]);
 		}
-		foreach ( Zyan.SpellClass sp2 in r.SpellTrap)
+		foreach ( Zyan.SpellClass sp2 in _EnemyDeck.SpellTrap)
 		{
 			int w2 = Random.Range(0,terrenosNormal.Count);
 			terrenosNormal[w2]._SpellData = sp2;
 			terrenosNormal.Remove(terrenosNormal[w2]);
 		}
+		playerID = playerOBJ.Player.ID;
+		enemyID = ""+ Random.Range(0,99999999);
+		enemyName = "AI Lv 1";
+		p1.ID = playerID;
+		p1.IsPlayer1 = true;
+		p1.Name = playerOBJ.Player.Name;
+		p2.ID = enemyID;
+		p2.IsPlayer1 = false;
+		p2.Name = enemyName;
+		p1.Rank = "Civil";
+		p2.Rank = "Civil";
+		turnCount = 0;
+		PlayerEnergy = 0;
+		EnemyEnergy= 0;
 	}
 	#if (UNITY_EDITOR) 
 	[Button]
-	private static void LoadAssetPlayer()
+	private void LoadAssetPlayer()
 	{
 		playerOBJ = AssetDatabase.LoadAssetAtPath<PlayerInventaryOBJ>("Assets/Resources/Player/Player.asset");
 	}
@@ -136,9 +127,9 @@ public class SceneVariables_Battle : MonoBehaviour
 		v.NextTurn();
 	}
 	
-	public void DebugText(string tx){
-		DebugLogList.Add(tx);
-		debugText.text = tx;
+	public void DebugText(SVBLog tx){
+		DebugLogList.Add(DebugLogList.Count.ToString(),tx);
+		debugText.text = tx.Visual;
 	}
 	
 	[System.Serializable]

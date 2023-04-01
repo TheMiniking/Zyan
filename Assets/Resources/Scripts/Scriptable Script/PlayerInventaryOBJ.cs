@@ -10,19 +10,16 @@ using Sirenix.OdinInspector;
 public class PlayerInventaryOBJ : ScriptableObject
 {
 	public Zyan.PlayerInventary Player;
-	public PlayerDecksInventaryOBJ DeckInventary;
-	public ActionInventaryOBJ ActionInventary;
-	public EquipInventaryOBJ EquipInventary;
-	public SpellInventaryOBJ SpellInventary;
-	public UnitInventaryOBJ UnitInventary ;
+	//public PlayerDecksInventaryOBJ DeckInventary;
 	public Zyan.PlayerDecks AtualDeck;
 	[ShowInInspector]public Dictionary<string,Zyan.IdIndex> PlayerInventaryUnit = new Dictionary<string, Zyan.IdIndex>{}; //Contem unitInventary
 	[ShowInInspector]public Dictionary<string,Zyan.IdIndex> PlayerInventaryAction = new Dictionary<string, Zyan.IdIndex>{}; //Contem unitInventary
 	[ShowInInspector]public Dictionary<string,Zyan.IdIndex> PlayerInventaryEquip = new Dictionary<string, Zyan.IdIndex>{}; //Contem unitInventary
 	[ShowInInspector]public Dictionary<string,Zyan.IdIndex> PlayerInventarySpell = new Dictionary<string, Zyan.IdIndex>{}; //Contem unitInventary
 	[ShowInInspector]public Dictionary<string,Zyan.PlayerDecks> PlayerInventaryDeck = new Dictionary<string, Zyan.PlayerDecks>{}; //Contem unitInventary
+	[ShowInInspector]public Dictionary<string,int> UnitUtilizadas = new Dictionary<string, int>{}; 
 	
-	
+	void Awake()=> ResetStatus();
 	//Terminar de Automatizar - criando cada coisa nescessaria para o jogador nao perder DATA
 	/// --------------------------------------------------///
 	private int index;
@@ -162,7 +159,54 @@ public class PlayerInventaryOBJ : ScriptableObject
 		foreach (Zyan.IdIndex i in Player.InventarySpell){if(PlayerInventarySpell.ContainsKey(i.Id)!= true)PlayerInventarySpell.Add(i.Id , i);}
 		foreach (Zyan.IdIndex i in Player.InventaryEquip){if(PlayerInventaryEquip.ContainsKey(i.Id)!= true)PlayerInventaryEquip.Add(i.Id , i);}
 		foreach (Zyan.IdIndex i in Player.InventaryActionCards ){if(PlayerInventaryAction.ContainsKey(i.Id)!= true)PlayerInventaryAction.Add(i.Id , i);}
-		foreach (Zyan.PlayerDecks i in DeckInventary._Decks){if(PlayerInventaryDeck.ContainsKey(i.timeName)!= true)PlayerInventaryDeck.Add(i.timeName , i);}}
+		UnitUtilizadas.Clear();
+		for (int i = 0; i < 5; i++)
+		{
+			switch (i){
+			case 0:
+				if(AtualDeck.Slot1.Civil != ""){UnitUtilizadas[AtualDeck.Slot1.Civil] = UnitUtilizadas.TryGetValue(AtualDeck.Slot1.Civil, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot1.Soldier != ""){UnitUtilizadas[AtualDeck.Slot1.Soldier] = UnitUtilizadas.TryGetValue(AtualDeck.Slot1.Soldier, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot1.Combatant != ""){UnitUtilizadas[AtualDeck.Slot1.Combatant] = UnitUtilizadas.TryGetValue(AtualDeck.Slot1.Combatant, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot1.General != ""){UnitUtilizadas[AtualDeck.Slot1.General] = UnitUtilizadas.TryGetValue(AtualDeck.Slot1.General, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot1.King != ""){UnitUtilizadas[AtualDeck.Slot1.King] = UnitUtilizadas.TryGetValue(AtualDeck.Slot1.King, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot1.God != ""){UnitUtilizadas[AtualDeck.Slot1.God] = UnitUtilizadas.TryGetValue(AtualDeck.Slot1.God, out int val) ? val+1 : 1; }
+				break;
+			case 1:
+				if(AtualDeck.Slot2.Civil != ""){UnitUtilizadas[AtualDeck.Slot2.Civil] = UnitUtilizadas.TryGetValue(AtualDeck.Slot2.Civil, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot2.Soldier != ""){UnitUtilizadas[AtualDeck.Slot2.Soldier] = UnitUtilizadas.TryGetValue(AtualDeck.Slot2.Soldier, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot2.Combatant != ""){UnitUtilizadas[AtualDeck.Slot2.Combatant] = UnitUtilizadas.TryGetValue(AtualDeck.Slot2.Combatant, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot2.General != ""){UnitUtilizadas[AtualDeck.Slot2.General] = UnitUtilizadas.TryGetValue(AtualDeck.Slot2.General, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot2.King != ""){UnitUtilizadas[AtualDeck.Slot2.King] = UnitUtilizadas.TryGetValue(AtualDeck.Slot2.King, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot2.God != ""){UnitUtilizadas[AtualDeck.Slot2.God] = UnitUtilizadas.TryGetValue(AtualDeck.Slot2.God, out int val) ? val+1 : 1; }
+				break;
+			case 2:
+				if(AtualDeck.Slot3.Civil != ""){UnitUtilizadas[AtualDeck.Slot3.Civil] = UnitUtilizadas.TryGetValue(AtualDeck.Slot3.Civil, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot3.Soldier != ""){UnitUtilizadas[AtualDeck.Slot3.Soldier] = UnitUtilizadas.TryGetValue(AtualDeck.Slot3.Soldier, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot3.Combatant != ""){UnitUtilizadas[AtualDeck.Slot3.Combatant] = UnitUtilizadas.TryGetValue(AtualDeck.Slot3.Combatant, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot3.General != ""){UnitUtilizadas[AtualDeck.Slot3.General] = UnitUtilizadas.TryGetValue(AtualDeck.Slot3.General, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot3.King != ""){UnitUtilizadas[AtualDeck.Slot3.King] = UnitUtilizadas.TryGetValue(AtualDeck.Slot3.King, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot3.God != ""){UnitUtilizadas[AtualDeck.Slot3.God] = UnitUtilizadas.TryGetValue(AtualDeck.Slot3.God, out int val) ? val+1 : 1; }
+				break;
+			case 3:
+				if(AtualDeck.Slot4.Civil != ""){UnitUtilizadas[AtualDeck.Slot4.Civil] = UnitUtilizadas.TryGetValue(AtualDeck.Slot4.Civil, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot4.Soldier != ""){UnitUtilizadas[AtualDeck.Slot4.Soldier] = UnitUtilizadas.TryGetValue(AtualDeck.Slot4.Soldier, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot4.Combatant != ""){UnitUtilizadas[AtualDeck.Slot4.Combatant] = UnitUtilizadas.TryGetValue(AtualDeck.Slot4.Combatant, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot4.General != ""){UnitUtilizadas[AtualDeck.Slot4.General] = UnitUtilizadas.TryGetValue(AtualDeck.Slot4.General, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot4.King != ""){UnitUtilizadas[AtualDeck.Slot4.King] = UnitUtilizadas.TryGetValue(AtualDeck.Slot4.King, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot4.God != ""){UnitUtilizadas[AtualDeck.Slot4.God] = UnitUtilizadas.TryGetValue(AtualDeck.Slot4.God, out int val) ? val+1 : 1; }
+				break;
+			case 4:
+				if(AtualDeck.Slot5.Civil != ""){UnitUtilizadas[AtualDeck.Slot5.Civil] = UnitUtilizadas.TryGetValue(AtualDeck.Slot5.Civil, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot5.Soldier != ""){UnitUtilizadas[AtualDeck.Slot5.Soldier] = UnitUtilizadas.TryGetValue(AtualDeck.Slot5.Soldier, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot5.Combatant != ""){UnitUtilizadas[AtualDeck.Slot5.Combatant] = UnitUtilizadas.TryGetValue(AtualDeck.Slot5.Combatant, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot5.General != ""){UnitUtilizadas[AtualDeck.Slot5.General] = UnitUtilizadas.TryGetValue(AtualDeck.Slot5.General, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot5.King != ""){UnitUtilizadas[AtualDeck.Slot5.King] = UnitUtilizadas.TryGetValue(AtualDeck.Slot5.King, out int val) ? val+1 : 1; }
+				if(AtualDeck.Slot5.God != ""){UnitUtilizadas[AtualDeck.Slot5.God] = UnitUtilizadas.TryGetValue(AtualDeck.Slot5.God, out int val) ? val+1 : 1; }
+				break;
+			}
+		}
+		//if(PlayerInventaryAction.ContainsKey(i.Id)!= true)PlayerInventaryAction.Add(i.Id , i);}
+		if (Player.Decks != null) foreach (Zyan.PlayerDecks i in Player.Decks){if(PlayerInventaryDeck.ContainsKey(i.timeName)!= true)PlayerInventaryDeck.Add(i.timeName , i);}}
 	/// --------------------------------------------------///
 	/// 
 	/// Atualiza dados do dicionario para o player e salva ----------///
@@ -182,6 +226,23 @@ public class PlayerInventaryOBJ : ScriptableObject
 	/// --------------------------------------------------///
 	/// 
 	///Adiciona itens ao inventario e salva --------------///
+	[Button]
+	public void addToPlayer( string card , string cardType){
+		switch (cardType){
+		case "Card":
+			PlayerInventaryUnit[card].Quantidade ++;
+			break;
+		case "Equip":
+			PlayerInventaryEquip[card].Quantidade ++;
+			break;
+		case "Action":
+			PlayerInventaryAction[card].Quantidade ++;
+			break;
+		case "Spell":
+			PlayerInventarySpell[card].Quantidade ++;
+			break;}
+		DicToPlayer();}
+		
 	[Button]
 	public void addToPlayer( List<string> deck , string cardType){
 		switch (cardType){
@@ -236,11 +297,11 @@ public class PlayerInventaryOBJ : ScriptableObject
 		if (deck.Deck.Slot3.Equip != "")PlayerInventaryEquip[deck.Deck.Slot3.Equip].Quantidade ++;
 		if (deck.Deck.Slot4.Equip != "")PlayerInventaryEquip[deck.Deck.Slot4.Equip].Quantidade ++;
 		if (deck.Deck.Slot5.Equip != "")PlayerInventaryEquip[deck.Deck.Slot5.Equip].Quantidade ++;
-		if (deck.SpellTrap.Length>0 && deck.SpellTrap[0].id != "")PlayerInventarySpell[deck.SpellTrap[0].id].Quantidade ++;
-		if (deck.SpellTrap.Length>0 && deck.SpellTrap[1].id != "")PlayerInventarySpell[deck.SpellTrap[1].id].Quantidade ++;
-		if (deck.SpellTrap.Length>1 && deck.SpellTrap[2].id != "")PlayerInventarySpell[deck.SpellTrap[2].id].Quantidade ++;
-		if (deck.SpellTrap.Length>2 && deck.SpellTrap[3].id != "")PlayerInventarySpell[deck.SpellTrap[3].id].Quantidade ++;
-		if (deck.SpellTrap.Length>3 && deck.SpellTrap[4].id != "")PlayerInventarySpell[deck.SpellTrap[4].id].Quantidade ++;
+		if (deck.Deck.SpellTrap.Length>0 && deck.Deck.SpellTrap[0].id != "")PlayerInventarySpell[deck.Deck.SpellTrap[0].id].Quantidade ++;
+		if (deck.Deck.SpellTrap.Length>0 && deck.Deck.SpellTrap[1].id != "")PlayerInventarySpell[deck.Deck.SpellTrap[1].id].Quantidade ++;
+		if (deck.Deck.SpellTrap.Length>1 && deck.Deck.SpellTrap[2].id != "")PlayerInventarySpell[deck.Deck.SpellTrap[2].id].Quantidade ++;
+		if (deck.Deck.SpellTrap.Length>2 && deck.Deck.SpellTrap[3].id != "")PlayerInventarySpell[deck.Deck.SpellTrap[3].id].Quantidade ++;
+		if (deck.Deck.SpellTrap.Length>3 && deck.Deck.SpellTrap[4].id != "")PlayerInventarySpell[deck.Deck.SpellTrap[4].id].Quantidade ++;
 		DicToPlayer();}
 	/// --------------------------------------------------///
 	/// 
@@ -259,7 +320,6 @@ public class PlayerInventaryOBJ : ScriptableObject
 		DicUpdate();
 	}
 	/// --------------------------------------------------///
-	/// 
 	/// Save Data ---------------------------------------///
 	[Button]
 	public void SavePlayerData()=>JsonReader.SaveToJSONPlayer(Player, "Player.mk");

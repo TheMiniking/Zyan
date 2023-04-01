@@ -1048,11 +1048,12 @@ MonoBehaviour:
   mat:
   - {fileID: 2100000, guid: 43a73cde8b2e7104e889124cce71ca84, type: 2}
   - {fileID: 2100000, guid: a47b346198f24fe4e8902fb9f383c697, type: 2}
-  _MatNoMove: {fileID: 2100000, guid: 66a8e5be04021ba4884de2f979afeb56, type: 2}
-  _MatCanMove: {fileID: 2100000, guid: 43a73cde8b2e7104e889124cce71ca84, type: 2}
+  _MatNoMove: {fileID: 2100000, guid: 45a2710e32d0cae43ad12075ba43975e, type: 2}
+  _MatCanMove: {fileID: 2100000, guid: 66a8e5be04021ba4884de2f979afeb56, type: 2}
   _BoostMoviment: 0
   _SpecialStatus: 
   _StatusImg: {fileID: 450997428180301984}
+  svb: {fileID: 11400000, guid: 26fc3798ce7f4de439a712586e87f69b, type: 2}
   _AnimPoison:
   - {fileID: -2314879690743086594, guid: 00bee4471a9b84d44b174e1593ce5ce3, type: 3}
   - {fileID: -7369395791433811635, guid: 00bee4471a9b84d44b174e1593ce5ce3, type: 3}

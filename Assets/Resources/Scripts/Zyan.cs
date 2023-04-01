@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEditor;
 using Sirenix.OdinInspector;
 using UnityEngine.Events;
+using System.Reflection;
 
 
 public class Zyan : MonoBehaviour
@@ -16,22 +17,33 @@ public class Zyan : MonoBehaviour
 	/// Exemplo de Event funcionando
 	/// ------------------------------------------------------- ///
 	
-	//public delegate void BattleEvents();
-	//
-	// Adicionar eventos do tipo UnityEvent
-	//[Button] public void AddEventTest()
-	//{ var up = FindObjectOfType<Zyan>();
-	//	up.Summon.AddListener(TestEvent);}
-	//	
-	
-	[ShowInInspector] public UnityEvent Summon;
-	[ShowInInspector] public UnityEvent Moviment;
-	
+	public delegate void OtherEvents(); 			// Variavel Master do Evento
+	public event OtherEvents MensagemV1;			// Variavel do Evento
+	[ShowInInspector] public UnityEvent MensagemV2;	// Variavel da UnityEvent , pode usar Inspetor para adicionar Eventos.
+	[Button] public void EventMensage() { 
+		MensagemV2?.Invoke();				// Como chamar os eventos, usado por outros scripts.
+		MensagemV1?.Invoke();
+	}
+	void OnEnable(){
+		MensagemV1 += Test2;				// Adiciona para ultilizaçao do evento
+		MensagemV2.AddListener(Test);		// Adiciona para ultilizaçao do Unityevent via Script [obs: Nao pode ter argumentos]
+	} 
+	void OnDisable(){
+		MensagemV1 -= Test2;				// Remove para evitar erros
+		MensagemV2.RemoveAllListeners();	// Remove para evitar erros
+	} 
+	/// ------------------------------------------------------- ///
+	/// Exemplo de Funçao vindo de uma string
+	/// ------------------------------------------------------- ///
+	/// 
 	[Button]
-	public void EventSummon() => Summon?.Invoke();
+	void StringFuntion(string funtionSTR){
+		MethodInfo funtion = typeof(Zyan).GetMethod(funtionSTR);
+		Action del = (Action)Delegate.CreateDelegate(typeof(Action), funtion);
+		del();
+	}
+	// Cria uma delegação para o método
 	
-	[Button]
-	public void EventMoviment() => Moviment?.Invoke();
 	
 	/// ------------------------------------------------------- ///
 	/// Evento do teste
@@ -39,6 +51,7 @@ public class Zyan : MonoBehaviour
 
 	public static void Test(string txt) => Debug.Log("Funcionou ! : " + txt);
 	public static void Test() => Debug.Log("Funcionou !");
+	public static void Test2() => Debug.Log("Funcionou ! Outra versao!");
 	
 	/// ------------------------------------------------------- ///
 	
@@ -54,7 +67,7 @@ public class Zyan : MonoBehaviour
 		public List<IdIndex> InventarySpell;
 		public List<IdIndex> InventaryEquip;
 		public List<string> HistoryMode;
-		public List<PlayerDeckOBJ> Decks;
+		public List<PlayerDecks> Decks;
 	}
 	
 	[Serializable]
@@ -110,6 +123,7 @@ public class Zyan : MonoBehaviour
 		public TimeUnits Slot3;
 		public TimeUnits Slot4;
 		public TimeUnits Slot5;
+		public SpellClass[] SpellTrap; 
 		public PlayerDeckOBJ OBJ;
 	}
 	
@@ -342,4 +356,14 @@ public class Zyan : MonoBehaviour
 		public InfoItem[] ItensPT;
 	}
 	
+	[Serializable]
+	public class BoosterItem{
+		public string Nome;
+		public string[] List;
+	}
+	
+	[Serializable]
+	public class BoosterItemNode{
+		public BoosterItem[] Booster;
+	}
 }

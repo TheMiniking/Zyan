@@ -37,10 +37,10 @@ public class Superteste : MonoBehaviour
 		ArrayUtility.Add<int>(ref player.iModifications.newBuffLife, 0);
 		ArrayUtility.Add<string>(ref player.iModifications.newModificationLocal, "Effect1");
 		ArrayUtility.Add<string>(ref player.iModifications.newModificarionEffect, "Aggressor");
-		ArrayUtility.Add<string>(ref player.iModifications.newRarity, "Rare");*/
+		ArrayUtility.Add<string>(ref player.iModifications.newRarity, "Rare");
 		SceneVariables_Battle.playerData = player;
 		v =	GetJson.FromJsonCards(JsonCard.text);
-		JsonReader.SaveToJSONCards(v, "Units.mk");
+		JsonReader.SaveToJSONCards(v, "Units.mk");*/
 	}
 	public void LoadPlayer(string z)
 	{

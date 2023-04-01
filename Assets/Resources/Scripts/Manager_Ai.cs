@@ -16,12 +16,14 @@ public class Manager_Ai : MonoBehaviour
 	public List<GameObject> bp;
 	public List<GameObject> summonSpot2;
 	
+	public SceneVariables_Battle svb;
+	
 	public Terreno terreno;
 	private bool aiOn;
     // Update is called once per frame
 	void Update()
 	{
-		if (SceneVariables_Battle.atualTurn == "P2")
+		if (svb.atualTurn == "P2")
 		{
 			if (aiOn != true)
 			{
@@ -33,7 +35,7 @@ public class Manager_Ai : MonoBehaviour
 	public IEnumerator AiCoroutine()
 	{
 		aiOn = true;
-		yield return new WaitForSecondsRealtime (1f);
+		yield return new WaitForSecondsRealtime (2f);
 		AiChoiseNextStep();
 		aiOn= false;
 	}
@@ -67,7 +69,7 @@ public class Manager_Ai : MonoBehaviour
 		{
 			AiMoviment();
 			return;
-		}else if (SceneVariables_Battle.p2.canSummon && SceneVariables_Battle.atualTurn == "P2" && onHand.Count > 0)
+		}else if (svb.p2.canSummon && svb.atualTurn == "P2" && onHand.Count > 0)
 		{
 			AiSummon();
 			return;
@@ -85,7 +87,7 @@ public class Manager_Ai : MonoBehaviour
 		foreach (GameObject g in onHand)
 		{	// verifica os que podem ser invocados.
 			var d = g.GetComponent<Unit>();
-			if (d._life > d._originalLife/2+0.5f)
+			if (d._Self._life > d._Self._originalLife/2+0.5f)
 			{
 				canSummonUnits.Add(g);
 			}
@@ -109,17 +111,17 @@ public class Manager_Ai : MonoBehaviour
 			if (summonSpot2.Count > 0)
 			{//completa a invocaçao se possivel.
 				var u = Random.Range(0, summonSpot2.Count);
-			SceneVariables_Battle._LastTerreno = summonSpot2[u];
-			SceneVariables_Battle._LastSummonUnit = unit;
+			svb._LastTerreno = summonSpot2[u];
+			svb._LastSummonUnit = unit;
 			unit.FinishSummon();
-			SceneVariables_Battle.p2.canSummon = false;
+			svb.p2.canSummon = false;
 			}else 
 			{
-				SceneVariables_Battle.p2.canSummon = false;
+				svb.p2.canSummon = false;
 			}
 		}else 
 		{
-			SceneVariables_Battle.p2.canSummon = false;
+			svb.p2.canSummon = false;
 		}
 	}
 	
@@ -144,7 +146,9 @@ public class Manager_Ai : MonoBehaviour
 			var t = e.GetComponent<UnitField>();
 			if (t._CanMove)
 			{
-				canMoveUnits.Add(g);
+				if (f._Self._OnStatus != "Sleep"){canMoveUnits.Add(g);}
+				else{t._CanMove = false;}
+				
 			}
 		}
 		if (canMoveUnits.Count > 0)

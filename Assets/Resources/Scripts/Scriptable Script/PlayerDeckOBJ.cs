@@ -8,7 +8,6 @@ using Sirenix.OdinInspector;
 public class PlayerDeckOBJ : ScriptableObject
 {
 	public Zyan.PlayerDecks Deck;
-	public Zyan.SpellClass[] SpellTrap; 
 	
 	void Awake () => UpdateData();
 	
@@ -20,7 +19,7 @@ public class PlayerDeckOBJ : ScriptableObject
 	{
 		Deck.timeName = this.name; 
 		Deck.OBJ = this;
-		foreach (Zyan.SpellClass sp in SpellTrap)
+		foreach (Zyan.SpellClass sp in Deck.SpellTrap)
 		{
 			if (sp.OBJ != null)
 			{
