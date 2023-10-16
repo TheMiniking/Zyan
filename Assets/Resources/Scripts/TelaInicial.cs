@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEditor;
 using Sirenix.OdinInspector;
+using System.Threading.Tasks;
 
 public class TelaInicial : MonoBehaviour
 {
@@ -21,10 +22,11 @@ public class TelaInicial : MonoBehaviour
 	public List<PlayerDeckOBJ> starterDeck = new List<PlayerDeckOBJ>{};
 	public PlayerInventaryOBJ player ;
 	public GameObject escolhaDeck;
+	public GameObject intro;
 	
 	// Carrega o Save inicial, se nao existe cria um novo
 	[Button]
-	void Start(){StartCoroutine(LoadGameSave());}
+	void Start(){player.LoadPlayerDATA();}//StartCoroutine(LoadGameSave());}
 	/// --------------------------------------------------///
 	
 	/// --------------------------------------------------///
@@ -128,7 +130,16 @@ public class TelaInicial : MonoBehaviour
 	/// ----------------------------------------------------///
 	
 	//Carrega a cena principal
-	private void LoadGame()=> SceneManager.LoadScene(1);
+	private async Task LoadGame(){
+		AsyncOperation load = SceneManager.LoadSceneAsync(1);
+		while (!load.isDone){
+			float progresso = Mathf.Clamp01(load.progress / 0.9f);
+			loading.text = "Progresso de carregamento: " + (progresso * 100) + "%";
+			await Task.Yield(); // Garante que o loop seja assíncrono
+		}
+		intro.SetActive(true);
+		intro.GetComponent<Animator>().SetBool("Entra",false);
+	}
 	/// ----------------------------------------------------///
 	
 	[System.Serializable]

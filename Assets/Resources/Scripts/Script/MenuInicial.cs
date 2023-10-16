@@ -24,8 +24,10 @@ public class MenuInicial : MonoBehaviour
 	public GameObject[] telas;
 	public Vector3[] origPosTela;
 	public Vector3 centro;
+	public GameObject intro;
 	// Update is called once per frame
 	void Start(){
+		intro.GetComponent<Animator>().SetBool("Entra",true);
 		player.LoadPlayerDATA();
 		MoveTela(0,true);
 		MoveTela(1,false);
@@ -50,6 +52,9 @@ public class MenuInicial : MonoBehaviour
 		UpdateAtualCardsNumb();
         
 	}
+	
+	public void IntroOut()=>intro.GetComponent<Animator>().SetBool("Entra",false);
+	
 	[Button]
 	public void UpdateAtualCardsNumb(){
 		atualCardsNumb = 0;

@@ -174,7 +174,7 @@
          "id":"73898560",
          "Name":"Half-Half",
          "Type":"Trap",
-         "SubType":"Life Drain ",
+         "SubType":"Life Drain",
          "Restriction":"None",
          "Description":"Reduz a vida pela metade",
          "Script":"00000018",

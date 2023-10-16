@@ -15,9 +15,26 @@ public class ManagerTurn : MonoBehaviour
 	[ShowInInspector] public static bool _PlayerTurn;
 	public SceneVariables_Battle svb;
 	
-	void Awake()=> svb.Start();
+	//void Awake()=> svb.Start();
 	
-	void Start()=> NextTurn();
+	void Start(){ SetAllVarsBattle();NextTurn();}
+	
+	[Button]
+	public void SetAllVarsBattle(){
+		//Espalha todas spell/trap pelo campo
+		var terrenoMisturados = FindObjectsOfType<Terreno>();
+		List<Terreno> terrenosNormal = new List<Terreno>{};
+		foreach ( Terreno tr in terrenoMisturados){	if (tr._HexType == "Normal"){ terrenosNormal.Add( tr);}}
+		foreach ( Zyan.SpellClass sp in svb.p1.deck.SpellTrap){
+			int w = Random.Range(0,terrenosNormal.Count);
+			terrenosNormal[w]._SpellData = sp;
+			terrenosNormal.Remove(terrenosNormal[w]);}
+		foreach ( Zyan.SpellClass sp2 in svb.p2.deck.SpellTrap){
+			int w2 = Random.Range(0,terrenosNormal.Count);
+			terrenosNormal[w2]._SpellData = sp2;
+			terrenosNormal.Remove(terrenosNormal[w2]);}
+		//Multiplayer sets
+	}
 	
 	private bool _PosPlayerHud;
     public void NextTurn()
@@ -52,14 +69,14 @@ public class ManagerTurn : MonoBehaviour
         switch (_PlayerTurn)
        {case true:
 	        svb.atualTurn = "P2";
-	       svb.atualTurnID = svb.enemyID;
+	       svb.atualTurnID = svb.p1.ID;
 	        svb.p2.canSummon = true;
             turnBG.color = Color.green;
 	        _PlayerTurn = false;
             break;
         case false:
 	        svb.atualTurn = "P1";
-	        svb.atualTurnID = svb.playerID;
+	        svb.atualTurnID = svb.p1.ID;
 	        svb.p1.canSummon = true;
             turnBG.color = Color.white;
 	        _PlayerTurn = true;

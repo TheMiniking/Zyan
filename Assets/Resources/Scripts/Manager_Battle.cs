@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Threading.Tasks;
 
 public class Manager_Battle : MonoBehaviour
 {
@@ -215,7 +216,7 @@ public class Manager_Battle : MonoBehaviour
 		
 	}
 	
-	public void Damage(Unit unit, int damage)
+	public async Task Damage(Unit unit, int damage)
 	{
 		var t1 = _Atacante.GetComponent<Unit>();
 		var t_1 = t1._Terreno;
@@ -247,11 +248,12 @@ public class Manager_Battle : MonoBehaviour
 				{t1._Self._atk ++ ;}}
 			if (t1._Self._effect1 == "Eternal Guardian" || t1._Self._effect2 == "Eternal Guardian")
 			{	if (t1._Self._def <= t1._Self._originalDef * 2)
-				{t1._Self._def ++ ;}}
-			if (unit._Self._life <= 0)
+			{t1._Self._def ++ ;}}
+			await Task.Delay(1000);
+			if (unit._Self._TotalLife <= 0)
 			{
 				//unit._Terreno.AnimDeath();
-				Debug.Log("movendo depois da batalha : " + t1._UnitOnField.GetComponent<UnitField>());
+				Debug.Log("movendo depois da batalha : " + t1._UnitOnField.GetComponent<UnitField>().name);
 				svb._UnitToMove = t1._UnitOnField.GetComponent<UnitField>();
 				t_2.MoveUnit();
 			}else 
@@ -262,7 +264,8 @@ public class Manager_Battle : MonoBehaviour
 					{t2._Self._atk ++ ;}}
 				if (t2._Self._effect1 == "Eternal Guardian" || t2._Self._effect2 == "Eternal Guardian")
 				{	if (t2._Self._def <= t2._Self._originalDef * 2)
-					{t2._Self._def ++ ;}}
+				{t2._Self._def ++ ;}}
+				Debug.Log("Unit :" + t1.name + " Não se moveu depois da batalha. Vida do inimigo : " + t2._Self._TotalLife);
 				t_1.EndMoveUnit();
 			}
 		}else 

@@ -1,0 +1,363 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a89affcc32cc142ae531605f86bfbb, type: 3}
+  m_Name: Game Estrutere - Zyan
+  m_EditorClassIdentifier: 
+  snap: 1
+  snapSize: 10
+  snapColor: {r: 0, g: 0, b: 0, a: 0.1}
+  noteWindowRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 940
+    height: 550
+  scrollPosition: {x: 48, y: 0}
+  windows:
+  - className: Header-46449
+    type: 1
+    id: 46449
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 20
+      width: 180
+      height: 30
+    windowMinSize: {x: 100, y: 30}
+    windowMaxSize: {x: 500, y: 100}
+    connects:
+    - id: 72260
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 49.5
+        width: 60
+        height: 40
+      moveHandleActive: 0
+      label: 0
+      startArrow: 0
+      endArrow: 1
+      labelText: 
+      offset: {x: 0, y: 0}
+    header:
+      header: Inicio do jogo
+      fontStyle: 0
+      fontSize: 20
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Text
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: Header-72260
+    type: 1
+    id: 72260
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 90
+      width: 140
+      height: 30
+    windowMinSize: {x: 100, y: 30}
+    windowMaxSize: {x: 500, y: 100}
+    connects:
+    - id: 66828
+      rect:
+        serializedVersion: 2
+        x: 317.5
+        y: 50
+        width: 60
+        height: 40
+      moveHandleActive: 0
+      label: 0
+      startArrow: 0
+      endArrow: 1
+      labelText: 
+      offset: {x: 0, y: 0}
+    header:
+      header: 'Caregar info '
+      fontStyle: 0
+      fontSize: 18
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Text
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: Header-66828
+    type: 1
+    id: 66828
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 370
+      y: 20
+      width: 150
+      height: 30
+    windowMinSize: {x: 100, y: 30}
+    windowMaxSize: {x: 500, y: 100}
+    connects: []
+    header:
+      header: Load Player save
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Text
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: TextArea-62363
+    type: 2
+    id: 62363
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 120
+      width: 150
+      height: 60
+    windowMinSize: {x: 100, y: 50}
+    windowMaxSize: {x: 0, y: 0}
+    connects: []
+    header:
+      header: Header
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Carrega todos dados antes de ir pra tela principal.
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: TextArea-90036
+    type: 2
+    id: 90036
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 370
+      y: 50
+      width: 150
+      height: 60
+    windowMinSize: {x: 100, y: 50}
+    windowMaxSize: {x: 0, y: 0}
+    connects: []
+    header:
+      header: Header
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Carega o save ou cria um novo se nescessario.
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: Header-12313
+    type: 1
+    id: 12313
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 370
+      y: 150
+      width: 100
+      height: 30
+    windowMinSize: {x: 100, y: 30}
+    windowMaxSize: {x: 500, y: 100}
+    connects:
+    - id: 69752
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 175
+        width: 60
+        height: 40
+      moveHandleActive: 0
+      label: 0
+      startArrow: 0
+      endArrow: 1
+      labelText: 
+      offset: {x: 0, y: 0}
+    header:
+      header: Save Ok
+      fontStyle: 0
+      fontSize: 20
+      fontColor: {r: 0.2637477, g: 1, b: 0, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Text
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: Header-24121
+    type: 1
+    id: 24121
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 370
+      y: 110
+      width: 130
+      height: 30
+    windowMinSize: {x: 100, y: 30}
+    windowMaxSize: {x: 500, y: 100}
+    connects:
+    - id: 22793
+      rect:
+        serializedVersion: 2
+        x: 489.5
+        y: 105
+        width: 60
+        height: 40
+      moveHandleActive: 0
+      label: 0
+      startArrow: 0
+      endArrow: 1
+      labelText: 
+      offset: {x: 0, y: 0}
+    header:
+      header: Jogador novo
+      fontStyle: 0
+      fontSize: 18
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 1, g: 0.91838396, b: 0, a: 0.44705883}
+    textArea:
+      text: Text
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: Header-69752
+    type: 1
+    id: 69752
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 210
+      width: 160
+      height: 30
+    windowMinSize: {x: 100, y: 30}
+    windowMaxSize: {x: 500, y: 100}
+    connects: []
+    header:
+      header: Tela - Home
+      fontStyle: 0
+      fontSize: 20
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Text
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: Header-22793
+    type: 1
+    id: 22793
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 540
+      y: 100
+      width: 100
+      height: 50
+    windowMinSize: {x: 100, y: 30}
+    windowMaxSize: {x: 500, y: 100}
+    connects:
+    - id: 10970
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 149.5
+        width: 60
+        height: 40
+      moveHandleActive: 0
+      label: 0
+      startArrow: 0
+      endArrow: 1
+      labelText: 
+      offset: {x: 0, y: 0}
+    header:
+      header: Escolha de nome
+      fontStyle: 0
+      fontSize: 20
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Text
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+  - className: Header-10970
+    type: 1
+    id: 10970
+    moveHandleActive: 0
+    sizeHandleActive: 0
+    arrowHandleActive: 0
+    rect:
+      serializedVersion: 2
+      x: 540
+      y: 190
+      width: 100
+      height: 60
+    windowMinSize: {x: 100, y: 30}
+    windowMaxSize: {x: 500, y: 100}
+    connects:
+    - id: 69752
+      rect:
+        serializedVersion: 2
+        x: 409.5
+        y: 202.2803
+        width: 60
+        height: 40
+      moveHandleActive: 0
+      label: 0
+      startArrow: 0
+      endArrow: 1
+      labelText: 
+      offset: {x: 0, y: 0}
+    header:
+      header: Escolha deck inicial
+      fontStyle: 0
+      fontSize: 18
+      fontColor: {r: 1, g: 1, b: 1, a: 1}
+      backgroundColor: {r: 0, g: 0, b: 0, a: 0.3}
+    textArea:
+      text: Text
+      fontStyle: 0
+      fontSize: 15
+      fontColor: {r: 1, g: 1, b: 1, a: 1}

@@ -226,6 +226,26 @@ public class PlayerInventaryOBJ : ScriptableObject
 	/// --------------------------------------------------///
 	/// 
 	///Adiciona itens ao inventario e salva --------------///
+	
+	[Button]
+	public void addToPlayer( Gift gift , int quantidade){
+		switch (gift){
+		case Gift.Coin: Player.iTesouros.coin += quantidade;break;
+		case Gift.Gem: Player.iTesouros.gem += quantidade;break;
+		case Gift.MaterialComum: Player.iTesouros.materialC += quantidade;break;
+		case Gift.MaterialUtracomum: Player.iTesouros.materialUC += quantidade;break;
+		case Gift.MaterialRaro: Player.iTesouros.materialR += quantidade;break;
+		case Gift.MaterialEpic: Player.iTesouros.materialE += quantidade;break;
+		case Gift.MaterialLegendary: Player.iTesouros.materialL += quantidade;break;
+		case Gift.UpgradeC: Player.iTesouros.upgradeCuponsC += quantidade;break;
+		case Gift.UpgradeUC: Player.iTesouros.upgradeCuponsUC+= quantidade;break;
+		case Gift.UpgradeR: Player.iTesouros.upgradeCuponsR += quantidade;break;
+		case Gift.UpgradeE: Player.iTesouros.upgradeCuponsE += quantidade;break;
+		case Gift.UpgradeL: Player.iTesouros.upgradeCuponsL += quantidade;break;
+		}
+		DicToPlayer();}
+		
+	
 	[Button]
 	public void addToPlayer( string card , string cardType){
 		switch (cardType){
@@ -331,10 +351,20 @@ public class PlayerInventaryOBJ : ScriptableObject
 		Player = new Zyan.PlayerInventary{};
 		Player.ID = UnityEngine.Random.Range( 0 , 99999999).ToString();
 		Player.Name = "Visit"+ Player.ID;
+		Player.HistoryMode= new List<string>();
+		Player.Decks= new List<Zyan.PlayerDecks>();
 		SetPlayerOBJ();
 		//LoadInventary();
 		DicUpdate();
 	}
 	/// ----------------------------------------------------///
 	
+	public enum Gift{
+		Coin, Gem ,
+		MaterialComum, MaterialUtracomum , MaterialRaro,
+		MaterialEpic, MaterialLegendary,
+		UpgradeC, UpgradeUC, UpgradeR , 
+		UpgradeE , UpgradeL,
+		Unit, Deck
+	}
 }

@@ -55,13 +55,15 @@ public class Manager_UI : MonoBehaviour
 	public TMP_Text _FasePlayer;
 	public int _out;
 	public SceneVariables_Battle svb;
+	public GameObject intro;
 	
 	[ShowInInspector] public Zyan.InfoItem[] itemList;
 	[Button] public void LoadItens() => itemList = JsonReader.ReadListFromJSONInfo();
 	
     // Start is called before the first frame update
     void Start()
-    {
+	{
+		intro.GetComponent<Animator>().SetBool("Entra",true);
 		_EnName.text = svb.p2.Name;
 		_PlName.text = svb.p1.Name;
 		_EnRank.text = "Rank " + svb.p2.Rank;
@@ -147,9 +149,9 @@ public class Manager_UI : MonoBehaviour
 	{
 		unit = _unitShow.GetComponent<Unit>();
 		hud.Name = unit._Self._name;
-		hud.ATK = unit._Self._atk + unit._Self._boostATK - unit._Self._DeboostATK;
-		hud.DEF = unit._Self._def + unit._Self._boostDEF - unit._Self._DeboostDEF;
-		hud.Life = unit._Self._life + unit._Self._boostLife - unit._Self._DeboostLife;
+		hud.ATK = unit._Self._TotallAtk;
+		hud.DEF = unit._Self._TotalDef;
+		hud.Life = unit._Self._TotalLife;
 		hud.Type = unit._Self._type;
 		hud.Element = unit._Self._element;
 		hud.Rank = unit._Self._rank;
@@ -165,21 +167,21 @@ public class Manager_UI : MonoBehaviour
 			_ModATK.text = "+ " + unit._Self._ModAtk;}
 		else if (unit._Self._ModAtk < 0) {
 			_ModATK.gameObject.SetActive(true);
-			_ModATK.text = "" + unit._Self._ModAtk;}
+			_ModATK.text = "- " + unit._Self._ModAtk;}
 		else{_ModATK.gameObject.SetActive(false);}
 		if (unit._Self._ModDef > 0) {
 			_ModDEF.gameObject.SetActive(true);
 			_ModDEF.text = "+ " + unit._Self._ModDef;}
 		else if (unit._Self._ModDef < 0) {
 			_ModDEF.gameObject.SetActive(true);
-			_ModDEF.text = "" + unit._Self._ModDef;}
+			_ModDEF.text = "- " + unit._Self._ModDef;}
 			else{_ModDEF.gameObject.SetActive(false);}
 		if (unit._Self._ModLife > 0) {
 			_ModLife.gameObject.SetActive(true);
 			_ModLife.text = "+ " + unit._Self._ModAtk;}
 		else if (unit._Self._ModLife < 0) {
 			_ModLife.gameObject.SetActive(true);
-			_ModLife.text = "" + unit._Self._ModLife;}
+			_ModLife.text = " " + unit._Self._ModLife;}
 			else{_ModLife.gameObject.SetActive(false);}
 		_Type.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._Self._type);
 		_Element.texture = Resources.Load<Texture2D>("Imagens/UI/" + unit._Self._element);

@@ -137,7 +137,7 @@ public class Manager_Ai : MonoBehaviour
 			if (f._OnField)
 			{onField.Add(g);}
 			else{onHand.Add(g);}
-			Debug.Log(onHand.Count +" , "+ onField.Count  + " , "+ canMoveUnits.Count);
+			//Debug.Log(onHand.Count +" , "+ onField.Count  + " , "+ canMoveUnits.Count);
 		}
 		foreach (GameObject g in onField)
 		{	// verifica quantos do campo ainda podem se mover

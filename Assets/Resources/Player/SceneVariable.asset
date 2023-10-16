@@ -13,220 +13,224 @@ MonoBehaviour:
   m_Name: SceneVariable
   m_EditorClassIdentifier: 
   debugText: {fileID: 0}
-  playerID: 57345188
-  _PlayerDeck:
-    timeName: Dragons
-    Slot1:
-      Civil: 19327076
-      Soldier: 31350162
-      Combatant: 89473243
-      General: 
-      King: 
-      God: 
-      Equip: 29992574
-    Slot2:
-      Civil: 90291455
-      Soldier: 46185131
-      Combatant: 71324355
-      General: 
-      King: 
-      God: 
-      Equip: 00302711
-    Slot3:
-      Civil: 89979754
-      Soldier: 56582605
-      Combatant: 
-      General: 
-      King: 
-      God: 
-      Equip: 
-    Slot4:
-      Civil: 91101527
-      Soldier: 86972631
-      Combatant: 
-      General: 
-      King: 
-      God: 
-      Equip: 
-    Slot5:
-      Civil: 01298914
-      Soldier: 70652926
-      Combatant: 
-      General: 
-      King: 
-      God: 
-      Equip: 
-    SpellTrap:
-    - id: 64489767
-      Name: Volcanic Arena
-      Type: Spell
-      SubType: Terreno
-      Restriction: None
-      Description: '- Dragon , Rock e Pyro - Almenta o ATK + 2 Sobre o terreno, Ganha
-        +1 Rage movimento'
-      Script: 00000001
-      Rarity: Epic
-      OBJ: {fileID: 11400000, guid: fb28ab15c90f7074bb659cb2eb33479a, type: 2}
-    - id: 30836218
-      Name: Clear Mind
-      Type: Spell
-      SubType: Boost
-      Restriction: None
-      Description: Aumenta o DEF +2 ate o fim do turno do oponente, nao acumulativo.
-      Script: 00000008
-      Rarity: Comum
-      OBJ: {fileID: 11400000, guid: 5f30b73913bdf2442aa0ed5afd79528a, type: 2}
-    - id: 68623007
-      Name: Positive Signal
-      Type: Spell
-      SubType: Boost
-      Restriction: None
-      Description: Aumenta o ATK +2 ate o fim do turno do oponente, nao acumulativo.
-      Script: 00000007
-      Rarity: UltraComum
-      OBJ: {fileID: 11400000, guid: 23d713787ce9e524497a8b151e4df04d, type: 2}
-    - id: 83908912
-      Name: Sand of Cronos
-      Type: Trap
-      SubType: Status
-      Restriction: None
-      Description: Causa Sleep , Ignore Jogar moeda
-      Script: 00000013
-      Rarity: Comum
-      OBJ: {fileID: 11400000, guid: e46bd00fb351e7f44885c19df352ca53, type: 2}
-    - id: 73898560
-      Name: Half-Half
-      Type: Trap
-      SubType: 'Life Drain '
-      Restriction: None
-      Description: Reduz a vida pela metade
-      Script: 00000018
-      Rarity: UltraComum
-      OBJ: {fileID: 11400000, guid: 905719c3e755ae74280364bdc3a773af, type: 2}
-    OBJ: {fileID: 11400000, guid: 9f4c660dea479974b9f265c5e4130700, type: 2}
   playerOBJ: {fileID: 11400000, guid: 95a2c56dfbe73ba41a526b61541d4e53, type: 2}
-  enemyName: AI Lv 1
-  enemyID: 65100037
-  _EnemyDeck:
-    timeName: Warriors
-    Slot1:
-      Civil: 69717455
-      Soldier: 19750750
-      Combatant: 
-      General: 
-      King: 
-      God: 
-      Equip: 
-    Slot2:
-      Civil: 46824624
-      Soldier: 81504785
-      Combatant: 18181557
-      General: 
-      King: 
-      God: 
-      Equip: 67659461
-    Slot3:
-      Civil: 71062197
-      Soldier: 64327900
-      Combatant: 
-      General: 
-      King: 
-      God: 
-      Equip: 
-    Slot4:
-      Civil: 82757771
-      Soldier: 63566715
-      Combatant: 
-      General: 
-      King: 
-      God: 
-      Equip: 
-    Slot5:
-      Civil: 90819440
-      Soldier: 78429588
-      Combatant: 29168778
-      General: 
-      King: 
-      God: 
-      Equip: 
-    SpellTrap:
-    - id: 42440932
-      Name: 'Gate of Underworld '
-      Type: Spell
-      SubType: Terreno
-      Restriction: None
-      Description: '- Warrior , Demon e Guardian - Almenta o ATK + 2 Sobre o terreno,
-        Ganha +1 Rage movimento'
-      Script: 00000003
-      Rarity: Epic
-      OBJ: {fileID: 11400000, guid: 085cab438d4aec648a21ab070c147603, type: 2}
-    - id: 30836218
-      Name: Clear Mind
-      Type: Spell
-      SubType: Boost
-      Restriction: None
-      Description: Aumenta o DEF +2 ate o fim do turno do oponente, nao acumulativo.
-      Script: 00000008
-      Rarity: Comum
-      OBJ: {fileID: 11400000, guid: 5f30b73913bdf2442aa0ed5afd79528a, type: 2}
-    - id: 68623007
-      Name: Positive Signal
-      Type: Spell
-      SubType: Boost
-      Restriction: None
-      Description: Aumenta o ATK +2 ate o fim do turno do oponente, nao acumulativo.
-      Script: 00000007
-      Rarity: UltraComum
-      OBJ: {fileID: 11400000, guid: 23d713787ce9e524497a8b151e4df04d, type: 2}
-    - id: 83908912
-      Name: Sand of Cronos
-      Type: Trap
-      SubType: Status
-      Restriction: None
-      Description: Causa Sleep , Ignore Jogar moeda
-      Script: 00000013
-      Rarity: Comum
-      OBJ: {fileID: 11400000, guid: e46bd00fb351e7f44885c19df352ca53, type: 2}
-    - id: 73898560
-      Name: Half-Half
-      Type: Trap
-      SubType: 'Life Drain '
-      Restriction: None
-      Description: Reduz a vida pela metade
-      Script: 00000018
-      Rarity: UltraComum
-      OBJ: {fileID: 11400000, guid: 905719c3e755ae74280364bdc3a773af, type: 2}
-    OBJ: {fileID: 11400000, guid: 85e9b4023de28cb45a628f93abc9c352, type: 2}
-  vsAI: 1
+  vsAI: 0
   p1:
-    ID: 57345188
-    Name: Miniking
-    Rank: Civil
-    IsPlayer1: 1
-    onSummon: 0
-    onMove: 0
-    canSummon: 0
-  p2:
-    ID: 65100037
-    Name: AI Lv 1
-    Rank: Civil
+    ID: 63047322
+    Name: SuperMiniking
+    Rank: Ruler
     IsPlayer1: 0
     onSummon: 0
-    onMove: 0
+    onMove: 1
+    canSummon: 1
+    deck:
+      timeName: Inicial
+      Slot1:
+        Civil: 42682560
+        Soldier: 83736909
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      Slot2:
+        Civil: 60801023
+        Soldier: 27235072
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      Slot3:
+        Civil: 59121230
+        Soldier: 72320973
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      Slot4:
+        Civil: 93971865
+        Soldier: 28056900
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      Slot5:
+        Civil: 87448461
+        Soldier: 
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      SpellTrap:
+      - id: 68623007
+        Name: Positive Signal
+        Type: Spell
+        SubType: Boost
+        Restriction: None
+        Description: Aumenta o ATK +2 ate o fim do turno do oponente, nao acumulativo.
+        Script: 00000007
+        Rarity: UltraComum
+        OBJ: {fileID: 11400000, guid: 23d713787ce9e524497a8b151e4df04d, type: 2}
+      - id: 30836218
+        Name: Clear Mind
+        Type: Spell
+        SubType: Boost
+        Restriction: None
+        Description: Aumenta o DEF +2 ate o fim do turno do oponente, nao acumulativo.
+        Script: 00000008
+        Rarity: Comum
+        OBJ: {fileID: 11400000, guid: 5f30b73913bdf2442aa0ed5afd79528a, type: 2}
+      - id: 64059758
+        Name: 'Emotional Eartquake '
+        Type: Trap
+        SubType: Deboost
+        Restriction: None
+        Description: Diminui o ATK -2
+        Script: 00000011
+        Rarity: Comum
+        OBJ: {fileID: 11400000, guid: 65a74358ca102ca4b8930de870c8078f, type: 2}
+      - id: 76960987
+        Name: 'Divine Protection '
+        Type: Spell
+        SubType: Protection
+        Restriction: None
+        Description: Proximo Movimento dessa unidade nao eh destruido por efeitos
+        Script: 00000005
+        Rarity: UltraComum
+        OBJ: {fileID: 11400000, guid: 1076bc4288ac7334c9b456ee1022f7a1, type: 2}
+      - id: 85950610
+        Name: Thunder of Zeus
+        Type: Trap
+        SubType: Status
+        Restriction: None
+        Description: Causa Paralize , Ignore Jogar moeda
+        Script: 00000014
+        Rarity: Comum
+        OBJ: {fileID: 11400000, guid: 97abaf1e7d86b2447a7191ed0cc9b46c, type: 2}
+      OBJ: {fileID: 11400000, guid: 552ededdded4002449d1196bbd3b4c2c, type: 2}
+  p2:
+    ID: 95853099
+    Name: Manolo
+    Rank: Ruler
+    IsPlayer1: 0
+    onSummon: 0
+    onMove: 1
     canSummon: 0
+    deck:
+      timeName: Inicial
+      Slot1:
+        Civil: 42682560
+        Soldier: 83736909
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      Slot2:
+        Civil: 60801023
+        Soldier: 27235072
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      Slot3:
+        Civil: 59121230
+        Soldier: 72320973
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      Slot4:
+        Civil: 93971865
+        Soldier: 28056900
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      Slot5:
+        Civil: 87448461
+        Soldier: 
+        Combatant: 
+        General: 
+        King: 
+        God: 
+        Equip: 
+      SpellTrap:
+      - id: 68623007
+        Name: Positive Signal
+        Type: Spell
+        SubType: Boost
+        Restriction: None
+        Description: Aumenta o ATK +2 ate o fim do turno do oponente, nao acumulativo.
+        Script: 00000007
+        Rarity: UltraComum
+        OBJ: {fileID: 11400000, guid: 23d713787ce9e524497a8b151e4df04d, type: 2}
+      - id: 30836218
+        Name: Clear Mind
+        Type: Spell
+        SubType: Boost
+        Restriction: None
+        Description: Aumenta o DEF +2 ate o fim do turno do oponente, nao acumulativo.
+        Script: 00000008
+        Rarity: Comum
+        OBJ: {fileID: 11400000, guid: 5f30b73913bdf2442aa0ed5afd79528a, type: 2}
+      - id: 64059758
+        Name: 'Emotional Eartquake '
+        Type: Trap
+        SubType: Deboost
+        Restriction: None
+        Description: Diminui o ATK -2
+        Script: 00000011
+        Rarity: Comum
+        OBJ: {fileID: 11400000, guid: 65a74358ca102ca4b8930de870c8078f, type: 2}
+      - id: 76960987
+        Name: 'Divine Protection '
+        Type: Spell
+        SubType: Protection
+        Restriction: None
+        Description: Proximo Movimento dessa unidade nao eh destruido por efeitos
+        Script: 00000005
+        Rarity: UltraComum
+        OBJ: {fileID: 11400000, guid: 1076bc4288ac7334c9b456ee1022f7a1, type: 2}
+      - id: 85950610
+        Name: Thunder of Zeus
+        Type: Trap
+        SubType: Status
+        Restriction: None
+        Description: Causa Paralize , Ignore Jogar moeda
+        Script: 00000014
+        Rarity: Comum
+        OBJ: {fileID: 11400000, guid: 97abaf1e7d86b2447a7191ed0cc9b46c, type: 2}
+      OBJ: {fileID: 11400000, guid: 552ededdded4002449d1196bbd3b4c2c, type: 2}
   atualTurn: P1
-  atualTurnID: 57345188
+  atualTurnID: 63047322
   atualTurnDisplay: 
-  turnCount: 1
+  turnCount: 17
   _LastTerreno: {fileID: 0}
   _TerrenoAnterior: {fileID: 0}
   _LastSummonUnit: {fileID: 0}
   _UnitToMove: {fileID: 0}
-  PlayerEnergy: 1
-  EnemyEnergy: 1
+  PlayerEnergy: 17
+  EnemyEnergy: 17
+  decksTest:
+  - {fileID: 11400000, guid: 9f4c660dea479974b9f265c5e4130700, type: 2}
+  - {fileID: 11400000, guid: 85e9b4023de28cb45a628f93abc9c352, type: 2}
+  - {fileID: 11400000, guid: 552ededdded4002449d1196bbd3b4c2c, type: 2}
   filenamePlayer: Player.mk
   filenameIdCards: Card.mk
   filenameIdSpell: Spell.mk
   filenameIdAction: Action.mk
   filenameIdEquip: Equip.mk
+  endDuel: 0
+  winningName: 
+  winningID: 
+  rewards:
+  - 1500,Coin
   json: {fileID: 0}

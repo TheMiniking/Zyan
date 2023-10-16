@@ -24,6 +24,7 @@ public class Terreno : MonoBehaviour
     public Material[] _PackBattle;
     public Material[] _PackNormal;
 	public Material[] _PackCanMove;
+	public Material[] _PackSpell;
 	
 	// _Visinhos index 
 	// [0] UP	[1] UP Left 	[2]UP Right
@@ -39,6 +40,7 @@ public class Terreno : MonoBehaviour
     public Unit unit; 
 
 	[TitleGroup("VFX")]
+	public List<Color> _VFXCollors;
 	public GameObject _VFXSummon;
 	public GameObject _VFXDeath;
 	public GameObject _VFXHeal;
@@ -64,11 +66,31 @@ public class Terreno : MonoBehaviour
     }
 	public void PlayAnim(string anim){
 		switch(anim){
-		case "Death": StartCoroutine(AnimDeath());break;
-		case "Evolution": StartCoroutine(AnimEvolution());break;
-		case "Heal": StartCoroutine(AnimHeal());break;
-		case "Active": StartCoroutine(AnimActive());break;
+		case "Death":		StartCoroutine(AnimDeath());break;
+		case "Evolution":	StartCoroutine(AnimEvolution());break;
+		case "Heal":		StartCoroutine(AnimHeal());break;
+		case "Active":		StartCoroutine(AnimActive());break;
 		}
+	}
+	
+	public void SetSpellCollor(string tipo, string spellTrap){
+		ParticleSystem spell = _VFXSpellActive.GetComponent<ParticleSystem>();
+		switch(tipo){
+		case "Terreno":		spell.startColor=_VFXCollors[0]; break;
+		case "Evolution":	spell.startColor=_VFXCollors[1]; break;
+		case "Protection":	spell.startColor=_VFXCollors[2]; break;
+		case "Life Drain":	spell.startColor=_VFXCollors[3]; break;
+		case "Destruction":	spell.startColor=_VFXCollors[4]; break;
+		case "Boost":		spell.startColor=_VFXCollors[5]; break;
+		case "SuperBoost":	spell.startColor=_VFXCollors[6]; break;
+		case "Deboost" :	spell.startColor=_VFXCollors[7]; break;
+		}
+		ParticleSystem spell2 = _VFXSpellActive.transform.Find("CFX3 Small Aura").GetComponent<ParticleSystem>();
+		switch(tipo){
+		case "Spell":		spell2.startColor=_VFXCollors[2]; break;
+		case "Trap":		spell2.startColor=_VFXCollors[4]; break;
+		}
+		
 	}
 	
 	public IEnumerator AnimDeath(){
@@ -157,8 +179,8 @@ public class Terreno : MonoBehaviour
 	        else{CancelMoveUnit();}
 	}
     
-    public void FixedUpdate()
-	{
+	public void FixedUpdate(){
+		_PlayerOwnerID = _PlayerOwner?svb.p1.ID:svb.p2.ID;
 		HaveUnitOver();
         UpdateMaterial();
     }
@@ -222,8 +244,10 @@ public class Terreno : MonoBehaviour
 		    {
 		    	StartCoroutine(AnimActive());
 		    	_VFXSpellActive.SetActive(true);
+		    	SetSpellCollor(_SpellData.SubType ,_SpellData.Type);
 			    aud2.audio.clip = aud2.active;
 			    aud2.audio.Play();
+			    MaterialTereno();
 			    _LogTemp.Visual = _SpellData.Name + " Spell/Trap Re-Ativou!";
 			    _LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Reativou a spell/trap : " + _SpellData.Name;
 			    svb.DebugText(_LogTemp);
@@ -234,8 +258,10 @@ public class Terreno : MonoBehaviour
 		    	_SpellActived = true ;
 		    	StartCoroutine(AnimActive());
 		    	_VFXSpellActive.SetActive(true);
+		    	SetSpellCollor(_SpellData.SubType ,_SpellData.Type);
 			    aud2.audio.clip = aud2.active;
 			    aud2.audio.Play();
+			    MaterialTereno();
 			    _LogTemp.Visual = _SpellData.Name + " Spell/Trap Ativou!";
 			    _LogTemp.Detalhado = "Jogador: " +svb.atualTurnID + ", Ativou a Spell/Trap : " + _SpellData.Name;
 			    svb.DebugText(_LogTemp);
@@ -274,65 +300,55 @@ public class Terreno : MonoBehaviour
 		else{	FindObjectOfType<Manager_UI>()._TerrenoName = "Terreno : " + _HexType;
 				FindObjectOfType<Manager_UI>()._DescriptionTxt.text ="Um Terreno normal sem nada especial.";}
 	}
+	
+	public void MaterialTereno(){
+		if (_SpellActived){
+			switch(_SpellData.SubType){
+			case "Boost":		(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[1],_PackSpell[1],_PackSpell[1],_PackSpell[1]); break;
+			case "Deboost": 	(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[2],_PackSpell[2],_PackSpell[2],_PackSpell[2]); break;
+			case "SuperBoost":	(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[3],_PackSpell[3],_PackSpell[3],_PackSpell[3]); break;
+			case "Destruction":	(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[4],_PackSpell[4],_PackSpell[4],_PackSpell[4]); break;
+			case "Protection":	(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[5],_PackSpell[5],_PackSpell[5],_PackSpell[5]); break;
+			case "Terreno": 	(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[6],_PackSpell[6],_PackSpell[6],_PackSpell[6]); break;
+			case "Evolution":	(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[7],_PackSpell[7],_PackSpell[7],_PackSpell[7]); break;
+			case "Status":		(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[8],_PackSpell[8],_PackSpell[8],_PackSpell[8]); break;
+			case "Life Drain":	(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[9],_PackSpell[9],_PackSpell[9],_PackSpell[9]); break;
+			}
+		}else{
+			(_PackNormal[1],_PackOcupado[1],_PackBattle[1],_PackCanMove[1])= (_PackSpell[0],_PackSpell[0],_PackSpell[0],_PackSpell[0]);
+		}
+	}
     
     
-	public void UpdateMaterial()
-	{
-		if (svb.p1.onSummon && _HexType == "Summon" && svb._LastTerreno == this.gameObject)
-		{ _VFXSummon.SetActive(true);}
+	public void UpdateMaterial(){
+        Renderer rend= GetComponent<Renderer>();
+		/// Terreno de invocaçao
+		if (svb.p1.onSummon && _HexType == "Summon" && svb._LastTerreno == this.gameObject){ _VFXSummon.SetActive(true);}
 		else {_VFXSummon.SetActive(false);}
-		if (_PlayerOwner)
-		{_PlayerOwnerID = svb.playerID;}
-		else{ _PlayerOwnerID = svb.enemyID;}
-        Renderer rend;
-        if (_OnRange)
-        {
-            if (_HasUnit)
-            {
-                rend = GetComponent<Renderer>();
+		///----------------------------
+        if (_OnRange){
+            if (_HasUnit){
 	            rend.sharedMaterials = _PackOcupado;
-	            if (_UnitOver != null)
-	            {x =  _UnitOver.GetComponent<UnitField>();
-		            if (svb.p1.onMove && x._NoMove != null && x._Atack != null)
-			           { if (x._Id == svb.atualTurnID)
-			        		{ 
+	            if (_UnitOver != null){
+	            	x =  _UnitOver.GetComponent<UnitField>();
+		            if (svb.p1.onMove && x._NoMove != null && x._NoMove != x.gameObject && x._Atack != null){
+			            if (x._isplayer){ 
 				           x._NoMove.SetActive(true);
-				           x._Atack.SetActive(false); 
-				           //Debug.Log("turnID:"+ SceneVariables_Battle.atualTurnID +" id : " + x._Id + "unit " + _UnitOver );
-			        		}
-			        	else
-			        		{
-				        	x._NoMove.SetActive(false);
-				        	x._Atack.SetActive(true);
-				        	//Debug.Log("turnID:"+ SceneVariables_Battle.atualTurnID +" id : " + x._Id + "unit " + _UnitOver );
-			        		}
-			           }
-			        else
-			           {
+				           x._Atack.SetActive(false);}
+			        	else{
+			           		x._NoMove.SetActive(false);
+				        	x._Atack.SetActive(true);}}
+			        else{
 			           	x._NoMove.SetActive(false);
-				        x._Atack.SetActive(false);
-			           }
-	            }
-            }
-            else
-            {
-                rend = GetComponent<Renderer>();
-	            rend.sharedMaterials = _PackCanMove;
-	            
-	            }
-        }
+				        x._Atack.SetActive(false);}}}
+            else {rend.sharedMaterials = _PackCanMove;} }
         else {
-        	rend = GetComponent<Renderer>();
 	        rend.sharedMaterials = _PackNormal;
-	        if (_UnitOver != null)
-	        {
+	        if (_UnitOver != null){
         		x =  _UnitOver.GetComponent<UnitField>();
 	        	if (x._NoMove != null && x._Atack != null)
 	        		{ x._NoMove.SetActive(false);
-		        	x._Atack.SetActive(false);}
-	        }
-	        
-        }
+		        	x._Atack.SetActive(false);}}}
     }
 
 }

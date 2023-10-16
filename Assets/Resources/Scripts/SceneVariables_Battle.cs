@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEditor;
 using TMPro;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 [CreateAssetMenu (fileName = "SceneVariable", menuName = "Zyan Assets/Create SceneVarable")]
 public class SceneVariables_Battle : ScriptableObject
@@ -13,14 +15,7 @@ public class SceneVariables_Battle : ScriptableObject
 	[ShowInInspector] private GameObject scenesVariables;
     
 	[Title("Player Variables")]
-	[ShowInInspector] public string playerID;
-	[ShowInInspector] public Zyan.PlayerDecks _PlayerDeck ;
 	[ShowInInspector] public PlayerInventaryOBJ playerOBJ ;
-	
-	[Title("Enemy Variables")]
-	[ShowInInspector] public string enemyName;
-	[ShowInInspector] public string enemyID;
-	[ShowInInspector] public Zyan.PlayerDecks _EnemyDeck ;
 	
 	[Title("Battle Variables")]
     [ShowInInspector] public bool vsAI = true;
@@ -41,7 +36,9 @@ public class SceneVariables_Battle : ScriptableObject
 	[ShowInInspector] public Dictionary<string, SVBLog> DebugLogList = new Dictionary<string, SVBLog> {};
 	
 	[Title("In test - Não apagar")]
-    [ShowInInspector] public Dictionary<string, string> idList = new Dictionary<string, string>();
+	[ShowInInspector] public Dictionary<string, string> idList = new Dictionary<string, string>();
+	public List<PlayerDeckOBJ> decksTest = new List<PlayerDeckOBJ>();
+    
     
 	public class SVBLog{
 		public string Visual;
@@ -54,77 +51,64 @@ public class SceneVariables_Battle : ScriptableObject
 	public string filenameIdAction = "Action.mk" ;
 	public string filenameIdEquip = "Equip.mk" ;
 
+	[Title("Result Battle Variables")]
+	public bool endDuel = false;
+	public string winningName;
+	public string winningID;
+	public List<string> rewards = new List<string>();
+	
 	public Manger_JsonUnits json;
 	//// Start is called before the first frame update
-	[Button]
-	public void Start()
-	{
-		playerOBJ.LoadPlayerDATA();
-		_PlayerDeck = playerOBJ.AtualDeck;
-		var r = Resources.Load<PlayerDeckOBJ>("Player/Deck/Warriors");
-		_EnemyDeck = r.Deck;
-		var terrenoMisturados = FindObjectsOfType<Terreno>();
-		List<Terreno> terrenosNormal = new List<Terreno>{};
-		foreach ( Terreno tr in terrenoMisturados)
-		{
-			if (tr._HexType == "Normal")
-			{ terrenosNormal.Add( tr);}
-		}
-		foreach ( Zyan.SpellClass sp in _PlayerDeck.SpellTrap)
-		{
-			int w = Random.Range(0,terrenosNormal.Count);
-			terrenosNormal[w]._SpellData = sp;
-			terrenosNormal.Remove(terrenosNormal[w]);
-		}
-		foreach ( Zyan.SpellClass sp2 in _EnemyDeck.SpellTrap)
-		{
-			int w2 = Random.Range(0,terrenosNormal.Count);
-			terrenosNormal[w2]._SpellData = sp2;
-			terrenosNormal.Remove(terrenosNormal[w2]);
-		}
-		playerID = playerOBJ.Player.ID;
-		enemyID = ""+ Random.Range(0,99999999);
-		enemyName = "AI Lv 1";
-		p1.ID = playerID;
-		p1.IsPlayer1 = true;
-		p1.Name = playerOBJ.Player.Name;
-		p2.ID = enemyID;
-		p2.IsPlayer1 = false;
-		p2.Name = enemyName;
-		p1.Rank = "Civil";
-		p2.Rank = "Civil";
+	[Button]public void StartTestDuel(){
+		var pv1 = new BattlePlayerData();
+		var pv2 = new BattlePlayerData();
+		pv1.ID = ""+Random.Range(11111111,100000000);
+		pv1.Name = Random.Range(0,2)==0?"Miniking":"SuperMiniking";
+		pv1.Rank = Random.Range(0,2)==0?"Ruler":"King";
+		pv1.deck = decksTest[Random.Range(0,decksTest.Count)].Deck;
+		pv2.ID = ""+Random.Range(11111111,100000000);
+		pv2.Name = Random.Range(0,2)==0?"Manolo":"Outro Cara";
+		pv2.Rank = Random.Range(0,2)==0?"Ruler":"King";
+		pv2.deck = decksTest[Random.Range(0,decksTest.Count)].Deck;
+		var rew = new List<string>();
+		rew.Add("1500,Coin");
+		StartDuel(pv1,pv2,rew);
+	}
+	
+	public void ResetVar(){
+		p1 = new BattlePlayerData();
+		p2 = new BattlePlayerData();
+		rewards.Clear();
 		turnCount = 0;
 		PlayerEnergy = 0;
 		EnemyEnergy= 0;
 	}
-	#if (UNITY_EDITOR) 
-	[Button]
-	private void LoadAssetPlayer()
-	{
-		playerOBJ = AssetDatabase.LoadAssetAtPath<PlayerInventaryOBJ>("Assets/Resources/Player/Player.asset");
+	
+	[Button] 
+	public async Task StartDuel(BattlePlayerData p1Data, BattlePlayerData p2Data, List<string> rewardsData){
+		AsyncOperation loadBattle = SceneManager.LoadSceneAsync(2);
+		ResetVar();
+		vsAI = false;
+		p1 = p1Data;
+		p2 = p2Data;
+		if (p1.deck.OBJ !=null )p1.deck = p1.deck.OBJ.Deck;
+		if (p2.deck.OBJ !=null )p2.deck = p2.deck.OBJ.Deck;
+		rewards = rewardsData;
 	}
-	#endif
-	public void LoadID()
-	{
-		p1.ID = playerID;
-		p2.ID = enemyID;
+	
+	public void LoadID(){
 		var x = Random.Range(0, 2);
-		if (x > 0)
-		{
+		if (x > 0){
 			atualTurn = "P1";
-			atualTurnID = playerID;
+			atualTurnID = p1.ID;
 			// Ativar Anuncio - P1 Start Game!
-			Debug.Log(atualTurn);
-		}
-		else
-		{
+			Debug.Log(atualTurn);}
+		else{
 			atualTurn = "P2";
-			atualTurnID = enemyID;
+			atualTurnID =p2.ID;
 			// Ativar Anuncio - P2 Start Game!
-			Debug.Log(atualTurn);
-		}
-		ManagerTurn v = FindObjectOfType<ManagerTurn>();
-		v.NextTurn();
+			Debug.Log(atualTurn);} 
+		FindObjectOfType<ManagerTurn>().NextTurn();
 	}
 	
 	public void DebugText(SVBLog tx){
@@ -141,6 +125,7 @@ public class SceneVariables_Battle : ScriptableObject
 		public bool onSummon = false;
 		public bool onMove = false;
 		public bool canSummon = true;
+		public Zyan.PlayerDecks deck ;
 	}
 	
 }

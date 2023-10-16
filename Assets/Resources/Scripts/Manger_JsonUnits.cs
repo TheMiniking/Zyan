@@ -19,13 +19,13 @@ public class Manger_JsonUnits : MonoBehaviour
         foreach (Unit unit in gm)
         {	if (unit._isPlayer){
 	        	unit._Self._Index = index;
-	       		unit._OwnerID = svb.playerID;
+	        unit._OwnerID = svb.p1.ID;
 	        	unit._Self.LoadCardDATA();
             }
             else
         {
 	            unit._Self._Index = index;
-	            unit._OwnerID = svb.enemyID;
+	            unit._OwnerID = svb.p2.ID;
 	            unit._Self.LoadCardDATA();
 			}
 

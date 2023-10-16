@@ -52,18 +52,25 @@ public class Unit : MonoBehaviour
 	public PlayerInventaryOBJ player;
 	public SceneVariables_Battle svb;
 	public TMP_Text debugTxt;
+	
+	public bool _cardBig;
     
 	void Start(){ 
 		svb.debugText = debugTxt;
 		_Self._Self = this;
 		_Self.StartDuel();
 		StartCoroutine(UpdateRegular());
+		var unitV = FindObjectOfType<UnitView>();
+		unitV.atualSlot = Slot;
+		unitV.UpdateBigUnit(1);
+		unitV.evos[0].isOn = true;
+		unitV.bigUnit._Self._slotDeck = _slotDeck;
+		unitV.bigUnit._Self.Slot = Slot;
+		unitV.ActiveEvos();
 	}
     
-	private void FixedUpdate()
-	{
-		if (_Self._Index != -1) { _Self.UpdateCard(); }
-		if ( _Self._TotalLife <= 0 ) { _Self.SendToEnfermary();}
+	private void FixedUpdate(){
+		if ( _Self._TotalLife <= 0 && !_Self._OnEnfermary) { _Self.SendToEnfermary();}
 		if ( _UnitOnField != null) {_OnField = true;} else {_OnField = false;}
 		if (_Self._TimeToReset == 0 ){ _Self._ResetMod = true;}
 		if (_Self._ResetMod){_Self.ResetMod();}
@@ -71,17 +78,18 @@ public class Unit : MonoBehaviour
     
 	public IEnumerator UpdateRegular(){
 		yield return new WaitForSecondsRealtime (1.5f);
-		_Self.UpdateCard();
+		if (!telaInicial)_Self.UpdateCard();
 		StartCoroutine(UpdateRegular());
 	}
    
-	public void OnClick()
-	{
+	public void OnClick(){
 		if (telaInicial){
-			FindObjectOfType<UnitView>().atualSlot = Slot;
-			FindObjectOfType<UnitView>().UpdateBigUnit(1);
-			FindObjectOfType<UnitView>().evos[0].isOn = true;
-		}
+			var unitV = FindObjectOfType<UnitView>();
+			unitV.atualSlot = Slot;
+			unitV.UpdateBigUnit(1);
+			unitV.evos[0].isOn = true;
+			unitV.bigUnit._Self._slotDeck = _slotDeck;
+			unitV.bigUnit._Self.Slot = Slot;}
 		else{
 		var aud = FindObjectOfType<ManagerSound>();
 		aud.audio.clip = aud.clickUI;
@@ -89,8 +97,8 @@ public class Unit : MonoBehaviour
 		var z = FindObjectOfType<Manager_UI>();
 		z._TerrenoName = "";
 			z.UpdateUI(this);
-		if (_isPlayer)
-		{if (svb.p1.onSummon && svb.p1.canSummon)
+		if (_isPlayer){
+			if (svb.p1.onSummon && svb.p1.canSummon)
 			{ if (_OnField != true){FinishSummon();}}}
 		}
 	}

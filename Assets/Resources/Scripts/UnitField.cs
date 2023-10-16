@@ -61,7 +61,7 @@ public class UnitField : MonoBehaviour
 	    atk.text	= unit._vATK.text;
 	    def.text	= unit._vDEF.text;
 	    life.text	= unit._vLife.text;
-	    unit._Terreno = _AtualHex.GetComponent<Terreno>();
+	    unit._Terreno = _AtualHex !=null? _AtualHex.GetComponent<Terreno>():null;
 	    UpMaterial();
 	    if (unit._Self._OnStatus == "No") 
 	    {	onAnim = false;
@@ -76,7 +76,7 @@ public class UnitField : MonoBehaviour
     
 	void OnDestroy(){
 		var aud = FindObjectOfType<ManagerSound>();
-		aud.audio.clip = aud.explosao;
+		aud.audio.clip = aud==null?null: aud.explosao;
 		aud.audio.Play();
 		unit._OnField = false;
 		unit._Terreno = null;
@@ -85,11 +85,11 @@ public class UnitField : MonoBehaviour
     
 	public void UpMaterial()
 	{
-	    if (_CanMove){mat.SetValue(_MatCanMove, 0);}
-	    else		 {mat.SetValue(_MatNoMove, 0);}
-        mat.SetValue(unit._MaterialType, 1);
-	    var rend = GetComponent<Renderer>();
-	    rend.sharedMaterials = mat;
+		var sh = GetComponent<shaderControl>();
+		if (_CanMove){sh.hexMetal.GetComponent<MeshRenderer>().sharedMaterial = _MatCanMove;}
+		else		 {sh.hexMetal.GetComponent<MeshRenderer>().sharedMaterial = _MatNoMove;}
+		//if(sh.lastUnit != unit._OwnerID) 
+		sh.MudarImagem(unit._OwnerID,unit._Self._isPlayer,unit._Self._type);
 	}
     
 	/*
