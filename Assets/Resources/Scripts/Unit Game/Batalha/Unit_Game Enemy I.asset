@@ -16,45 +16,44 @@ MonoBehaviour:
   _isPlayer: 0
   _slotDeck: 1
   Slot:
-    Civil: 19327076
-    Soldier: 31350162
-    Combatant: 89473243
+    Civil: 42682560
+    Soldier: 83736909
+    Combatant: 
     General: 
     King: 
     God: 
-    Equip: 29992574
+    Equip: 
   _Index: 0
-  _id: 19327076
-  _name: Baby Red Dragon
-  _type: Dragon
+  _id: 42682560
+  _name: Pablo, Sea Angel
+  _type: Angel
   _rank: Civil
-  _element: Fire
+  _element: Water
   _special: Evolution
-  _atk: 4
-  _def: 3
-  _life: 2
+  _atk: 2
+  _def: 2
+  _life: 4
   _status: None
   _effect1: None
   _effect2: None
-  _evolution: 'Destroy 1 unit in battle - Red Dragon I.Elemental Evolution 4 Energy.
-    Type Evolution 3 Energy. '
-  _evolCust1: Battle,1
-  _evolCust2: Energy,4
-  _evolCust3: Energy,3
-  _evol1: 31350162
+  _evolution: Destroy 1 unit in battle -
+  _evolCust1: Battle,2
+  _evolCust2: Energy,6
+  _evolCust3: Energy,6
+  _evol1: None
   _evol2: None
   _evol3: None
-  _rarityUp: ATK,1
-  _rarity: UltraComum
-  selfObjUnit: {fileID: 11400000, guid: 6a875ea52898ac14cb6c26e72339c430, type: 2}
-  _originalAtk: 4
-  _originalDef: 3
-  _originalLife: 2
+  _rarityUp: None
+  _rarity: Comum
+  selfObjUnit: {fileID: 11400000, guid: dc0d076b9bd6d29498a1bc315c0bf4b9, type: 2}
+  _originalAtk: 2
+  _originalDef: 2
+  _originalLife: 4
   _TotallAtk: 2
-  _TotalDef: 3
-  _TotalLife: 2
-  _ModAtk: -2
-  _ModDef: 0
+  _TotalDef: 0
+  _TotalLife: 4
+  _ModAtk: 0
+  _ModDef: -2
   _ModLife: 0
   _Equip:
     id: 29992574
@@ -78,19 +77,19 @@ MonoBehaviour:
     ScriptID: 00000000
     Rarity: Epic
     Obj: {fileID: 11400000, guid: 64bb6dd6f09dca549b540707a410bc8b, type: 2}
-  _OnStatus: No
-  _OnStatusTurn: 0
+  _OnStatus: Paralize
+  _OnStatusTurn: 4
   _boostATK: 0
   _boostDEF: 0
   _boostLife: 0
   _DeboostATK: 0
-  _DeboostDEF: 0
+  _DeboostDEF: 2
   _DeboostLife: 0
   _ProvisoryModATK: 0
   _ProvisoryModDEF: 0
   _ProvisoryModLife: 0
   _PermanentModLife: 0
-  _PermanentModATK: -2
+  _PermanentModATK: 0
   _PermanentModDEF: 0
   _TimeToReset: -1
   _ResetMod: 0

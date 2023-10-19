@@ -49,10 +49,10 @@ MonoBehaviour:
   _originalAtk: 5
   _originalDef: 0
   _originalLife: 3
-  _TotallAtk: 5
+  _TotallAtk: 3
   _TotalDef: 0
   _TotalLife: 3
-  _ModAtk: 0
+  _ModAtk: -2
   _ModDef: 0
   _ModLife: 0
   _Equip:
@@ -76,8 +76,8 @@ MonoBehaviour:
     ScriptID: 
     Rarity: 
     Obj: {fileID: 0}
-  _OnStatus: Sleep
-  _OnStatusTurn: 2
+  _OnStatus: No
+  _OnStatusTurn: 0
   _boostATK: 0
   _boostDEF: 0
   _boostLife: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   _ProvisoryModDEF: 0
   _ProvisoryModLife: 0
   _PermanentModLife: 0
-  _PermanentModATK: 0
+  _PermanentModATK: -2
   _PermanentModDEF: 0
   _TimeToReset: -1
   _ResetMod: 0

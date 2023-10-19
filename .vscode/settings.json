@@ -52,5 +52,6 @@
         "temp/":true,
         "Temp/":true
     },
-    "dotnet.defaultSolution": "Zyan.sln"
+    "dotnet.defaultSolution": "Zyan.sln",
+    "dotnet.preferCSharpExtension": true
 }

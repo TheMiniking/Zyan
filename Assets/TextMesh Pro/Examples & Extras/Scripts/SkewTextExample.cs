@@ -24,7 +24,7 @@ namespace TMPro.Examples
 
         void Start()
         {
-            StartCoroutine(WarpText());
+            _ = StartCoroutine(WarpText());
         }
 
 

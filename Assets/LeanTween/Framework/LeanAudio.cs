@@ -57,7 +57,7 @@ public class LeanAudio : object {
 		options.useSetData = false;
 
 		int generatedWavePtsLength = createAudioWave( volume, frequency, options);
-		createAudioFromWave( generatedWavePtsLength, options );
+        _ = createAudioFromWave(generatedWavePtsLength, options);
 
 		return options.stream;
 	}
@@ -300,7 +300,7 @@ public class LeanAudio : object {
 	public static void printOutAudioClip( AudioClip audioClip, ref AnimationCurve curve, float scaleX = 1f ){
 		// Debug.Log("Audio channels:"+audioClip.channels+" frequency:"+audioClip.frequency+" length:"+audioClip.length+" samples:"+audioClip.samples);
 		float[] samples = new float[audioClip.samples * audioClip.channels];
-        audioClip.GetData(samples, 0);
+        _ = audioClip.GetData(samples, 0);
         int i = 0;
 
         Keyframe[] frames = new Keyframe[samples.Length];

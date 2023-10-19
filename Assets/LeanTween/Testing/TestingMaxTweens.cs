@@ -16,10 +16,11 @@ public class TestingMaxTweens : MonoBehaviour {
 			GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
 			Destroy( box.GetComponent( typeof(BoxCollider) ) as Component );
 
-//			Debug.Log ("new Time.time:" + Time.time);
-			LeanTween.moveX (box, 100f, 2f).setUseEstimatedTime(true).setOnComplete( ()=>{
-				Debug.Log("finishes Time:"+Time.timeScale);
-			}).setDelay(0.1f); 
+            //			Debug.Log ("new Time.time:" + Time.time);
+            _ = LeanTween.moveX(box, 100f, 2f).setUseEstimatedTime(true).setOnComplete(() =>
+            {
+                Debug.Log("finishes Time:" + Time.timeScale);
+            }).setDelay(0.1f); 
 			tweenIter++;
 		}
 

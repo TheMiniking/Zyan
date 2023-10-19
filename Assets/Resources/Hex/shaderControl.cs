@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using System;
 
 public class shaderControl : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class shaderControl : MonoBehaviour
 	public GameObject hexMetal;
 	public List<Color> cor;
 	public string lastUnit;
+	[Button]
+	public void GetAtualImagem(){
+		var unit = GetComponent<UnitField>();
+		MudarImagem(unit.unit._Self._id,unit._isplayer, unit.unit._Self._type);}
 	
 	[Button]
 	public void MudarImagem(string id,bool player, string type){

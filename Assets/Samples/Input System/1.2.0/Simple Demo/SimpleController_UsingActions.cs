@@ -30,7 +30,7 @@ public class SimpleController_UsingActions : MonoBehaviour
         {
             if (ctx.interaction is SlowTapInteraction)
             {
-                StartCoroutine(BurstFire((int)(ctx.duration * burstSpeed)));
+                _ = StartCoroutine(BurstFire((int)(ctx.duration * burstSpeed)));
             }
             else
             {

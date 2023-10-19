@@ -727,7 +727,7 @@ public class LeanTween : MonoBehaviour {
         int backId = uniqueId & 0xFFFF;
         int backCounter = uniqueId >> 16;
         if(tweens[backId].counter==backCounter){
-            tweens[backId].pause();
+            _ = tweens[backId].pause();
         }
     }
 
@@ -741,7 +741,7 @@ public class LeanTween : MonoBehaviour {
         Transform trans = gameObject.transform;
         for(int i = 0; i <= tweenMaxSearch; i++){
             if(tweens[i].trans==trans){
-                tweens[i].pause();
+                _ = tweens[i].pause();
             }
         }
     }
@@ -754,7 +754,7 @@ public class LeanTween : MonoBehaviour {
     public static void pauseAll(){
         init();
         for (int i = 0; i <= tweenMaxSearch; i++){
-            tweens[i].pause();
+            _ = tweens[i].pause();
         }
     }
 
@@ -766,7 +766,7 @@ public class LeanTween : MonoBehaviour {
     public static void resumeAll(){
         init();
         for (int i = 0; i <= tweenMaxSearch; i++){
-            tweens[i].resume();
+            _ = tweens[i].resume();
         }
     }
 
@@ -790,7 +790,7 @@ public class LeanTween : MonoBehaviour {
         int backId = uniqueId & 0xFFFF;
         int backCounter = uniqueId >> 16;
         if(tweens[backId].counter==backCounter){
-            tweens[backId].resume();
+            _ = tweens[backId].resume();
         }
     }
 
@@ -804,7 +804,7 @@ public class LeanTween : MonoBehaviour {
         Transform trans = gameObject.transform;
         for(int i = 0; i <= tweenMaxSearch; i++){
             if(tweens[i].trans==trans)
-                tweens[i].resume();
+                _ = tweens[i].resume();
         }
     }
 
@@ -1000,15 +1000,15 @@ public class LeanTween : MonoBehaviour {
             j++;
         }
         if(found==false)
-            logError("no available tween found!");
+            _ = logError("no available tween found!");
 
         // Debug.Log("new tween with i:"+i+" counter:"+tweens[i].counter+" tweenMaxSearch:"+tweenMaxSearch+" tween:"+tweens[i]);
 
         global_counter++;
         if(global_counter>0x8000)
             global_counter = 0;
-        
-        tweens[i].setId( (uint)i, global_counter );
+
+        _ = tweens[i].setId((uint)i, global_counter);
 
         return tweens[i];
     }
@@ -1035,7 +1035,7 @@ public class LeanTween : MonoBehaviour {
         tween.time = time;
 
         if (tween.time <= 0f)
-            tween.updateInternal();
+            _ = tween.updateInternal();
         //tween.hasPhysics = gameObject.rigidbody!=null;
 
         return tween;
@@ -2995,9 +2995,9 @@ public class LTBezierPath {
 
     public void setPoints( Vector3[] pts_ ){
         if(pts_.Length<4)
-            LeanTween.logError( "LeanTween - When passing values for a vector path, you must pass four or more values!" );
+            _ = LeanTween.logError("LeanTween - When passing values for a vector path, you must pass four or more values!");
         if(pts_.Length%4!=0)
-            LeanTween.logError( "LeanTween - When passing values for a vector path, they must be in sets of four: controlPoint1, controlPoint2, endPoint2, controlPoint2, controlPoint2..." );
+            _ = LeanTween.logError("LeanTween - When passing values for a vector path, they must be in sets of four: controlPoint1, controlPoint2, endPoint2, controlPoint2, controlPoint2...");
 
         pts = pts_;
 
@@ -3220,7 +3220,7 @@ public class LTSpline {
 
     private void init( Vector3[] pts, bool constantSpeed){
         if(pts.Length<4){
-            LeanTween.logError( "LeanTween - When passing values for a spline path, you must pass four or more values!" );
+            _ = LeanTween.logError("LeanTween - When passing values for a spline path, you must pass four or more values!");
             return;
         }
 
@@ -3538,7 +3538,7 @@ public class LTSpline {
 
     public void drawLinesGLLines(Material outlineMaterial, Color color, float width){
         GL.PushMatrix();
-        outlineMaterial.SetPass(0);
+        _ = outlineMaterial.SetPass(0);
         GL.LoadPixelMatrix();
         GL.Begin(GL.LINES);
         GL.Color(color);
@@ -3609,7 +3609,7 @@ public class LTSpline {
                 iter += split;
             }
 
-            meshPoints.ToArray();
+            _ = meshPoints.ToArray();
         }
         return null;
     }

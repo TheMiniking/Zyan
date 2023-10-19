@@ -584,7 +584,7 @@ public class LTDescr
 		this.type = TweenAction.TEXT_COLOR;
 		this.initInternal = ()=>{
 			this.uiText = trans.GetComponent<UnityEngine.UI.Text>();
-			this.setFromColor( this.uiText != null ? this.uiText.color : Color.white );
+            _ = this.setFromColor(this.uiText != null ? this.uiText.color : Color.white);
 		};
 		this.easeInternal = ()=>{
 			newVect = easeMethod();
@@ -645,9 +645,9 @@ public class LTDescr
 			this.uiImage = trans.GetComponent<UnityEngine.UI.Image>();
 			if(this.uiImage==null){
 				this.rawImage = trans.GetComponent<UnityEngine.UI.RawImage>();
-				this.setFromColor( this.rawImage!=null ? this.rawImage.color : Color.white );
+                _ = this.setFromColor(this.rawImage != null ? this.rawImage.color : Color.white);
 			}else{
-				this.setFromColor( this.uiImage.color );
+                _ = this.setFromColor(this.uiImage.color);
 			}
 
 		};
@@ -954,7 +954,7 @@ public class LTDescr
 	* LeanTween.moveX(gameObject, 5f, 0f ).updateNow();
 	*/
 	public LTDescr updateNow(){
-		updateInternal();
+        _ = updateInternal();
 		return this;
 	}
 
@@ -1252,75 +1252,75 @@ public class LTDescr
 
 		switch( easeType ){
 		case LeanTweenType.linear:
-			setEaseLinear(); break;
+                _ = setEaseLinear(); break;
 		case LeanTweenType.easeOutQuad:
-			setEaseOutQuad(); break;
+                _ = setEaseOutQuad(); break;
 		case LeanTweenType.easeInQuad:
-			setEaseInQuad(); break;
+                _ = setEaseInQuad(); break;
 		case LeanTweenType.easeInOutQuad:
-			setEaseInOutQuad(); break;
+                _ = setEaseInOutQuad(); break;
 		case LeanTweenType.easeInCubic:
-			setEaseInCubic();break;
+                _ = setEaseInCubic(); break;
 		case LeanTweenType.easeOutCubic:
-			setEaseOutCubic(); break;
+                _ = setEaseOutCubic(); break;
 		case LeanTweenType.easeInOutCubic:
-			setEaseInOutCubic(); break;
+                _ = setEaseInOutCubic(); break;
 		case LeanTweenType.easeInQuart:
-			setEaseInQuart(); break;
+                _ = setEaseInQuart(); break;
 		case LeanTweenType.easeOutQuart:
-			setEaseOutQuart(); break;
+                _ = setEaseOutQuart(); break;
 		case LeanTweenType.easeInOutQuart:
-			setEaseInOutQuart(); break;
+                _ = setEaseInOutQuart(); break;
 		case LeanTweenType.easeInQuint:
-			setEaseInQuint(); break;
+                _ = setEaseInQuint(); break;
 		case LeanTweenType.easeOutQuint:
-			setEaseOutQuint(); break;
+                _ = setEaseOutQuint(); break;
 		case LeanTweenType.easeInOutQuint:
-			setEaseInOutQuint(); break;
+                _ = setEaseInOutQuint(); break;
 		case LeanTweenType.easeInSine:
-			setEaseInSine(); break;
+                _ = setEaseInSine(); break;
 		case LeanTweenType.easeOutSine:
-			setEaseOutSine(); break;
+                _ = setEaseOutSine(); break;
 		case LeanTweenType.easeInOutSine:
-			setEaseInOutSine(); break;
+                _ = setEaseInOutSine(); break;
 		case LeanTweenType.easeInExpo:
-			setEaseInExpo(); break;
+                _ = setEaseInExpo(); break;
 		case LeanTweenType.easeOutExpo:
-			setEaseOutExpo(); break;
+                _ = setEaseOutExpo(); break;
 		case LeanTweenType.easeInOutExpo:
-			setEaseInOutExpo(); break;
+                _ = setEaseInOutExpo(); break;
 		case LeanTweenType.easeInCirc:
-			setEaseInCirc(); break;
+                _ = setEaseInCirc(); break;
 		case LeanTweenType.easeOutCirc:
-			setEaseOutCirc(); break;
+                _ = setEaseOutCirc(); break;
 		case LeanTweenType.easeInOutCirc:
-			setEaseInOutCirc(); break;
+                _ = setEaseInOutCirc(); break;
 		case LeanTweenType.easeInBounce:
-			setEaseInBounce(); break;
+                _ = setEaseInBounce(); break;
 		case LeanTweenType.easeOutBounce:
-			setEaseOutBounce(); break;
+                _ = setEaseOutBounce(); break;
 		case LeanTweenType.easeInOutBounce:
-			setEaseInOutBounce(); break;
+                _ = setEaseInOutBounce(); break;
 		case LeanTweenType.easeInBack:
-			setEaseInBack(); break;
+                _ = setEaseInBack(); break;
 		case LeanTweenType.easeOutBack:
-			setEaseOutBack(); break;
+                _ = setEaseOutBack(); break;
 		case LeanTweenType.easeInOutBack:
-			setEaseInOutBack();  break;
+                _ = setEaseInOutBack();  break;
 		case LeanTweenType.easeInElastic:
-			setEaseInElastic();  break;
+                _ = setEaseInElastic();  break;
 		case LeanTweenType.easeOutElastic:
-			setEaseOutElastic(); break;
+                _ = setEaseOutElastic(); break;
 		case LeanTweenType.easeInOutElastic:
-			setEaseInOutElastic(); break;
+                _ = setEaseInOutElastic(); break;
 		case LeanTweenType.punch:
-			setEasePunch(); break;
+                _ = setEasePunch(); break;
 		case LeanTweenType.easeShake:
-			setEaseShake(); break;
+                _ = setEaseShake(); break;
 		case LeanTweenType.easeSpring:
-			setEaseSpring(); break;
+                _ = setEaseSpring(); break;
 		default:
-			setEaseLinear(); break;
+                _ = setEaseLinear(); break;
 		}
 
 		return this;
@@ -1830,7 +1830,7 @@ public class LTDescr
 			this.loopType = LeanTweenType.clamp;
 		}
 		if(this.type==TweenAction.CALLBACK || this.type==TweenAction.CALLBACK_COLOR){
-			this.setOnCompleteOnRepeat(true);
+            _ = this.setOnCompleteOnRepeat(true);
 		}
 		return this;
 	}
@@ -2148,7 +2148,7 @@ public class LTDescr
 	* LeanTween.move( ltLogo, path, 1.0f ).setEase(LeanTweenType.easeOutQuad).setOrientToPath2d(true).setAxis(Vector3.forward);<br>
 	*/
 	public LTDescr setOrientToPath2d( bool doesOrient2d ){
-		setOrientToPath(doesOrient2d);
+        _ = setOrientToPath(doesOrient2d);
 		if(this.type==TweenAction.MOVE_CURVED || this.type==TweenAction.MOVE_CURVED_LOCAL){
 			this._optional.path.orientToPath2d = doesOrient2d;
 		}else{

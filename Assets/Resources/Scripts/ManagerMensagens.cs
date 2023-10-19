@@ -49,7 +49,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A0, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -62,7 +62,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A1, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -75,7 +75,7 @@ public class ManagerMensagens : MonoBehaviour
 		{
 				ShowMensagem(fala[bloco].A2, name);
 			index++;
-			StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 			break;
 		}else 
 		{
@@ -88,7 +88,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A3, name);
 		index++;
-		StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 		break;
 		}else 
 			{
@@ -101,7 +101,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A4, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -114,7 +114,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A5, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -127,7 +127,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A6, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -140,7 +140,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A7, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -153,7 +153,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A8, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -166,7 +166,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A9, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -179,7 +179,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A10, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -210,7 +210,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A0, imgName , name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -223,7 +223,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A1, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -236,7 +236,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A2, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -249,7 +249,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A3, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -262,7 +262,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A4, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -275,7 +275,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A5, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -288,7 +288,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A6, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -301,7 +301,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A7, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -314,7 +314,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A8, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -327,7 +327,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A9, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -340,7 +340,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A10, imgName, name);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -371,7 +371,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A0, imageNameProv , name, isLeft ,useBig );
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -384,7 +384,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A1, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -397,7 +397,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A2, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -410,7 +410,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A3, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -423,7 +423,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A4, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -436,7 +436,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A5, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -449,7 +449,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A6, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -462,7 +462,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A7, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -475,7 +475,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A8, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -488,7 +488,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A9, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{
@@ -501,7 +501,7 @@ public class ManagerMensagens : MonoBehaviour
 			{
 				ShowMensagem(fala[bloco].A10, imageNameProv, name, isLeft ,useBig);
 				index++;
-				StartCoroutine(NextMensagem());
+                    _ = StartCoroutine(NextMensagem());
 				break;
 			}else 
 			{

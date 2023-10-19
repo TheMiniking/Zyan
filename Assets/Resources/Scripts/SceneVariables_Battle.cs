@@ -72,7 +72,7 @@ public class SceneVariables_Battle : ScriptableObject
 		pv2.deck = decksTest[Random.Range(0,decksTest.Count)].Deck;
 		var rew = new List<string>();
 		rew.Add("1500,Coin");
-		StartDuel(pv1,pv2,rew);
+        _ = StartDuel(pv1, pv2, rew);
 	}
 	
 	public void ResetVar(){

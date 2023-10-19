@@ -23,6 +23,7 @@ public class TelaInicial : MonoBehaviour
 	public PlayerInventaryOBJ player ;
 	public GameObject escolhaDeck;
 	public GameObject intro;
+	public GameObject inicialTela;
 	
 	// Carrega o Save inicial, se nao existe cria um novo
 	[Button]
@@ -34,7 +35,7 @@ public class TelaInicial : MonoBehaviour
 	public IEnumerator LoadGameSave(){
 		player.LoadPlayerDATA();
 		yield return new WaitForSecondsRealtime(2f);
-		if (player.Player.HistoryMode.Count>0){if (player.Player.HistoryMode[0] == "InicioCompleto")LoadGame();}
+		if (player.Player.HistoryMode.Count>0){if (player.Player.HistoryMode[0] == "InicioCompleto") _ = LoadGame(); }
 		else{QuickStart();}
 	}
 	
@@ -83,7 +84,7 @@ public class TelaInicial : MonoBehaviour
 				player.Player.Name = nameT.text;
 				player.Player.HistoryMode[0] = "InicioCompleto";
 				escolhaDeck.SetActive(true);}
-		}else {LoadGame();}
+		}else {StartCoroutine(LoadGameV2());}
 	}
 	
 	
@@ -94,7 +95,7 @@ public class TelaInicial : MonoBehaviour
 		player.DicUpdate();
 		player.SavePlayerData();
 		escolhaDeck.SetActive(false);
-		LoadGame();}
+		StartCoroutine(LoadGameV2());}
 		
 	public void ChoiseWarrior(){
 		player.addToPlayer(starterDeck[1]);
@@ -103,7 +104,7 @@ public class TelaInicial : MonoBehaviour
 		player.DicUpdate();
 		player.SavePlayerData();
 		escolhaDeck.SetActive(false);
-		LoadGame();}
+		StartCoroutine(LoadGameV2());}
 	
 
 	/// --------------------------------------------------///
@@ -139,6 +140,13 @@ public class TelaInicial : MonoBehaviour
 		}
 		intro.SetActive(true);
 		intro.GetComponent<Animator>().SetBool("Entra",false);
+	}
+
+	public IEnumerator LoadGameV2(){
+		intro.SetActive(true);
+		intro.GetComponent<Animator>().SetBool("Entra",false);
+		yield return new WaitForSeconds(1f);
+		inicialTela.SetActive(false);
 	}
 	/// ----------------------------------------------------///
 	

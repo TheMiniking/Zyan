@@ -17,7 +17,7 @@ namespace TMPro.Examples
 
         void Start()
         {
-            StartCoroutine(RevealCharacters(m_TextComponent));
+            _ = StartCoroutine(RevealCharacters(m_TextComponent));
             //StartCoroutine(RevealWords(m_TextComponent));
         }
 

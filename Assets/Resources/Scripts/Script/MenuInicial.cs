@@ -66,8 +66,8 @@ public class MenuInicial : MonoBehaviour
 	
 	[Button]
 	public void MoveTela(int tela, bool entrando){
-		if (entrando){LeanTween.move(telas[tela],centro, 0.75f).setEaseOutElastic();}
-		else {LeanTween.move(telas[tela],origPosTela[tela], 0.4f);}
+		if (entrando){ _ = LeanTween.move(telas[tela], centro, 0.75f).setEaseOutElastic(); }
+		else { _ = LeanTween.move(telas[tela], origPosTela[tela], 0.4f); }
 	}
 	[Button]
 	public void MoveTela(int tela){

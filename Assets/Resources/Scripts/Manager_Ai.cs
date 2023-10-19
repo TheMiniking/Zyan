@@ -27,7 +27,7 @@ public class Manager_Ai : MonoBehaviour
 		{
 			if (aiOn != true)
 			{
-				StartCoroutine(AiCoroutine());
+                _ = StartCoroutine(AiCoroutine());
 			}
 		}
 	}

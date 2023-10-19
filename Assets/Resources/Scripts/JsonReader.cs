@@ -62,7 +62,8 @@ public static class JsonReader
 	}
 	
 	// Cria os AssetsObjects com base no Json
-	/*public static void CreateAsset(string type)
+#if !UNITY_EDITOR
+	public static void CreateAsset(string type)
 	{
 		switch (type)
 		{
@@ -110,7 +111,8 @@ public static class JsonReader
 			break;
 		}
 		
-	}*/
+	}
+#endif
 	
 	//Cards -- Le o arquivo json e retorna ela como lista
 	public static Zyan.CardList[] ReadListFromJSONCard (string filename) {

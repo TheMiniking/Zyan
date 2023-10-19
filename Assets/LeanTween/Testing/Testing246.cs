@@ -36,7 +36,7 @@ public class Testing246 : MonoBehaviour {
         //    LeanTween.cancel(tweenAlpha);
 
         //});
-        LeanTween.moveX(tweenAlpha, 10f, 0f);
+        _ = LeanTween.moveX(tweenAlpha, 10f, 0f);
     }
 
 }

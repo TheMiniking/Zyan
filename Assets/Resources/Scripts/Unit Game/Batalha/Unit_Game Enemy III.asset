@@ -16,44 +16,44 @@ MonoBehaviour:
   _isPlayer: 0
   _slotDeck: 3
   Slot:
-    Civil: 89979754
-    Soldier: 56582605
+    Civil: 59121230
+    Soldier: 72320973
     Combatant: 
     General: 
     King: 
     God: 
     Equip: 
   _Index: 0
-  _id: 89979754
-  _name: Topz
-  _type: Dinosaur
+  _id: 59121230
+  _name: Belion Sulman
+  _type: Cyber
   _rank: Civil
-  _element: Wind
+  _element: Earth
   _special: Evolution
-  _atk: 4
-  _def: 3
-  _life: 2
+  _atk: 2
+  _def: 5
+  _life: 1
   _status: None
   _effect1: None
   _effect2: None
-  _evolution: Destroy 1 unit in battle - Topz, Winged-Dinosaur I
+  _evolution: Destroy 1 unit in battle - Belion 50N3
   _evolCust1: Battle,1
   _evolCust2: Energy,6
   _evolCust3: Energy,6
-  _evol1: 56582605
+  _evol1: 72320973
   _evol2: None
   _evol3: None
   _rarityUp: None
-  _rarity: UltraComum
-  selfObjUnit: {fileID: 11400000, guid: c7f660ded6fbfea47b1ab5a8ff464f9c, type: 2}
-  _originalAtk: 4
-  _originalDef: 3
-  _originalLife: 2
-  _TotallAtk: 4
+  _rarity: Comum
+  selfObjUnit: {fileID: 11400000, guid: c31439eb5b28b8a49960af1882bd5111, type: 2}
+  _originalAtk: 2
+  _originalDef: 5
+  _originalLife: 1
+  _TotallAtk: 2
   _TotalDef: 5
-  _TotalLife: 2
+  _TotalLife: 1
   _ModAtk: 0
-  _ModDef: 2
+  _ModDef: 0
   _ModLife: 0
   _Equip:
     id: 
@@ -85,12 +85,12 @@ MonoBehaviour:
   _DeboostDEF: 0
   _DeboostLife: 0
   _ProvisoryModATK: 0
-  _ProvisoryModDEF: 2
+  _ProvisoryModDEF: 0
   _ProvisoryModLife: 0
   _PermanentModLife: 0
   _PermanentModATK: 0
   _PermanentModDEF: 0
-  _TimeToReset: 1
+  _TimeToReset: -1
   _ResetMod: 0
   _EvolutionCheck:
     ForbiddenRitual: 0

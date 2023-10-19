@@ -55,12 +55,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteATK > _DefensorATK)
 			{
 				var d = _AtacanteATK - _DefensorATK;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteATK < _DefensorATK)
 			{
 				var d2 = _DefensorATK - _AtacanteATK  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -71,12 +71,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteATK > _DefensorDEF)
 			{
 				var d = _AtacanteATK - _DefensorDEF;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteATK < _DefensorDEF)
 			{
 				var d2 = _DefensorDEF - _AtacanteATK  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -87,12 +87,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteATK > _DefensorLife)
 			{
 				var d = _AtacanteATK - _DefensorLife;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteATK < _DefensorLife)
 			{
 				var d2 = _DefensorLife - _AtacanteATK  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -103,12 +103,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteDEF > _DefensorATK)
 			{
 				var d = _AtacanteDEF - _DefensorATK;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteDEF < _DefensorATK)
 			{
 				var d2 = _DefensorATK - _AtacanteDEF  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -119,12 +119,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteDEF > _DefensorDEF)
 			{
 				var d = _AtacanteDEF - _DefensorDEF;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteDEF < _DefensorDEF)
 			{
 				var d2 = _DefensorDEF - _AtacanteDEF  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -135,12 +135,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteDEF > _DefensorLife)
 			{
 				var d = _AtacanteDEF - _DefensorLife;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteDEF < _DefensorLife)
 			{
 				var d2 = _DefensorATK - _AtacanteLife  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -151,12 +151,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteLife > _DefensorATK)
 			{
 				var d = _AtacanteLife - _DefensorATK;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteLife < _DefensorATK)
 			{
 				var d2 = _DefensorATK - _AtacanteLife  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -167,12 +167,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteLife > _DefensorDEF)
 			{
 				var d = _AtacanteLife - _DefensorDEF;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteLife < _DefensorDEF)
 			{
 				var d2 = _DefensorDEF - _AtacanteLife  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -183,12 +183,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteLife > _DefensorLife)
 			{
 				var d = _AtacanteLife - _DefensorLife;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteLife < _DefensorLife)
 			{
 				var d2 = _DefensorLife - _AtacanteLife  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{
@@ -199,12 +199,12 @@ public class Manager_Battle : MonoBehaviour
 			if (_AtacanteATK > _DefensorDEF)
 			{
 				var d = _AtacanteATK - _DefensorDEF;
-				Damage(z,d);
+                    _ = Damage(z, d);
 			}
 			else if (_AtacanteATK < _DefensorDEF)
 			{
 				var d2 = _DefensorDEF - _AtacanteATK  ;
-				Damage(x,d2);
+                    _ = Damage(x, d2);
 			}
 			else 
 			{

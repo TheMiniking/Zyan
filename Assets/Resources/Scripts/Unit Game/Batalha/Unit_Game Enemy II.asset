@@ -16,43 +16,42 @@ MonoBehaviour:
   _isPlayer: 0
   _slotDeck: 2
   Slot:
-    Civil: 90291455
-    Soldier: 46185131
-    Combatant: 71324355
+    Civil: 60801023
+    Soldier: 27235072
+    Combatant: 
     General: 
     King: 
     God: 
-    Equip: 00302711
+    Equip: 
   _Index: 0
-  _id: 90291455
-  _name: Baby Brown Dragon
-  _type: Dragon
+  _id: 60801023
+  _name: Ruann, New Phantom
+  _type: Paranormal
   _rank: Civil
-  _element: Natural
+  _element: Nature
   _special: Evolution
-  _atk: 4
-  _def: 3
-  _life: 2
-  _status: Flame
+  _atk: 3
+  _def: 5
+  _life: 1
+  _status: None
   _effect1: None
   _effect2: None
-  _evolution: Destroy 1 unit in battle - Brown Dragon.Elemental Evolution 3 Energy.
-    Type Evolution 4 Energy.
-  _evolCust1: Battle,1
-  _evolCust2: Energy,3
-  _evolCust3: Energy,4
-  _evol1: 46185131
+  _evolution: Destroy 1 unit in battle -
+  _evolCust1: Battle,2
+  _evolCust2: Energy,6
+  _evolCust3: Energy,6
+  _evol1: None
   _evol2: None
   _evol3: None
-  _rarityUp: DEF,1
-  _rarity: UltraComum
-  selfObjUnit: {fileID: 11400000, guid: 98ab465873ae4a04f80a6b7e73ba1f6b, type: 2}
-  _originalAtk: 4
-  _originalDef: 3
-  _originalLife: 2
-  _TotallAtk: 4
-  _TotalDef: 3
-  _TotalLife: 2
+  _rarityUp: None
+  _rarity: Comum
+  selfObjUnit: {fileID: 11400000, guid: 31957b167d511d64aa0d2ae28be935fa, type: 2}
+  _originalAtk: 3
+  _originalDef: 5
+  _originalLife: 1
+  _TotallAtk: 3
+  _TotalDef: 5
+  _TotalLife: 1
   _ModAtk: 0
   _ModDef: 0
   _ModLife: 0

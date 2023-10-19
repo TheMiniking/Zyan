@@ -10,9 +10,9 @@ public class TestingOptionalCancel : MonoBehaviour {
 	void Start () {
         LeanTween.init(1);
         // Fire up a bunch with onUpdates
-        LeanTween.moveX(cube1, 10f, 1f).setOnUpdate((float val) =>
+        _ = LeanTween.moveX(cube1, 10f, 1f).setOnUpdate((float val) =>
         {
-            Debug.Log("on update.... val:"+val+" cube1.x:"+cube1.transform.position.x);
+            Debug.Log("on update.... val:" + val + " cube1.x:" + cube1.transform.position.x);
         });
 
 	}
@@ -22,7 +22,7 @@ public class TestingOptionalCancel : MonoBehaviour {
     private void Update()
     {
         if(Input.GetMouseButtonDown(0)){
-            LeanTween.moveX(cube1, alternate ? -10f : 10f, 1f).setOnUpdate((float val) =>
+            _ = LeanTween.moveX(cube1, alternate ? -10f : 10f, 1f).setOnUpdate((float val) =>
             {
                 Debug.Log("2 on update.... val:" + val + " cube1.x:" + cube1.transform.position.x);
             });

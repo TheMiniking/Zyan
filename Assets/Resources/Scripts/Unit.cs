@@ -59,7 +59,7 @@ public class Unit : MonoBehaviour
 		svb.debugText = debugTxt;
 		_Self._Self = this;
 		_Self.StartDuel();
-		StartCoroutine(UpdateRegular());
+        _ = StartCoroutine(UpdateRegular());
 		var unitV = FindObjectOfType<UnitView>();
 		unitV.atualSlot = Slot;
 		unitV.UpdateBigUnit(1);
@@ -79,7 +79,7 @@ public class Unit : MonoBehaviour
 	public IEnumerator UpdateRegular(){
 		yield return new WaitForSecondsRealtime (1.5f);
 		if (!telaInicial)_Self.UpdateCard();
-		StartCoroutine(UpdateRegular());
+        _ = StartCoroutine(UpdateRegular());
 	}
    
 	public void OnClick(){

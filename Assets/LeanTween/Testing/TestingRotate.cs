@@ -21,11 +21,11 @@ public class TestingRotate : MonoBehaviour {
 		//method 1 leantween
 		Vector3 sunLocalForEarth = earth.transform.InverseTransformPoint(sun.transform.position);
 		Debug.Log("sunLocalForEarth:"+sunLocalForEarth);
-		LeanTween.rotateAround(earth, earth.transform.up, 360f, 5.0f).setPoint(sunLocalForEarth).setRepeat(-1);
+        _ = LeanTween.rotateAround(earth, earth.transform.up, 360f, 5.0f).setPoint(sunLocalForEarth).setRepeat(-1);
 
 		//method 2 leantween
 		Vector3 sunLocalForEarth2 = earth2.transform.InverseTransformPoint(sun2.transform.position);
-		LeanTween.rotateAroundLocal(earth2, earth2.transform.up, 360f, 5.0f).setPoint(sunLocalForEarth2);
+        _ = LeanTween.rotateAroundLocal(earth2, earth2.transform.up, 360f, 5.0f).setPoint(sunLocalForEarth2);
 
 	}
 

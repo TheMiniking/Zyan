@@ -28,11 +28,13 @@ public class ManagerTurn : MonoBehaviour
 		foreach ( Zyan.SpellClass sp in svb.p1.deck.SpellTrap){
 			int w = Random.Range(0,terrenosNormal.Count);
 			terrenosNormal[w]._SpellData = sp;
-			terrenosNormal.Remove(terrenosNormal[w]);}
+            _ = terrenosNormal.Remove(terrenosNormal[w]);
+        }
 		foreach ( Zyan.SpellClass sp2 in svb.p2.deck.SpellTrap){
 			int w2 = Random.Range(0,terrenosNormal.Count);
 			terrenosNormal[w2]._SpellData = sp2;
-			terrenosNormal.Remove(terrenosNormal[w2]);}
+            _ = terrenosNormal.Remove(terrenosNormal[w2]);
+        }
 		//Multiplayer sets
 	}
 	

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Sirenix.OdinInspector;
+using UnityEditor.Rendering;
 
 public class UnitField : MonoBehaviour
 {
@@ -90,6 +91,7 @@ public class UnitField : MonoBehaviour
 		else		 {sh.hexMetal.GetComponent<MeshRenderer>().sharedMaterial = _MatNoMove;}
 		//if(sh.lastUnit != unit._OwnerID) 
 		sh.MudarImagem(unit._OwnerID,unit._Self._isPlayer,unit._Self._type);
+		GetComponent<shaderControl>().MudarImagem(unit._Self._id,unit._isPlayer,unit._Self._type);
 	}
     
 	/*
@@ -103,19 +105,19 @@ public class UnitField : MonoBehaviour
 	public void AnimStatus( string status){
 		switch (status){
 		case "Poison" :
-			StartCoroutine(Animation(_AnimPoison));
+                _ = StartCoroutine(Animation(_AnimPoison));
 			break;
 		case "Burn" :
-			StartCoroutine(Animation(_AnimBurn));
+                _ = StartCoroutine(Animation(_AnimBurn));
 			break;
 		case "Paralize" :
-			StartCoroutine(Animation(_AnimParalize));
+                _ = StartCoroutine(Animation(_AnimParalize));
 			break;
 		case "Fadige" :
-			StartCoroutine(Animation(_AnimFadige));
+                _ = StartCoroutine(Animation(_AnimFadige));
 			break;
 		case "Sleep" :
-			StartCoroutine(Animation(_AnimSleep));
+                _ = StartCoroutine(Animation(_AnimSleep));
 			break;
 		}
 	}

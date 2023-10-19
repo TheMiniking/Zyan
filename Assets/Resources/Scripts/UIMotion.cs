@@ -22,8 +22,8 @@ public class UIMotion : MonoBehaviour
 	
 	[Button]
 	public void Move(bool back){
-		if(back){ LeanTween.moveLocalX(painel,-originalX,0.5f);}
-		else{LeanTween.moveLocalX(painel,-distancia,0.5f);}
+		if(back){ _ = LeanTween.moveLocalX(painel, -originalX, 0.5f); }
+		else{ _ = LeanTween.moveLocalX(painel, -distancia, 0.5f); }
 	}
 	
 	[Button]

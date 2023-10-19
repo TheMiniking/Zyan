@@ -32,7 +32,7 @@ MonoBehaviour:
   _special: Evolution
   _atk: 5
   _def: 6
-  _life: 3
+  _life: 1
   _status: None
   _effect1: Shilded
   _effect2: None
@@ -51,7 +51,7 @@ MonoBehaviour:
   _originalLife: 3
   _TotallAtk: 5
   _TotalDef: 6
-  _TotalLife: 3
+  _TotalLife: 1
   _ModAtk: 0
   _ModDef: 0
   _ModLife: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   _PermanentModLife: 0
   _PermanentModATK: 0
   _PermanentModDEF: 0
-  _TimeToReset: -1
+  _TimeToReset: -2
   _ResetMod: 0
   _EvolutionCheck:
     ForbiddenRitual: 0

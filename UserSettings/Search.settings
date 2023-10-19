@@ -1,7 +1,6 @@
 trackSelection = true
-refreshSearchWindowsInPlayMode = false
 fetchPreview = true
-defaultFlags = 0
+wantsMore = false
 keepOpen = false
 queryFolder = "Assets"
 onBoardingDoNotAskAgain = true
@@ -14,11 +13,14 @@ scopes = {
 	"last_search.310DEAF1" = ""
 	"OpenInspectorPreview.310DEAF1" = "0"
 	"currentGroup.310DEAF1" = ""
+	"last_search.3A000000" = ".mat"
+	"OpenInspectorPreview.3A000000" = "0"
+	"currentGroup.3A000000" = "find"
 }
 providers = {
 	adb = {
-		active = false
-		priority = 2500
+		active = true
+		priority = 80
 		defaultAction = null
 	}
 	asset = {
@@ -58,12 +60,12 @@ providers = {
 	}
 	menu = {
 		active = true
-		priority = 80
+		priority = 100
 		defaultAction = null
 	}
 	settings = {
 		active = true
-		priority = 100
+		priority = 2500
 		defaultAction = null
 	}
 	calculator = {
@@ -82,20 +84,15 @@ providers = {
 		defaultAction = null
 	}
 }
-objectSelectors = {
-}
 recentSearches = [
 ]
 searchItemFavorites = [
 ]
 savedSearchesSortOrder = 0
 showSavedSearchPanel = false
-hideTabs = false
 expandedQueries = [
 ]
 queryBuilder = false
 ignoredProperties = "id;name;classname;imagecontentshash"
 helperWidgetCurrentArea = "all"
 disabledIndexers = ""
-minIndexVariations = 2
-findProviderIndexHelper = true

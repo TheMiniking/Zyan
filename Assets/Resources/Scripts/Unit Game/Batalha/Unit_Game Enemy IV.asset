@@ -16,41 +16,41 @@ MonoBehaviour:
   _isPlayer: 0
   _slotDeck: 4
   Slot:
-    Civil: 91101527
-    Soldier: 86972631
+    Civil: 93971865
+    Soldier: 28056900
     Combatant: 
     General: 
     King: 
     God: 
     Equip: 
   _Index: 0
-  _id: 91101527
-  _name: Nalia
-  _type: Reptile
+  _id: 93971865
+  _name: Rokke
+  _type: Plant
   _rank: Civil
-  _element: Earth
+  _element: Wind
   _special: Evolution
-  _atk: 5
-  _def: 0
+  _atk: 4
+  _def: 1
   _life: 3
   _status: None
   _effect1: None
   _effect2: None
-  _evolution: Destroy 1 unit in battle -Nalia, Morph Serpent
-  _evolCust1: Battle,1
+  _evolution: Destroy 1 unit in battle -
+  _evolCust1: Battle,2
   _evolCust2: Energy,6
   _evolCust3: Energy,6
-  _evol1: 86972631
+  _evol1: None
   _evol2: None
   _evol3: None
   _rarityUp: None
   _rarity: Comum
-  selfObjUnit: {fileID: 11400000, guid: c6870cf6f68a5c14cbab3063905d9bf3, type: 2}
-  _originalAtk: 5
-  _originalDef: 0
+  selfObjUnit: {fileID: 11400000, guid: 6fd33c97c924be448bf4e9fcdff4a357, type: 2}
+  _originalAtk: 4
+  _originalDef: 1
   _originalLife: 3
-  _TotallAtk: 5
-  _TotalDef: 0
+  _TotallAtk: 4
+  _TotalDef: 1
   _TotalLife: 3
   _ModAtk: 0
   _ModDef: 0

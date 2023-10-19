@@ -111,7 +111,7 @@ public class Manager_UI : MonoBehaviour
 				StopCoroutine(Detail());
 				_TerrenoNameInfoTxt.text = _TerrenoName;
 				_TerrenoDescription.text = i.Description;
-				StartCoroutine(Detail());
+                        _ = StartCoroutine(Detail());
 				found2 = true;
 				break;}
 			else {
@@ -119,7 +119,7 @@ public class Manager_UI : MonoBehaviour
 						StopCoroutine(Detail());
 						_TerrenoNameInfoTxt.text = _TerrenoName;
 						_TerrenoDescription.text = i.Description;
-						StartCoroutine(Detail());
+                            _ = StartCoroutine(Detail());
 						found2 = true;
 						break;}
 			}}
@@ -128,20 +128,21 @@ public class Manager_UI : MonoBehaviour
 				StopCoroutine(Detail());
 				_TerrenoNameInfoTxt.text = _TerrenoName;
 				_TerrenoDescription.text = i.Description;
-				StartCoroutine(Detail());
+                        _ = StartCoroutine(Detail());
 				found2 = true;
 				break;}}
 		}if (found2 != true) {
 			StopCoroutine(Detail());
 			_TerrenoNameInfoTxt.text = _TerrenoName;
 			_TerrenoDescription.text = "Terreno Comum , sem nenhuma modificação";
-			StartCoroutine(Detail());}
+                _ = StartCoroutine(Detail());
+            }
 		}
 		else {
 			StopCoroutine(Detail());
 			_TerrenoNameInfoTxt.text = _TerrenoName;
 			_TerrenoDescription.text = t2._SpellData.Description;
-			StartCoroutine(Detail());
+            _ = StartCoroutine(Detail());
 		}
 	}
     
@@ -240,7 +241,7 @@ public class Manager_UI : MonoBehaviour
 				_DetailName.text = data;
 				_DetailDescription.text = i.Description;
 				found = true;
-				StartCoroutine(Detail());
+                _ = StartCoroutine(Detail());
 				break;}
 		}
 		if (found != true) _DetailOBJ.gameObject.SetActive( false);
@@ -255,8 +256,8 @@ public class Manager_UI : MonoBehaviour
 	public void TurnShow(string turn, string player,bool inOut){
 		_FaseTurns.text  = "Turn " + turn;
 		_FasePlayer.text = player;
-		if (!inOut)LeanTween.moveLocalX(_Fases,0,1f);
-		else LeanTween.moveLocalX(_Fases,_out,1f);
+		if (!inOut) _ = LeanTween.moveLocalX(_Fases, 0, 1f);
+		else _ = LeanTween.moveLocalX(_Fases, _out, 1f);
 	}
 	
 	public IEnumerator TurnShowAuto(){

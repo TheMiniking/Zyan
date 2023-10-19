@@ -144,19 +144,19 @@ public class LTSeq {
 	* &nbsp;}, new Dictionary<string,string>(){ {"hi","sup"} } );
 	*/
 	public LTSeq append( System.Action<object> callback, object obj ){
-		append(LeanTween.delayedCall(0f, callback).setOnCompleteParam(obj));
+        _ = append(LeanTween.delayedCall(0f, callback).setOnCompleteParam(obj));
 
 		return addOn();
 	}
 
 	public LTSeq append( GameObject gameObject, System.Action callback ){
-		append(LeanTween.delayedCall(gameObject, 0f, callback));
+        _ = append(LeanTween.delayedCall(gameObject, 0f, callback));
 
 		return addOn();
 	}
 
 	public LTSeq append( GameObject gameObject, System.Action<object> callback, object obj ){
-		append(LeanTween.delayedCall(gameObject, 0f, callback).setOnCompleteParam(obj));
+        _ = append(LeanTween.delayedCall(gameObject, 0f, callback).setOnCompleteParam(obj));
 
 		return addOn();
 	}
@@ -178,7 +178,7 @@ public class LTSeq {
 
         this.current.totalDelay = addPreviousDelays();
 
-		tween.setDelay( this.current.totalDelay );
+        _ = tween.setDelay(this.current.totalDelay);
 
 		return addOn();
 	}
@@ -186,7 +186,7 @@ public class LTSeq {
 	public LTSeq insert( LTDescr tween ){
 		this.current.tween = tween;
 
-        tween.setDelay( addPreviousDelays() );
+        _ = tween.setDelay(addPreviousDelays());
 
 		return addOn();
 	}
@@ -208,8 +208,8 @@ public class LTSeq {
 			if (seq.tween != null) {
 //			Debug.Log("seq.tween.time * timeScale:" + seq.tween.time * timeScale + " seq.totalDelay:"+seq.totalDelay +" time:"+seq.tween.time+" seq.tween.delay:"+seq.tween.delay);
 				if (seq.tween.time != 0f)
-					seq.tween.setTime(seq.tween.time * timeScale);
-				seq.tween.setDelay(seq.tween.delay * timeScale);
+                    _ = seq.tween.setTime(seq.tween.time * timeScale);
+                _ = seq.tween.setDelay(seq.tween.delay * timeScale);
 			}
 
 			if (seq.previous != null)

@@ -27,13 +27,13 @@ public class FollowingTests : MonoBehaviour {
     public Transform fly1;
 
     private void Start(){
-        followTrans.gameObject.LeanDelayedCall(3f, moveFollow).setOnStart(moveFollow).setRepeat(-1);
+        _ = followTrans.gameObject.LeanDelayedCall(3f, moveFollow).setOnStart(moveFollow).setRepeat(-1);
 
-        LeanTween.followDamp(cube6, followTrans, LeanProp.position, 0.6f);
+        _ = LeanTween.followDamp(cube6, followTrans, LeanProp.position, 0.6f);
     }
 
     private void moveFollow(){
-        followTrans.LeanMove( new Vector3(Random.Range(-50f, 50f), Random.Range(-10f, 10f), 0f), 0f);
+        _ = followTrans.LeanMove(new Vector3(Random.Range(-50f, 50f), Random.Range(-10f, 10f), 0f), 0f);
     }
 
     void Update()

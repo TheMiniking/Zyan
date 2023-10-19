@@ -19,7 +19,7 @@ public class CursorBattle : MonoBehaviour
 			HitObj = HitObj!=hit.transform.gameObject? hit.transform.gameObject : HitObj;
 			var hitv3 = HitObj.transform.position;
 			hitv3.y = z;
-			LeanTween.move(this.gameObject, hitv3, 0.1f);
+            _ = LeanTween.move(this.gameObject, hitv3, 0.1f);
 		}
 		Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward)* 1f, Color.blue);
 		if (Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, 1f))

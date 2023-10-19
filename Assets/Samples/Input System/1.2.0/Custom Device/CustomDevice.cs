@@ -250,7 +250,7 @@ public class CustomDevice : InputDevice, IInputUpdateCallbackReceiver
     {
         // This is the code that you would normally run at the point where
         // you discover devices of your custom type.
-        InputSystem.AddDevice(new InputDeviceDescription
+        _ = InputSystem.AddDevice(new InputDeviceDescription
         {
             interfaceName = "Custom",
             product = "Sample Product"

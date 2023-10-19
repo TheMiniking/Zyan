@@ -14,7 +14,7 @@ public class TriggerHand : MonoBehaviour
 	
 	void OnMouseEnter()
 	{
-		_RepresentUnit.LeanMoveLocal( _originalPosition + new Vector3 (0,40,0),0.25f);
+        _ = _RepresentUnit.LeanMoveLocal(_originalPosition + new Vector3(0, 40, 0), 0.25f);
 		var z = FindObjectOfType<Manager_UI>();
 		z.UpdateUI(_RepresentUnit.GetComponent<Unit>());
 		
@@ -22,6 +22,6 @@ public class TriggerHand : MonoBehaviour
 	
 	void OnMouseExit()
 	{
-		_RepresentUnit.LeanMoveLocal(_originalPosition,0.25f);
+        _ = _RepresentUnit.LeanMoveLocal(_originalPosition, 0.25f);
 	}
 }

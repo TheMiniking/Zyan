@@ -69,7 +69,7 @@ namespace TMPro.Examples
                 m_textMeshPro.text = string.Empty;
                 m_textMeshPro.isTextObjectScaleStatic = IsTextObjectScaleStatic;
 
-                StartCoroutine(DisplayTextMeshProFloatingText());
+                _ = StartCoroutine(DisplayTextMeshProFloatingText());
             }
             else if (SpawnType == 1)
             {
@@ -85,7 +85,7 @@ namespace TMPro.Examples
                 m_textMesh.anchor = TextAnchor.LowerCenter;
                 m_textMesh.fontSize = 24;
 
-                StartCoroutine(DisplayTextMeshFloatingText());
+                _ = StartCoroutine(DisplayTextMeshFloatingText());
             }
             else if (SpawnType == 2)
             {
@@ -162,7 +162,7 @@ namespace TMPro.Examples
 
             m_floatingText_Transform.position = start_pos;
 
-            StartCoroutine(DisplayTextMeshProFloatingText());
+            _ = StartCoroutine(DisplayTextMeshProFloatingText());
         }
 
 
@@ -217,7 +217,7 @@ namespace TMPro.Examples
 
             m_floatingText_Transform.position = start_pos;
 
-            StartCoroutine(DisplayTextMeshFloatingText());
+            _ = StartCoroutine(DisplayTextMeshFloatingText());
         }
     }
 }
